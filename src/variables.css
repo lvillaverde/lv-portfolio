@@ -1,0 +1,11 @@
+:root {
+    --lg-spacing: 32px;
+    --md-spacing: 16px;
+
+    /* Colors */
+    --primary-color: #22C55E;
+    --accent-color: #E5097D;
+    --gray-1: #5B5B5B;
+    --gray-2: #2B2B2B;
+  }
+  

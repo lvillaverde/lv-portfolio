@@ -1,0 +1,19 @@
+nav.menu {
+    display: flex;
+    align-items: center;
+}
+
+nav.menu ul {
+    display: flex;
+    gap: var(--lg-spacing);
+    margin: 0;
+    padding: 0;
+    font-weight: 100;
+    color: var(--gray-1);
+}
+
+nav.menu li {
+    list-style: none;
+    font-family: 'Merriweather Sans', sans-serif;
+    text-transform: uppercase;
+}

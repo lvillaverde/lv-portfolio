@@ -1,0 +1,17 @@
+.about {
+    display: flex;
+    justify-content: center;
+}
+
+.about .content {
+    display: flex;
+    width: 50vw;
+    flex-flow: column;
+}
+
+h3 {
+    font-size: 4em;
+    font-family: 'Merriweather Sans';
+    font-weight: 100;
+    color: var(--primary-color);
+}
