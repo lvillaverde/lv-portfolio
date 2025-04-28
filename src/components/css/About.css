@@ -9,9 +9,21 @@
     flex-flow: column;
 }
 
-h3 {
+.about .content h3 {
     font-size: 4em;
-    font-family: 'Merriweather Sans';
+    font-family: 'Nexa Light','Merriweather Sans';
     font-weight: 100;
     color: var(--primary-color);
+}
+
+.content p {
+    font-size: 1.3em;
+    font-weight: 100;
+    color: var(--gray-2);
+    line-height: 1.8em;
+}
+
+.content p span {
+    color: var(--accent-color);
+    font-weight: 700;
 }

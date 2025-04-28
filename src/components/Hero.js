@@ -1,5 +1,6 @@
 import React from "react";
 import avatar from "../images/avatar_1.png";
+import TypewriterHeader from "./TypewritterHeader";
 import "./css/Hero.css";
 
 function Hero() {
@@ -7,7 +8,7 @@ function Hero() {
     <div className="hero">      
       <img src={avatar} />
       <div>
-        <h2>Hello! I’m <span>Leandro</span></h2>
+        <h2><TypewriterHeader text="Hello! I’m Leandro" /></h2>
         <p>I design <span>user-centered</span> software that streamlines processes and enhances usability for industrial solutions.</p>
       </div>
     </div>
