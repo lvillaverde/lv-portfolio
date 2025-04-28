@@ -13,7 +13,7 @@ function Menu() {
         <nav className="menu">
             <ul>
                 {menuItems.map((item, index) => (
-                    <li key={index}>{item.name}</li>
+                    <li className="menu-item" key={index}>{item.name}</li>
                 ))}
             </ul>
         </nav>
