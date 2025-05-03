@@ -1,11 +1,15 @@
 :root {
     --lg-spacing: 32px;
+    --mdp-spacing: 24px;
     --md-spacing: 16px;
+    --smp-spacing: 12px;
+    --sm-spacing: 8px;
 
     /* Colors */
     --primary-color: #22C55E;
     --accent-color: #E5097D;
     --gray-1: #5B5B5B;
     --gray-2: #2B2B2B;
+    --gray-3: #ccc;
   }
   
