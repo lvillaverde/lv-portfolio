@@ -24,21 +24,31 @@ nav.menu li {
     position: relative;
     cursor: pointer;
     padding: 5px 0;
-  }
+}
+
+.menu-item:hover {
+    color: black;
+    font-weight: 400;
+    transition: 0.15s ease-in-out;
+}
 
 .menu-item::after {
     content: "";
     position: absolute;
-    left: 50%; /* Empieza en el centro */
-    bottom: 0; /* Pegado abajo del texto */
+    left: 50%;
+    /* Empieza en el centro */
+    bottom: 0;
+    /* Pegado abajo del texto */
     width: 0;
     height: 2px;
-    background-color: black;
+    background-color: var(--primary-color);
     transition: all 0.15s ease;
-    transform: translateX(-50%); /* Centra el punto inicial */
-  }
-  
-  /* Al hacer hover */
-  .menu-item:hover::after {
-    width: 100%; /* Se expande de centro a bordes */
-  }
+    transform: translateX(-50%);
+    /* Centra el punto inicial */
+}
+
+/* Al hacer hover */
+.menu-item:hover::after {
+    width: 100%;
+    /* Se expande de centro a bordes */
+}

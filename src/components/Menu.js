@@ -1,4 +1,3 @@
-import React from "react";
 import "./css/Menu.css";
 
 const menuItems = [
@@ -9,8 +8,9 @@ const menuItems = [
 ];
 
 function Menu() {
+
     return (
-        <nav className="menu">
+        <nav className="menu" >
             <ul>
                 {menuItems.map((item, index) => (
                     <li className="menu-item" key={index}>{item.name}</li>
