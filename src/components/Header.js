@@ -10,12 +10,11 @@ function Header() {
     useEffect(() => {
         gsap.fromTo(
           menu.current,
-          { opacity: 0, y: 20 }, // estado inicial
+          { opacity: 0 }, // estado inicial
           {
             opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: "power2.out",
+            duration: 0.7,
+            ease: "elastic",
           }
         );
       }, []);
