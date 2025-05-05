@@ -8,7 +8,7 @@ import "./css/Hero.css";
 
 
 
-function Hero() {
+function Hero(props, heroRef) {
   const hero = useRef();
 
   useGSAP(() => {
@@ -20,7 +20,7 @@ function Hero() {
         scale: 0.1,
         opacity: 0,
         duration: 1.3,
-        ease: "elastic"
+        ease: "expo.out"
       }
     )
     tl.from(
@@ -49,19 +49,21 @@ function Hero() {
 
 
   return (
-    <div className="hero" ref={hero}>
-      <img className="profile-picture" src={avatar} alt="hi!" />
-      <div>
-        <h2 className="title"><TypewriterHeader text="Hello! I’m Leandro" /></h2>
-        <p className="paragraph">I design <span>user-centered</span> software that streamlines processes and enhances usability for industrial solutions.</p>
-      </div>
-      <div class="cta">
-        <img src={scrollIcon} alt="#" />
-        <p>Scroll to explore</p>
-        <img src={scrollIcon} alt="#" />
+    <div className="hero" ref={heroRef}>
+      <div ref={hero}>
+        <img className="profile-picture" src={avatar} alt="hi!" />
+        <div>
+          <h2 className="title"><TypewriterHeader text="Hello! I’m Leandro" /></h2>
+          <p className="paragraph">I design <span>user-centered</span> software that streamlines processes and enhances usability for industrial solutions.</p>
+        </div>
+        <div className="cta">
+          <img src={scrollIcon} alt="#" />
+          <p>Scroll to explore</p>
+          <img src={scrollIcon} alt="#" />
+        </div>
       </div>
     </div>
   );
 }
 
-export default Hero;
+export default React.forwardRef(Hero);
