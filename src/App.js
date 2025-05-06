@@ -26,6 +26,19 @@ function App() {
     });
   }, []);
 
+  useGSAP(() => {
+    gsap.to(aboutRef.current, {
+      scrollTrigger: {
+        trigger: aboutRef.current,
+        start: "top center-=200",
+        end: "top top",
+        scrub: 3, // Hace que la animación sea suave al hacer scroll
+        markers: true, // Muestra los marcadores de inicio y fin (opcional)
+      },
+      opacity: 1, // Cambia la opacidad a 0
+    });
+  }, []);
+
   const handleScrollToAbout = () => {
     const timeline = gsap.timeline();
 
@@ -46,7 +59,7 @@ function App() {
     <>
       <Header />
       <Hero ref={heroRef} onCtaClick={handleScrollToAbout} />
-      <div ref={aboutRef}>
+      <div ref={aboutRef} style={{ opacity: 0 }}>
         <About />
       </div>      
     </>
