@@ -13,45 +13,41 @@ function App() {
   const heroRef = useRef();
   const aboutRef = useRef();
 
+  // Centralizar animaciones
   useGSAP(() => {
+    // Animación de fade out para Hero
     gsap.to(heroRef.current, {
       scrollTrigger: {
         trigger: heroRef.current,
         start: "top top",
-        end: "bottom center-=200",
-        scrub: 3, // Hace que la animación sea suave al hacer scroll
-        markers: true, // Muestra los marcadores de inicio y fin (opcional)
+        end: "bottom center",
+        scrub: true,
       },
-      opacity: 0, // Cambia la opacidad a 0
+      opacity: 0,
     });
-  }, []);
 
-  useGSAP(() => {
+    // Animación de fade in para About
     gsap.to(aboutRef.current, {
       scrollTrigger: {
         trigger: aboutRef.current,
-        start: "top center-=200",
+        start: "top center",
         end: "top top",
-        scrub: 3, // Hace que la animación sea suave al hacer scroll
-        markers: true, // Muestra los marcadores de inicio y fin (opcional)
+        scrub: true,
       },
-      opacity: 1, // Cambia la opacidad a 0
+      opacity: 1,
     });
   }, []);
 
+  // Manejar el scroll al presionar el botón .cta
   const handleScrollToAbout = () => {
-    const timeline = gsap.timeline();
-
-    // Fade out Hero
-    timeline.to(heroRef.current, {
-      onComplete: () => {
-        // Scroll to About section
-        gsap.to(window, {
-          scrollTo: aboutRef.current,
-          duration: 1,
-          ease: "power2.out",
-        });
-      },
+    gsap.to(window, {
+      scrollTo: aboutRef.current,
+      duration: 1,
+      ease: "power2.out",
+    });
+    gsap.to(heroRef.current, {
+      opacity: 0,
+      duration: 1,
     });
   };
 
