@@ -1,5 +1,6 @@
 import React from "react";
 import "./css/About.css";
+import SkillBand from "./SkillBand";
 
 function About() {
     return (
@@ -12,6 +13,7 @@ function About() {
                     <p><span>Diseño con el mismo enfoque: simple, eficiente y con propósito.</span></p>
                 </div>
             </div>
+            <SkillBand />
         </>
     );
 }

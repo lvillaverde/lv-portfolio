@@ -1,0 +1,19 @@
+.skill-band {
+    position: relative;
+    width: calc(100vw - 20px);
+    box-sizing: border-box;
+    height: 310px;
+    overflow: hidden;
+    margin-bottom: var(--lg-spacing );
+}
+
+.skill-band-content {
+    position: absolute;
+    top: 40px;
+    left: 17vw;
+    display: flex;
+}
+
+img.background-img {
+    height: 310px;
+}

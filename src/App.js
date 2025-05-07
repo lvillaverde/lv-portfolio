@@ -21,7 +21,7 @@ function App() {
         trigger: heroRef.current,
         start: "top top",
         end: "bottom center",
-        scrub: true,
+        scrub: 1,
       },
       opacity: 0,
     });
@@ -32,7 +32,7 @@ function App() {
         trigger: aboutRef.current,
         start: "top center",
         end: "top top",
-        scrub: true,
+        scrub: 1,
       },
       opacity: 1,
     });
