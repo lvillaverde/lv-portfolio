@@ -2,18 +2,60 @@
     position: relative;
     width: calc(100vw - 20px);
     box-sizing: border-box;
-    height: 310px;
+    height: 100vh;
     overflow: hidden;
-    margin-bottom: var(--lg-spacing );
+    margin: 128px 0;
 }
 
 .skill-band-content {
-    position: absolute;
-    top: 40px;
-    left: 17vw;
+    position: relative;
+    top: 20%;
     display: flex;
+    width: 100vw;
+    height: 60vh;
 }
 
 img.background-img {
-    height: 310px;
+    height: 60vh;
+    position: absolute;
+    top: 20%;
+}
+
+.skill-band-content .pictures {
+    margin-left: 15vw;
+    position: relative;
+    width: 30vw;
+}
+
+img.mid-img1 {
+    position: absolute;
+    bottom: -16px;
+    width: 25vw;
+}
+
+img.front-img1 {
+    position: absolute;
+    bottom: 0;
+    width: 7vw;
+    left: 24vw;
+}
+
+.text {
+    display: flex;
+    padding: 96px 384px 96px 192px;
+    flex-flow: column;
+}
+
+.text h3 {
+    font-family: "Merriweather Sans";
+    font-weight: 800;
+    font-size: 24px;
+    color: var(--gray-2);
+}
+
+.text p {
+    font-family: "Merriweather Sans";
+    font-size: 20px;
+    color: var(--gray-2);
+    font-weight: 100;
 }

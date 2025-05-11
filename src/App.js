@@ -6,6 +6,7 @@ import gsap from "gsap";
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
+import SkillBand from "./components/SkillBand";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -31,7 +32,7 @@ function App() {
       scrollTrigger: {
         trigger: aboutRef.current,
         start: "top center",
-        end: "top top",
+        end: "bottom center",
         scrub: 1,
       },
       opacity: 1,
@@ -58,6 +59,7 @@ function App() {
       <div ref={aboutRef} style={{ opacity: 0 }}>
         <About />
       </div>      
+      <SkillBand />
     </>
   );
 }
