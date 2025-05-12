@@ -13,6 +13,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 function App() {
   const heroRef = useRef();
   const aboutRef = useRef();
+  const skillBandRef = useRef();
 
   // Centralizar animaciones
   useGSAP(() => {
@@ -33,6 +34,27 @@ function App() {
         trigger: aboutRef.current,
         start: "top center",
         end: "bottom center",
+        scrub: 1,
+      },
+      opacity: 1,
+    });
+
+    // Animación de fade out para About y fade in para SkillBand
+    gsap.to(aboutRef.current, {
+      scrollTrigger: {
+        trigger: aboutRef.current,
+        start: "top top",
+        end: "bottom center",
+        scrub: 1,
+      },
+      opacity: 0,
+    });
+
+    gsap.to(skillBandRef.current, {
+      scrollTrigger: {
+        trigger: skillBandRef.current,
+        start: "top center", // Ajustado para que la opacidad comience a cambiar más tarde
+        end: "top top",
         scrub: 1,
       },
       opacity: 1,
@@ -58,8 +80,10 @@ function App() {
       <Hero ref={heroRef} onCtaClick={handleScrollToAbout} />
       <div ref={aboutRef} style={{ opacity: 0 }}>
         <About />
-      </div>      
-      <SkillBand />
+      </div>
+      <div ref={skillBandRef} style={{ opacity: 0, width: "calc(100vw - 20px)", overflow: "hidden" }}>
+        <SkillBand />
+      </div>
     </>
   );
 }

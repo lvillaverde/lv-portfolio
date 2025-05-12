@@ -1,5 +1,10 @@
 header.header {
     display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+    background-color: white; /* Opcional: para que el fondo sea visible si hay contenido detrás */
 }
 
 .header div {

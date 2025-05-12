@@ -1,10 +1,12 @@
 .skill-band {
     position: relative;
-    width: calc(100vw - 20px);
+    /*width: calc(100vw - 20px); */
     box-sizing: border-box;
     height: 100vh;
     overflow: hidden;
-    margin: 128px 0;
+    overflow-x: hidden;
+    margin: 128px 0 0 0;
+    display: flex;
 }
 
 .skill-band-content {
@@ -58,4 +60,30 @@ img.front-img1 {
     font-size: 20px;
     color: var(--gray-2);
     font-weight: 100;
+}
+
+img.mid-img2 {
+    position: absolute;
+    bottom: -16px;
+    width: 15vw;
+}
+
+img.front-img2 {
+    position: absolute;
+    bottom: 0;
+    width: 17vw;
+    left: 15vw;
+}
+
+img.mid-img3 {
+    position: absolute;
+    bottom: -16px;
+    width: 25vw;
+}
+
+img.front-img3 {
+    position: absolute;
+    bottom: 0;
+    width: 7vw;
+    left: 24vw;
 }
