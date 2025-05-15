@@ -33,8 +33,8 @@ function App() {
       scrollTrigger: {
         trigger: aboutRef.current,
         start: "top center",
-        end: "bottom center",
-        scrub: 1,
+        end: "center center",
+        scrub: 1,        
       },
       opacity: 1,
     });
@@ -43,12 +43,13 @@ function App() {
     gsap.to(aboutRef.current, {
       scrollTrigger: {
         trigger: aboutRef.current,
-        start: "top top",
-        end: "bottom center",
+        start: "top-=100 top",
+        //end: "bottom bottom",
         scrub: 1,
+        markers: true,
       },
       opacity: 0,
-    });
+    }); 
 
     gsap.to(skillBandRef.current, {
       scrollTrigger: {

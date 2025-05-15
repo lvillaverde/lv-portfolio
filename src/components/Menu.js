@@ -2,6 +2,7 @@ import "./css/Menu.css";
 
 const menuItems = [
     { name: "About Me", link: "#home" },
+    { name: "My Process", link: "#home" },
     { name: "Study Cases", link: "#about" },
     { name: "Snapshots", link: "#contact" },
     { name: "Contact", link: "#contact" }

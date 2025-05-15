@@ -25,6 +25,7 @@
     font-weight: 900;
     font-family: 'Nexa','Merriweather Sans', sans-serif;
     margin-top: 0;
+        justify-content: flex-start;
 }
 
 .hero h2 span {

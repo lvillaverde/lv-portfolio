@@ -60,67 +60,72 @@ function SkillBand() {
     }, []);
 
     return (
-        <div className="skill-band" ref={skillBandRef}>
-            <img
-                className="background-img"
-                src={backImg}
-                alt="#"
-            />
-            <div className="skill-band-content">
-                <div className="pictures">
-                    <img
-                        src={midImg1}
-                        className="mid-img1"
-                        alt="#"
-                    />
-                    <img
-                        src={frontImg1}
-                        className="front-img1"
-                        alt="#"
-                    />
+        <>
+
+            <div className="skill-band" ref={skillBandRef}>
+                <img
+                    className="background-img"
+                    src={backImg}
+                    alt="#"
+                />
+                <div className="skill-band-content slide1">
+                    <div className="pictures">
+                        <img
+                            src={midImg1}
+                            className="mid-img1"
+                            alt="#"
+                        />
+                        <img
+                            src={frontImg1}
+                            className="front-img1"
+                            alt="#"
+                        />
+                    </div>
+                    <div className="text">
+                        <h3>Diseño centrado en <b>las personas</b></h3>
+                        <p>Todo empieza por entender a quien va a usar lo que diseñamos.<br />
+                        Me gusta <b>escuchar, observar</b> y hacer <b>muchas preguntas.</b><br />Ponerme en el <b>lugar del usuario</b> es clave para encontrar ideas que realmente resuelvan problemas y se sientan bien al usarlas.</p>
+                    </div>
                 </div>
-                <div className="text">
-                    <h3>Diseño centrado en las personas</h3>
-                    <p>Siempre pienso en el usuario. Escucho, observo y diseño soluciones que realmente les funcionan.</p>
+                <div className="skill-band-content slide2">
+                    <div className="pictures">
+                        <img
+                            src={midImg2}
+                            className="mid-img2"
+                            alt="#"
+                        />
+                        <img
+                            src={frontImg2}
+                            className="front-img2"
+                            alt="#"
+                        />
+                    </div>
+                    <div className="text">
+                        <h3><b>Adaptarse</b> es parte del diseño</h3>
+                        <p>Cada proyecto es <b>distinto</b>: hay tiempos, tecnologías, equipos y prioridades que cambian todo el panorama.<br />
+                        Me gusta entender bien el <b>contexto</b> para saber cómo puedo aportar mejor.<br />Tengo facilidad para adaptarme a distintos roles, industrias y <b>formas de trabajo.</b></p>
+                    </div>
+                </div>
+                <div className="skill-band-content slide3">
+                    <div className="pictures">
+                        <img
+                            src={midImg3}
+                            className="mid-img3"
+                            alt="#"
+                        />
+                        <img
+                            src={frontImg3}
+                            className="front-img3"
+                            alt="#"
+                        />
+                    </div>
+                    <div className="text">
+                        <h3>Del diseño al código, sin perder la esencia</h3>
+                        <p>Trabajo con herramientas de prototipado como <b>Figma</b> y ayudo a armar <b>Design Systems</b> que sean útiles para el equipo.<br />También tengo conocimientos de <b>HTML, CSS, JavaScript y React</b>, lo que me permite acompañar de cerca la implementación.</p>
+                    </div>
                 </div>
             </div>
-            <div className="skill-band-content">
-                <div className="pictures">
-                    <img
-                        src={midImg2}
-                        className="mid-img2"
-                        alt="#"
-                    />
-                    <img
-                        src={frontImg2}
-                        className="front-img2"
-                        alt="#"
-                    />
-                </div>
-                <div className="text">
-                    <h3>Diseño centrado en las personas</h3>
-                    <p>Siempre pienso en el usuario. Escucho, observo y diseño soluciones que realmente les funcionan.</p>
-                </div>
-            </div>
-            <div className="skill-band-content">
-                <div className="pictures">
-                    <img
-                        src={midImg3}
-                        className="mid-img3"
-                        alt="#"
-                    />
-                    <img
-                        src={frontImg3}
-                        className="front-img3"
-                        alt="#"
-                    />
-                </div>
-                <div className="text">
-                    <h3>Diseño centrado en las personas</h3>
-                    <p>Siempre pienso en el usuario. Escucho, observo y diseño soluciones que realmente les funcionan.</p>
-                </div>
-            </div>
-        </div>
+        </>
     );
 }
 

@@ -56,3 +56,10 @@
   font-style: normal;
   font-display: swap;
 }
+
+h3 {
+    font-size: 2.4em;
+    font-family: 'Nexa', 'Merriweather Sans';
+    font-weight: 100;
+    color: var(--primary-color);
+}
