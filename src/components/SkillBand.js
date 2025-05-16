@@ -18,40 +18,57 @@ function SkillBand() {
 
     useGSAP(() => {
         const skillBand = skillBandRef.current;
-        const skillBandWidth = skillBand.scrollWidth;
+        const slides = skillBand.querySelectorAll('.skill-band-content');
+        const numSlides = slides.length;
         const viewportWidth = window.innerWidth;
+        const totalWidth = numSlides * viewportWidth;
 
-        gsap.set(skillBand, { width: skillBandWidth }); // Ensure the container width matches its content
+        // Set width for skillBand to fit all slides horizontally
+        gsap.set(skillBand, { width: totalWidth });
+
+        // Position slides horizontally
+        slides.forEach((slide, i) => {
+            gsap.set(slide, { left: i * viewportWidth, position: "absolute", top: "20%" });
+        });
 
         ScrollTrigger.create({
             trigger: skillBand,
             start: "top top",
-            end: () => `+=${skillBandWidth - viewportWidth}`,
+            end: () => `+=${totalWidth - viewportWidth}`,
             pin: true,
             scrub: true,
+            snap: {
+                snapTo: 1 / (numSlides - 1), // Snap to each slide
+                duration: { min: 0.2, max: 0.5 },
+                ease: "power1.inOut"
+            },
             onUpdate: (self) => {
                 const progress = self.progress;
 
                 // Move the skill band horizontally
                 gsap.to(skillBand, {
-                    x: -progress * (skillBandWidth - viewportWidth),
+                    x: -progress * (totalWidth - viewportWidth),
                     ease: "power2.out",
+                    overwrite: "auto"
                 });
 
-                // Ensure distinct parallax effect for each layer
+                // Parallax effect for each layer
                 gsap.to(".background-img", {
-                    x: -progress, // Slowest movement for background
+                    x: -progress * 100, // Slowest movement for background
                     ease: "none",
+                    overwrite: "auto"
                 });
 
                 gsap.to(".mid-img1, .mid-img2, .mid-img3", {
                     x: -progress * 300, // Moderate movement for middle images
                     ease: "none",
+                    overwrite: "auto"
                 });
 
                 gsap.to(".front-img1, .front-img2, .front-img3", {
                     x: -progress * 600, // Fastest movement for front images
                     ease: "none",
+                    overwrite: "auto"
                 });
             },
         });
@@ -61,8 +78,7 @@ function SkillBand() {
 
     return (
         <>
-
-            <div className="skill-band" ref={skillBandRef}>
+            <div className="skill-band" ref={skillBandRef} style={{ position: "relative" }}>
                 <img
                     className="background-img"
                     src={backImg}
@@ -120,7 +136,7 @@ function SkillBand() {
                         />
                     </div>
                     <div className="text">
-                        <h3>Del diseño al código, sin perder la esencia</h3>
+                        <h3>Del diseño al código, sin perder la <b>esencia</b></h3>
                         <p>Trabajo con herramientas de prototipado como <b>Figma</b> y ayudo a armar <b>Design Systems</b> que sean útiles para el equipo.<br />También tengo conocimientos de <b>HTML, CSS, JavaScript y React</b>, lo que me permite acompañar de cerca la implementación.</p>
                     </div>
                 </div>

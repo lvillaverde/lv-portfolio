@@ -76,6 +76,7 @@ img.front-img1 {
 
 .text p b {
     font-weight: 700;
+    color: var(--accent-color);
 }
 
 img.mid-img2 {
@@ -103,7 +104,7 @@ img.front-img3 {
     position: absolute;
     bottom: 0;
     width: 14vw;
-    right: -30px;
+    right: -20px;
 }
 
 .title h3 {

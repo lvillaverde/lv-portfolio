@@ -44,7 +44,7 @@ function App() {
       scrollTrigger: {
         trigger: aboutRef.current,
         start: "top-=100 top",
-        //end: "bottom bottom",
+        end: "bottom top-=100",
         scrub: 1,
         markers: true,
       },
