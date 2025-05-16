@@ -41,7 +41,8 @@ img.front-img1 {
     position: absolute;
     bottom: 0;
     width: 7vw;
-    right: 500px;
+    right: 550px;
+    display: none;
 }
 
 .text {
@@ -90,7 +91,7 @@ img.front-img2 {
     position: absolute;
     bottom: 0;
     width: 17vw;
-    right: -270px;
+    right: -220px;
 }
 
 img.mid-img3 {
@@ -105,6 +106,7 @@ img.front-img3 {
     bottom: 0;
     width: 14vw;
     right: -20px;
+    display: none;
 }
 
 .title h3 {

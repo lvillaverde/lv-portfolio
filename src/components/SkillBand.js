@@ -36,7 +36,7 @@ function SkillBand() {
             start: "top top",
             end: () => `+=${totalWidth - viewportWidth}`,
             pin: true,
-            scrub: true,
+            scrub: 1,
             snap: {
                 snapTo: 1 / (numSlides - 1), // Snap to each slide
                 duration: { min: 0.2, max: 0.5 },

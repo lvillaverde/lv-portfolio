@@ -35,18 +35,19 @@ function App() {
         start: "top center",
         end: "center center",
         scrub: 1,        
+        duration: 0.2,
       },
       opacity: 1,
     });
 
-    // Animación de fade out para About y fade in para SkillBand
+    // Animación de fade out para About
     gsap.to(aboutRef.current, {
       scrollTrigger: {
         trigger: aboutRef.current,
-        start: "top-=100 top",
-        end: "bottom top-=100",
+        start: "top top",
+        end: "bottom top",
         scrub: 1,
-        markers: true,
+        duration: 0.2,
       },
       opacity: 0,
     }); 
