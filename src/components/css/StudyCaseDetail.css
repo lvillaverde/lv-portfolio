@@ -1,0 +1,155 @@
+.study-case-detail {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    align-items: center;
+}
+
+.study-case-detail .content {
+    width: 100%;
+}
+
+.study-case-detail .section {
+    padding: 2.5em 5em;
+    display: flex;
+    justify-content: center;
+}
+
+.study-case-detail .section.gray-section {
+    background: var(--gray-5);
+}
+
+.study-case-detail .section .section-content {
+    width: 50vw;
+}
+
+.study-case-detail .row {
+    display: flex;
+    flex-flow: row;
+    border-bottom: 2px solid var(--gray-4);
+    padding: 1em 0;
+}
+
+.summary-table .col.title {
+    min-width: 150px;
+    justify-content: flex-start;
+    font-weight: bold;
+}
+
+.study-case-detail h1 {
+    font-size: 2.4em;
+    font-family: 'Nexa', 'Merriweather Sans';
+    font-weight: 100;
+    color: var(--gray-2);
+}
+
+.study-case-detail p {
+    width: 100%;
+}
+
+.summary-table {
+    margin: 1em 0 1em;
+    line-height: 2em;
+    font-size: 1.1em;
+    font-weight: 100;
+}
+
+.study-case-detail span {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-family: "Merriweather Sans";
+    color: var(--gray-1);
+    font-weight: 100;
+}
+
+.study-case-detail ul {
+    padding: 0;
+    margin: 0;
+    font-weight: 100;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    gap: 2em;
+}
+
+.info-grid .card {
+    font-size: 1em;
+    text-align: center;
+    background: #ffe1e1;
+    box-shadow: 0px 4px 8px #d5d5d5;
+    display: flex;
+    flex-flow: column;
+}
+
+.info-grid .card .problem::after {
+    content: "";
+    display: block;
+    height: 24px;
+    background: url(../../assets/icons/zigzag.svg);
+    background-color: #d4fcea;
+}
+
+.info-grid .card .problem-content {
+    padding: 1em;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.info-grid .card .solution {
+    background: #d4fcea;
+    z-index: 1;
+    padding: 1em;
+    display: flex;
+    flex-flow: column;
+    flex-grow: 1;
+}
+
+.info-grid .card h3 {
+    text-align: left;
+    font-size: 1.5em;
+    margin: 0.5em 0;
+}
+
+.info-grid .card p {
+    text-align: left;
+}
+
+.problem {
+    display: flex;
+    flex-flow: column;
+    flex-grow: 1;
+}
+
+.study-case-detail .section.postits .section-content {
+    width: 70vw;
+}
+
+.study-case-detail .section.postits.qty-2 .section-content {
+    width: 50vw;
+}
+
+.section.postits.qty-2 .section-content .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+
+.study-case-detail .section.postits h2 {
+    width: 50vw;
+    justify-self: center;
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+.study-case-detail ul.content-list {
+    padding: revert;
+    box-sizing: border-box;
+    font-size: 1.1em;
+    color: var(--gray-2);
+    line-height: 1.5em;
+}

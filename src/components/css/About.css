@@ -1,22 +1,13 @@
-.about {
-    display: flex;
-    justify-content: center;
-}
-
-.about .content {
-    display: flex;
-    width: 50vw;
-    flex-flow: column;
-}
-
 .content p {
-    font-size: 1.3em;
+    font-size: 1.1em;
     font-weight: 100;
     color: var(--gray-2);
     line-height: 1.8em;
+    letter-spacing: 0.02em;
+    width: 60%;
 }
 
-.content p span {
+.content p b {
     color: var(--accent-color);
     font-weight: 700;
 }

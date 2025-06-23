@@ -53,8 +53,8 @@ function Hero({ onCtaClick }, heroRef) {
       <div className="hero" ref={hero}>
         <img className="profile-picture" src={avatar} alt="hi!" />
         <div>
-          <h2 className="title"><TypewriterHeader text="Hello! I’m Leandro" /></h2>
-          <p className="paragraph">I design <span>user-centered</span> software that streamlines processes and enhances usability for industrial solutions.</p>
+          <h2 className="title"><TypewriterHeader text="👋 Hello! I’m Leandro" /></h2>
+          <p className="paragraph">I'm a specialist UX/UI designer with 15+ years of experience creating <span>efficient, elegant, and user-centered</span> solutions.</p>
         </div>
         <button className="cta" onClick={onCtaClick}>
           <img src={scrollIcon} alt="#" />

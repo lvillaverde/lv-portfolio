@@ -37,6 +37,8 @@
     font-weight: 100;
     line-height: 2em;
     color: var(--gray-2);
+    font-family: 'Merriweather';
+    letter-spacing: 0.02em;
 }
 
 .hero p span {
