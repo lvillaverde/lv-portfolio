@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
-import StudyCaseDetail from './components/StudyCaseDetail';
+import StudyCaseDetailNextchange from './components/StudyCaseDetailNextchange';
 
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/studyCase" element={<StudyCaseDetail />} />
+        <Route path="/study-case/one-month-big-changes-ux-ui-and-design-system" element={<StudyCaseDetailNextchange />} />
       </Routes>
     </BrowserRouter>
   );

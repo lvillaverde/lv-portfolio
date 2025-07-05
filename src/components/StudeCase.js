@@ -1,19 +1,63 @@
 import "./css/StudyCase.css";
+import NextchangeThumbnail from "../assets/study-cases/nextchange/thumbnail.png";
+
+// Array con la información de 3 study cases
+const studyCases = [
+    {
+        image: {
+            src: NextchangeThumbnail,
+            alt: "Study Case 1"
+        },
+        title: "One Month, Big Changes: UX, UI and Design System Optimization",
+        tags: ["UX Research", "Design System", "Prototyping"],
+        description: "A look into the process behind redesigning an existing interface, where in just one month we optimized usability, improved the visual language, and adapted an existing Design System to meet new needs.",
+        buttonText: "View More",
+        url: '/study-case/one-month-big-changes-ux-ui-and-design-system'
+    },
+    {
+        image: {
+            src: "https://via.placeholder.com/150x150.png?text=Case+2",
+            alt: "Study Case 2"
+        },
+        title: "E-commerce Redesign: Conversion & Accessibility",
+        tags: ["UI Design", "Accessibility", "A/B Testing"],
+        description: "Redesign of an e-commerce platform focused on increasing conversion rates and improving accessibility for all users.",
+        buttonText: "See Details",
+        url: '/study-case/one-month-big-changes-ux-ui-and-design-system'
+    },
+    {
+        image: {
+            src: "https://via.placeholder.com/150x150.png?text=Case+3",
+            alt: "Study Case 3"
+        },
+        title: "Mobile App: Onboarding Experience Overhaul",
+        tags: ["Mobile UX", "User Onboarding", "Animation"],
+        description: "Revamped the onboarding flow of a mobile app, using animation and micro-interactions to boost user retention.",
+        buttonText: "Explore",
+        url: '/study-case/one-month-big-changes-ux-ui-and-design-system'
+    }
+];
 
 function StudyCase() {
     return (
-        <div className="study-case">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEXh6vH////5+vrl7fPv8/f0+fzt9Pbf6vD+/f/j6/Lf6vL///3f6fLr8fbv8/by9vm0HxD7AAACbUlEQVR4nO3c65abIBRAYVHTDALx/d+2VBuDII6zLHro2t/fmEn2HETn2jQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADkG29irNHa4I9G9+qu83B2BTauu01JIIYUUUkghhbcX/ipFTGH3LKOTUmi6Qq/QGQrLovA8Ckuj8LzqC/98A2ZX5YXd2Lajf6beOaTmwm5+tnnsBNZc+NTt/OaNanWT/U5hzYWjWjzyh1VSqK1ONpTPW/fyz66kcHCqixJtHwSqPvvUKgq1D/Rjik61MZzhWPd5aJ3fTfwR6yn+P4XzBFU8RevCwvzPJCoo9IFmepdmPUUdFuqaZzgt0fcUw8T+88Ar/wrSC/UywemgcKE+7Tg/ZNRY8V2bDScYT9G6r+mdu+fOK8guXE8wmaK/Vet6980PPmUXDvEEVXLRCL942lwGkguny0RSmF76//ILuh/SE1JyYXIObk/xzfn17NJH5BZ+LvSHpmjno10yRbmFySYTDHFjivONnZ9iHC+3MLNE31NcJy7zNsn9m9DC9DIRTXG9UD977jTF1UIVWpjbZDJTDM/YeLsRWfjdBKMprj8d8RRFFm5d6Dca31OM99z1diOwMHehT01TTBe0WV00BBYem+AyRbdxcDhFgYX6YN80RZu5LTCSZ9gcLzSqz+xIZvloAgt/MsN8u+QZUkghhRRSSCGFFFJIIYWXFKqv85Towr3fcDpKSy78xygsjcLzKCyNwvPEFCpthxKsVlIKXVeGE1NYHoUUUkghhRRSeFfh2D6u0o53BOpmuOz/RA17f8MHAAAAAAAAAAAAAAAAAAAAAAAAAAAAALjcb3yLQG5tF3tgAAAAAElFTkSuQmCC" alt="Study Case" />
-            <div className="description">
-                <h4>One Month, Big Changes: UX, UI and Design System Optimization</h4>
-                <div className="tags">
-                    <span className="tag">UX Research</span>
-                    <span className="tag">Design System</span>
-                    <span className="tag">Prototyping</span>
+        <div className="study-cases-list">
+            {studyCases.map((studyCaseData, idx) => (
+                <div className="study-case" key={idx}>
+                    <img src={studyCaseData.image.src} alt={studyCaseData.image.alt} />
+                    <div className="description">
+                        <h4>{studyCaseData.title}</h4>
+                        <div className="tags">
+                            {studyCaseData.tags.map((tag, tagIdx) => (
+                                <span className="tag" key={tagIdx}>
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                        <p>{studyCaseData.description}</p>
+                        <a href={studyCaseData.url} className="btn">{studyCaseData.buttonText}</a>
+                    </div>
                 </div>
-                <p>A look into the process behind redesigning an existing interface, where in just one month we optimized usability, improved the visual language, and adapted an existing Design System to meet new needs.</p>
-                <button className="btn">View More</button>
-            </div>
+            ))}
         </div>
     );
 }

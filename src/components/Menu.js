@@ -1,22 +1,77 @@
 import "./css/Menu.css";
+import { gsap } from "gsap";
+import React, { useState, useEffect } from "react";
+import MenuHamburger from "../assets/icons/hamburguer-menu.svg"; // Importa el componente de menú hamburguesa si lo tienes
 
 const menuItems = [
-    { name: "About Me", link: "#home" },
-    { name: "My Process", link: "#home" },
-    { name: "Study Cases", link: "#about" },
-    { name: "Snapshots", link: "#contact" },
+    { name: "About Me", link: "#about" },
+    { name: "My Process", link: "#process" },
+    { name: "Study Cases", link: "#study-cases" },
+    { name: "Snapshots", link: "#snapshots" },
     { name: "Contact", link: "#contact" }
 ];
 
 function Menu() {
+    const [activeIndex, setActiveIndex] = useState(null);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            let found = false;
+            menuItems.forEach((item, idx) => {
+                if (item.link.startsWith("#")) {
+                    const id = item.link.replace("#", "");
+                    const section = document.getElementById(id);
+                    if (section) {
+                        const rect = section.getBoundingClientRect();
+                        // Considera activa si la sección está al menos parcialmente visible
+                        if (rect.top <= window.innerHeight * 0.3 && rect.bottom > window.innerHeight * 0.3 && !found) {
+                            setActiveIndex(idx);
+                            found = true;
+                        }
+                    }
+                }
+            });
+            if (!found) setActiveIndex(null);
+        };
+        window.addEventListener("scroll", handleScroll);
+        handleScroll(); // Inicial
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    // Scroll suave al hacer click en el menú
+    const handleMenuClick = (e, link, index) => {
+        if (link.startsWith("#")) {
+            e.preventDefault();
+            setActiveIndex(index);
+            const id = link.replace("#", "");
+            const section = document.getElementById(id);
+            if (section) {
+                // Fade out body, scroll, then fade in
+                gsap.to("body", { opacity: 0, duration: 0.25, onComplete: () => {
+                    section.scrollIntoView({ behavior: "auto" });
+                    gsap.to("body", { opacity: 1, duration: 0.25 });
+                }});
+            }
+        }
+    };
 
     return (
         <nav className="menu" >
-            <ul>
+            <ul className="desktop-menu">
                 {menuItems.map((item, index) => (
-                    <li className="menu-item" key={index}>{item.name}</li>
+                    <li className={`menu-item${activeIndex === index ? " active" : ""}`} key={index}>
+                        <a
+                            href={item.link}
+                            onClick={e => handleMenuClick(e, item.link, index)}
+                        >
+                            {item.name}
+                        </a>
+                    </li>
                 ))}
             </ul>
+            <button className="menu-hamburger" aria-label="Open menu">
+                <img src={MenuHamburger} alt="Menu" />
+            </button>
         </nav>
     )
 }

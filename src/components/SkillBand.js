@@ -78,7 +78,7 @@ function SkillBand() {
 
     return (
         <>
-            <div className="skill-band" ref={skillBandRef} style={{ position: "relative" }}>
+            <div className="skill-band" ref={skillBandRef} style={{ position: "relative" }} id="process">
                 <img
                     className="background-img"
                     src={backImg}

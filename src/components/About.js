@@ -4,7 +4,7 @@ import "./css/About.css";
 function About() {
     return (
         <>
-            <div className="about base-section">
+            <div className="about base-section" id="about">
                 <div className="content">
                     <h3>About me</h3>
                     <p>✨ Me apasiona convertir ideas complejas en experiencias <b>simples, funcionales y atractivas.</b> Disfruto tanto del trabajo en equipo y sumergirme en cada etapa del proceso, desde la investigación hasta el diseño final. Me adapto con facilidad, aprendo rápido y siempre busco el <b>equilibrio</b> entre estética, tecnología y necesidades reales de las personas.</p>

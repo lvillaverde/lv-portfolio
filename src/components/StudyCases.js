@@ -3,11 +3,9 @@ import StudyCase from "./StudeCase";
 
 function StudyCases() {
     return (
-        <div className="study-cases base-section">
+        <div className="study-cases base-section" id="study-cases">
             <div className="content">
                 <h3>Study Cases</h3>
-                <StudyCase />
-                <StudyCase />
                 <StudyCase />
             </div>
         </div>

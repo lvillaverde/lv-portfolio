@@ -164,6 +164,7 @@
 .column-grid-2 {
     display: flex;
     flex-flow: row;
+    justify-content: center;
 }
 
 .column-grid-2 .col {
@@ -202,6 +203,24 @@
 
 .drafts-slider img {
     width: 100%;
+}
+
+.section-content img {
+    width: 100%;
+}
+
+.slick-slider {
+    margin-bottom: 4em;
+}
+
+.study-case-detail p.epigraph {
+    font-size: 1em;
+    font-style: italic;
+}
+
+.section-content strong {
+    color: var(--accent-color);
+    font-weight: 900;
 }
 
 @media (max-width: 1440px) {
