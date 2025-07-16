@@ -154,7 +154,7 @@
 
 .slick-prev:before,
 .slick-next:before {
-    color: var(--primary-color) !important;
+    color: var(--gray-2) !important;
 }
 
 .problem-solution-slider {
@@ -190,6 +190,14 @@
     justify-content: flex-end;
 }
 
+.section.study-case-header.edden {
+    background: url(../../assets/study-cases/edden/cover.jpg);
+}
+
+.section.study-case-header.mesirve {
+    background: url(../../assets/study-cases/mesirve/Header.png);
+}
+
 .study-case-header .section-content h1 {
     color: white;
     font-size: 3.5em;
@@ -221,6 +229,107 @@
 .section-content strong {
     color: var(--accent-color);
     font-weight: 900;
+}
+
+.first-quote img {
+    width: 24px;
+    margin: 2em 0
+}
+
+.first-qoute img {
+    width: 64px;
+}
+
+.quote-slider {
+    width: 100%;
+    margin: 0 auto 3em auto !important;
+    max-width: 580px;
+}
+
+.quote-container {
+    display: flex;
+    justify-content: center;
+    margin: 3em 0;
+}
+
+.quote {
+    display: flex;
+    gap: 24px;
+}
+
+.quote-content p {
+    font-size: 1.3em;
+    margin-top: 8px;
+}
+
+p.author {
+    font-size: 1.2em;
+    font-style: italic;
+}
+
+.image-description {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.hifi-slider .hifi-slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+.hifi-slider img {
+    max-width: 960px;
+    max-height: 540px;
+    margin: 0 32px 0 0;
+    width: auto;
+}
+
+.hifi-slider p.epigraph {
+    text-align: center;
+}
+
+.metrics-container {
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    margin: 5em 0;
+}
+
+.metric-col {
+    width: 33%;
+    text-align: center;
+}
+
+.metrics-container p {
+    font-size: 0.9em;
+    margin: 0;
+    line-height: 1.4em;
+}
+
+.metrics-container h3 {
+    margin: 0;
+    font-size: 3.5em;
+    color: var(--primary-color);
+}
+
+img.styled-img {
+    border-radius: 16px;
+    box-shadow: 0px 2px 8px 1px #d2d2d2;
+}
+
+.middle-size-img {
+    width: 100%;
+    max-width: 740px;
+    border-radius: 16px;
+    margin: 4em auto;
+    align-self: center;
+    display: block;
+}
+
+.hifi-slider.mesirve-slider img {
+    margin: 0;
 }
 
 @media (max-width: 1440px) {
@@ -265,7 +374,12 @@
     }
 
     .study-case-detail .row {
-        flex-flow: column;;
+        flex-flow: column;
+        ;
+    }
+
+    .section.study-case-header.mesirve {
+        background-position: -659px 531px;
     }
 }
 
@@ -276,5 +390,9 @@
 
     .section.study-case-header {
         background-position: -280px -320px;
+    }
+
+    .quote {
+        flex-flow: column;
     }
 }

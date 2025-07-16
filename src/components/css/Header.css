@@ -28,3 +28,7 @@ header.header {
 .header h1 span {
     color: var(--primary-color);
 }
+
+.header a {
+    text-decoration: none;
+}

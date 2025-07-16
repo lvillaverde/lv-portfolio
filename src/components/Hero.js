@@ -46,7 +46,7 @@ function Hero({ onCtaClick }, heroRef) {
     ;
   }, { scope: hero });
 
-
+  /* https://www.techietalent.net/ ver el diseño del hero */
 
   return (
     <div ref={heroRef}>
@@ -54,7 +54,7 @@ function Hero({ onCtaClick }, heroRef) {
         <img className="profile-picture" src={avatar} alt="hi!" />
         <div>
           <h2 className="title"><TypewriterHeader text="👋 Hello! I’m Leandro" /></h2>
-          <p className="paragraph">I'm a specialist UX/UI designer with 15+ years of experience creating <span>efficient, elegant, and user-centered</span> solutions.</p>
+          <p className="paragraph">I'm a Specialist Product Designer with 15+ years of experience creating <span>efficient, elegant, and user-centered</span> solutions.</p>
         </div>
         <button className="cta" onClick={onCtaClick}>
           <img src={scrollIcon} alt="#" />

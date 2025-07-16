@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import StudyCaseDetailNextchange from './components/StudyCaseDetailNextchange';
+import StudyCaseDetailEdden from './components/StudyCaseDetailEdden';
+import StudyCaseDetailMeSirve from './components/StudyCaseDetailMeSirve';
 
 
 function App() {
@@ -8,7 +10,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/study-case/one-month-big-changes-ux-ui-and-design-system" element={<StudyCaseDetailNextchange />} />
+        <Route path="/One-Month-Big-Changes-Ux-Ui-And-Design-System" element={<StudyCaseDetailNextchange />} />
+        <Route path="/Design-Thinking-in-Action-Creating-a-SaaS-EdTech-App" element={<StudyCaseDetailEdden />} />
+        <Route path="/From-Hypothesis-to-Product-A-Lean-UX-Journey-in-the-Argentine-Market" element={<StudyCaseDetailMeSirve />} />
       </Routes>
     </BrowserRouter>
   );

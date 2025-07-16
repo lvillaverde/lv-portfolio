@@ -1,40 +1,42 @@
 import "./css/StudyCase.css";
 import NextchangeThumbnail from "../assets/study-cases/nextchange/thumbnail.png";
+import EddenThumbnail from "../assets/study-cases/edden/thumbnail.jpg";
+import MeSirveThumbnail from "../assets/study-cases/mesirve/thumbnail.png";
 
 // Array con la información de 3 study cases
 const studyCases = [
+        {
+        image: {
+            src: MeSirveThumbnail,
+            alt: "Study Case 3"
+        },
+        title: "From Hypothesis to Product: A Lean UX Journey in the Argentine Market",
+        tags: ["Mobile", "Lean UX", "Brand Design"],
+        description: "How we created Me Sirve, an app designed for the Argentine market that connects local shops and buyers with nearby deals.",
+        buttonText: "View More",
+        url: '/From-Hypothesis-to-Product-A-Lean-UX-Journey-in-the-Argentine-Market'
+    },
     {
         image: {
             src: NextchangeThumbnail,
             alt: "Study Case 1"
         },
         title: "One Month, Big Changes: UX, UI and Design System Optimization",
-        tags: ["UX Research", "Design System", "Prototyping"],
+        tags: ["User Testing", "Design System", "Prototyping"],
         description: "A look into the process behind redesigning an existing interface, where in just one month we optimized usability, improved the visual language, and adapted an existing Design System to meet new needs.",
         buttonText: "View More",
-        url: '/study-case/one-month-big-changes-ux-ui-and-design-system'
+        url: '/One-Month-Big-Changes-Ux-Ui-And-Design-System'
     },
     {
         image: {
-            src: "https://via.placeholder.com/150x150.png?text=Case+2",
-            alt: "Study Case 2"
+            src: EddenThumbnail,
+            alt: "Design Thinking in Action: Creating a SaaS EdTech App"
         },
-        title: "E-commerce Redesign: Conversion & Accessibility",
-        tags: ["UI Design", "Accessibility", "A/B Testing"],
-        description: "Redesign of an e-commerce platform focused on increasing conversion rates and improving accessibility for all users.",
-        buttonText: "See Details",
-        url: '/study-case/one-month-big-changes-ux-ui-and-design-system'
-    },
-    {
-        image: {
-            src: "https://via.placeholder.com/150x150.png?text=Case+3",
-            alt: "Study Case 3"
-        },
-        title: "Mobile App: Onboarding Experience Overhaul",
-        tags: ["Mobile UX", "User Onboarding", "Animation"],
-        description: "Revamped the onboarding flow of a mobile app, using animation and micro-interactions to boost user retention.",
-        buttonText: "Explore",
-        url: '/study-case/one-month-big-changes-ux-ui-and-design-system'
+        title: "Design Thinking in Action: Creating a SaaS EdTech App",
+        tags: ["Design Thinking", "Research", "UI Design"],
+        description: "A step-by-step look at how we used Design Thinking to build an intuitive and impactful SaaS application for the education sector.",
+        buttonText: "View More",
+        url: '/Design-Thinking-in-Action-Creating-a-SaaS-EdTech-App'
     }
 ];
 

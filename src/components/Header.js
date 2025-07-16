@@ -22,7 +22,7 @@ function Header() {
     return (
         <header className="header" ref={menu}>
             <div>
-                <h1>Leandro<span>Villaverde</span></h1>
+                <a href="/" ><h1>Leandro<span> Villaverde</span></h1></a>
                 <Menu />
             </div>
         </header>

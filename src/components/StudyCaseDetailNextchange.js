@@ -45,18 +45,18 @@ function StudyCaseDetailNextchange({ studyCase }) {
                 </div>
                 <div className="row">
                   <div className="col title">Team</div>
-                  <div className="col">3 Developers, 1 Tester, 2 UX/UI Designers</div>
+                  <div className="col">3 Developers, 1 Tester, 2 Product Designers</div>
                 </div>
                 <div className="row">
                   <div className="col title">Role</div>
-                  <div className="col">UX/UI Designer</div>
+                  <div className="col">Product Designer</div>
                 </div>
                 <div className="row">
                   <div className="col title">Duration</div>
                   <div className="col">4 weeks</div>
                 </div>
                 <div className="row">
-                  <div className="col title">Tecnology</div>
+                  <div className="col title">Frontend<br />Tecnology</div>
                   <div className="col">Blazor</div>
                 </div>
 
