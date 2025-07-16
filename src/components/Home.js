@@ -84,9 +84,9 @@ function Home() {
       <div ref={aboutRef} style={{ opacity: 0 }}>
         <About />
       </div>
-      <div ref={skillBandRef} style={{ opacity: 0, width: "calc(100vw - 20px)", overflow: "hidden" }}>
+      {/* <div ref={skillBandRef} style={{ opacity: 0, width: "calc(100vw - 20px)", overflow: "hidden" }}>
         <SkillBand />
-      </div>
+      </div> */}
       <StudyCases />
     </>
   );
