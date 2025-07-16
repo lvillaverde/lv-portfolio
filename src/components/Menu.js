@@ -5,14 +5,16 @@ import MenuHamburger from "../assets/icons/hamburguer-menu.svg"; // Importa el c
 
 const menuItems = [
     { name: "About Me", link: "#about" },
-    { name: "My Process", link: "#process" },
+    // { name: "My Process", link: "#process" },
     { name: "Study Cases", link: "#study-cases" },
-    { name: "Snapshots", link: "#snapshots" },
-    { name: "Contact", link: "#contact" }
+    // { name: "Snapshots", link: "#snapshots" },
+    // { name: "Contact", link: "#contact" }
 ];
 
 function Menu() {
     const [activeIndex, setActiveIndex] = useState(null);
+    const [mobileOpen, setMobileOpen] = useState(false);
+    const mobileMenuRef = React.useRef();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -38,11 +40,23 @@ function Menu() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    useEffect(() => {
+        if (!mobileOpen) return;
+        const handleClickOutside = (e) => {
+            if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target)) {
+                setMobileOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, [mobileOpen]);
+
     // Scroll suave al hacer click en el menú
     const handleMenuClick = (e, link, index) => {
         if (link.startsWith("#")) {
             e.preventDefault();
             setActiveIndex(index);
+            setMobileOpen(false);
             const id = link.replace("#", "");
             const section = document.getElementById(id);
             if (section) {
@@ -69,9 +83,27 @@ function Menu() {
                     </li>
                 ))}
             </ul>
-            <button className="menu-hamburger" aria-label="Open menu">
+            <button className="menu-hamburger" aria-label="Open menu" onClick={() => setMobileOpen(true)}>
                 <img src={MenuHamburger} alt="Menu" />
             </button>
+            {mobileOpen && (
+                <div className="mobile-menu-overlay">
+                    <div className="mobile-menu" ref={mobileMenuRef}>
+                        <ul>
+                            {menuItems.map((item, index) => (
+                                <li className={`menu-item${activeIndex === index ? " active" : ""}`} key={index}>
+                                    <a
+                                        href={item.link}
+                                        onClick={e => handleMenuClick(e, item.link, index)}
+                                    >
+                                        {item.name}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            )}
         </nav>
     )
 }

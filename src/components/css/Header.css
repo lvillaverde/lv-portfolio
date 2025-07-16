@@ -10,7 +10,7 @@ header.header {
     justify-content: center;
 }
 
-.header div {
+.header div.header-container {
     display: flex;
     justify-content: space-between;
     flex-grow: 1;
