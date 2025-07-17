@@ -51,6 +51,29 @@ function Menu() {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, [mobileOpen]);
 
+    // Si estamos en la home, escucha cambios de hash y haz scroll animado
+    useEffect(() => {
+        if (window.location.pathname === "/") {
+            const handleHashScroll = () => {
+                const hash = window.location.hash;
+                if (hash.startsWith("#")) {
+                    const id = hash.replace("#", "");
+                    const section = document.getElementById(id);
+                    if (section) {
+                        gsap.to("body", { opacity: 0, duration: 0.25, onComplete: () => {
+                            section.scrollIntoView({ behavior: "auto" });
+                            gsap.to("body", { opacity: 1, duration: 0.25 });
+                        }});
+                    }
+                }
+            };
+            window.addEventListener("hashchange", handleHashScroll);
+            // Si ya hay hash al cargar, ejecuta scroll
+            handleHashScroll();
+            return () => window.removeEventListener("hashchange", handleHashScroll);
+        }
+    }, []);
+
     // Scroll suave al hacer click en el menú
     const handleMenuClick = (e, link, index) => {
         if (link.startsWith("#")) {
@@ -58,13 +81,12 @@ function Menu() {
             setActiveIndex(index);
             setMobileOpen(false);
             const id = link.replace("#", "");
-            const section = document.getElementById(id);
-            if (section) {
-                // Fade out body, scroll, then fade in
-                gsap.to("body", { opacity: 0, duration: 0.25, onComplete: () => {
-                    section.scrollIntoView({ behavior: "auto" });
-                    gsap.to("body", { opacity: 1, duration: 0.25 });
-                }});
+            if (window.location.pathname !== "/") {
+                // Navega a la home con el hash
+                window.location.href = `/${link}`;
+            } else {
+                // Cambia el hash para disparar el efecto
+                window.location.hash = link;
             }
         }
     };
