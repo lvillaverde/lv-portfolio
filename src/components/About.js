@@ -7,10 +7,10 @@ function About() {
             <div className="about base-section" id="about">
                 <div className="content">
                     <h3>About me</h3>
-                    <p>✨ Me apasiona convertir ideas complejas en experiencias <b>simples, funcionales y atractivas.</b> Disfruto tanto del trabajo en equipo y sumergirme en cada etapa del proceso, desde la investigación hasta el diseño final. Me adapto con facilidad, aprendo rápido y siempre busco el <b>equilibrio</b> entre estética, tecnología y necesidades reales de las personas.</p>
-                    <p>💻 Amo la <b>tecnología</b> y soy muy curioso, y lo aprovecho para estudiar y entender las tecnologías que se utilizan para que mis diseños cobren vida.</p>
-                    <p>🌴 Fuera del trabajo, me encantan los asados, los perritos, los viajes y seguir descubriendo y <b>aprendiendo</b> nuevas herramientas.</p>
-                    <p>💡<b>Diseñar es mi forma de entender y mejorar el mundo, una pantalla a la vez.</b></p>
+                    <p>✨ I'm passionate about turning complex ideas into <b>simple, functional, and engaging experiences</b>. I enjoy collaborating with teams and being involved in every stage of the process—from research to final design. I'm adaptable, a fast learner, and always strive to find the right balance between aesthetics, technology, and real human needs.</p>
+                    <p>💻 I love <b>technology</b> and I'm deeply curious—this drives me to study and understand the tools and technologies that bring my designs to life.</p>
+                    <p>🌴 Outside of work, I enjoy barbecues, dogs, traveling, and constantly exploring new tools. There's always something new to <b>learn</b>.</p>
+                    <p>💡<b>Design is my way of understanding and improving the world — one screen at a time.</b></p>
                 </div>
             </div>
             

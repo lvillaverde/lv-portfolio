@@ -34,9 +34,10 @@ function Home() {
       scrollTrigger: {
         trigger: aboutRef.current,
         start: "top center",
-        end: "center center",
+        end: "200px center",
         scrub: 1,        
         duration: 0.2,
+        markers: false
       },
       opacity: 1,
     });
@@ -45,10 +46,11 @@ function Home() {
     gsap.to(aboutRef.current, {
       scrollTrigger: {
         trigger: aboutRef.current,
-        start: "top top",
-        end: "bottom top",
+        start: "center center",
+        end: "bottom-=200 center",
         scrub: 1,
         duration: 0.2,
+        markers: false
       },
       opacity: 0,
     }); 

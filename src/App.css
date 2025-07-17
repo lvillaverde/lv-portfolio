@@ -76,3 +76,16 @@ h3 {
   width: 50vw;
   flex-flow: column;
 }
+@media screen and (max-width: 1440px) {
+    .content {
+        width: 80vw;
+    }
+    
+}
+
+@media screen and (max-width: 1024px) {
+    .content {
+        width: 100vw;
+        padding: 0 5em;
+    }
+}
