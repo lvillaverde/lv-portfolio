@@ -61,8 +61,8 @@ function Hero(props, heroRef) {
             <p className="paragraph">I'm a Specialist Product Designer with 15+ years of experience creating <span>efficient, elegant, and user-centered</span> solutions.</p>
             <div className="contact">
               <div class="buttons-row">
-                <a href="https://www.linkedin.com/in/lvillaverde/" target="_blank">Linkedin</a>
-                <a href="">Download CV</a>
+                <a href="https://www.linkedin.com/in/lvillaverde/" target="_blank" rel="noreferrer">Linkedin</a>
+                <a href="" rel="noreferrer">Download CV</a>
               </div>
               <div class="info-row">
                 <div className="info-item">
