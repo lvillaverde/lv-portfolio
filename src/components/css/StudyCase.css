@@ -18,7 +18,8 @@
     box-shadow: 0px 6px 10px 0px #eaeaea;
 }
 
-.study-case img {
+.study-case img,
+.study-case a.img-link {
     width: 360px;
     height: 360px;
 }
@@ -112,7 +113,8 @@
         padding: 0px 264px;
     }
 
-    .study-case img {
+    .study-case img,
+    .study-case a.img-link {
         width: 100%;
         height: auto;
     }

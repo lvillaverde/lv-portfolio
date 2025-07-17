@@ -72,9 +72,7 @@ function StudyCase() {
         <div className="study-cases-list" ref={containerRef}>
             {studyCases.map((studyCaseData, idx) => (
                 <div className="study-case" key={idx}>
-                    <a href={studyCaseData.url}>
-                        <img src={studyCaseData.image.src} alt={studyCaseData.image.alt} />
-                    </a>
+                    <a href={studyCaseData.url} className="img-link"><img src={studyCaseData.image.src} alt={studyCaseData.image.alt} /></a>
                     <div className="description">
                         <a href={studyCaseData.url}>
                             <h4>{studyCaseData.title}</h4>
