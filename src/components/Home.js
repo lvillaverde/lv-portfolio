@@ -23,7 +23,7 @@ function Home() {
     gsap.to(heroRef.current, {
       scrollTrigger: {
         trigger: heroRef.current,
-        start: "top top",
+        start: "center top",
         end: "bottom center",
         scrub: 1,
       },

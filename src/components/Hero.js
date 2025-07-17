@@ -2,7 +2,9 @@ import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import avatar from "../images/avatar_1.png";
-import scrollIcon from "../assets/icons/double-down.svg"
+import scrollIcon from "../assets/icons/double-down.svg";
+import mapPointer from "../assets/icons/map-pointer.svg";
+import email from "../assets/icons/mail.svg";
 import TypewriterHeader from "./TypewritterHeader";
 import "./css/Hero.css";
 
@@ -34,7 +36,7 @@ function Hero(props, heroRef) {
       },
     )
     tl.from(
-      ".paragraph",
+      ".information",
       {
         y: -50,
         opacity: 0,
@@ -43,7 +45,7 @@ function Hero(props, heroRef) {
         delay: -1,
       },
     )
-    ;
+      ;
   }, { scope: hero });
 
   /* https://www.techietalent.net/ ver el diseño del hero */
@@ -52,10 +54,30 @@ function Hero(props, heroRef) {
     <div ref={heroRef}>
       <div className="hero" ref={hero}>
         <img className="profile-picture" src={avatar} alt="hi!" />
-        <div>
+        <div className="info-container">
           <h2 className="title static">👋 Hello!<br /> I’m Leandro</h2>
           <h2 className="title typewriter"><TypewriterHeader text="👋 Hello! I’m Leandro" /></h2>
-          <p className="paragraph">I'm a Specialist Product Designer with 15+ years of experience creating <span>efficient, elegant, and user-centered</span> solutions.</p>
+          <div className="information">
+            <p className="paragraph">I'm a Specialist Product Designer with 15+ years of experience creating <span>efficient, elegant, and user-centered</span> solutions.</p>
+            <div className="contact">
+              <div class="buttons-row">
+                <a href="https://www.linkedin.com/in/lvillaverde/" target="_blank">Linkedin</a>
+                <a href="">Download CV</a>
+              </div>
+              <div class="info-row">
+                <div className="info-item">
+                  <img src={mapPointer} alt="Location" />
+                  <p>Montevideo, Uruguay</p>
+                </div>
+                <div className="info-item">
+                  <img src={email} alt="Email" />
+                  <a href="mailto:lhvillaverde@gmail.com"><p>lhvillaverde@gmail.com</p></a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
         <button className="cta" onClick={props.onCtaClick}>
           <img src={scrollIcon} alt="#" />

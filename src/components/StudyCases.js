@@ -13,7 +13,6 @@ function StudyCases() {
     useGSAP(() => {
         gsap.from(titleRef.current, {
             opacity: 0,
-            y: 30,
             duration: 0.8,
             ease: "power2.out",
             scrollTrigger: {

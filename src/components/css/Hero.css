@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     gap: var(--lg-spacing);
-    min-height: 75vh;
+    min-height: 85vh;
     height: 100%;
     align-content: center;
     flex-wrap: wrap;
@@ -16,8 +16,9 @@
     height: 250px;
 }
 
-.hero div {
+.hero div.info-container {
     max-width: 35vw;
+    margin-bottom: 2em;
 }
 
 .hero h2 {
@@ -87,8 +88,62 @@ button.cta:hover {
     display: none;
 }
 
+.hero .contact .buttons-row a {
+    border: 1px solid var(--accent-color);
+    padding: 1em;
+    color: var(--accent-color);
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 1px 1px 1px 1px var(--accent-color);
+    font-family: 'Merriweather';
+    margin: 0em 1em 0 0;
+}
+
+.hero .contact .buttons-row a:hover {
+    background: #e5097d14;
+    transition: 0.3s ease;
+}
+
+.hero .contact .info-row a {
+    text-decoration: none;;
+}
+
+.contact {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    gap: 24px;
+}
+
+.info-row {
+    display: flex;
+    gap: 32px;
+}
+
+.info-row img {
+    width: 24px;
+    /* color: red; */
+}
+
+.info-item p {
+    font-size: 1em;
+    margin: 0;
+    font-family: 'Merriweather Sans';
+    font-weight: 200;
+    color: var(--gray-2);
+}
+
+.info-item {
+    display: flex;
+    gap: 8px;
+}
+
+.buttons-row {
+    display: flex;
+}
+
 @media screen and (max-width: 1366px) {
-    .hero div {
+    .hero div.info-container {
         max-width: 45vw;
     }
 
@@ -96,7 +151,7 @@ button.cta:hover {
         font-size: 2.6em;
     }
 
-    .hero p {
+    .hero p.paragraph {
         font-size: 1.3em;
     }
 }
@@ -108,13 +163,29 @@ button.cta:hover {
         align-items: center;
     }
 
-    .hero div {
+    .hero div.info-container {
         max-width: 75vw;
     }
 
-    .hero p {
+    .hero p.paragraph {
         text-align: center;
         margin-bottom: 48px;
+    }
+
+    .hero .contact {
+        display: flex;
+        margin-bottom: 3em;
+    }
+
+    .buttons-row {
+        display: flex;
+        justify-content: center;
+    }
+
+    .info-row {
+        display: flex;
+        gap: 32px;
+        justify-content: center;
     }
 
     .title.typewriter {
@@ -127,4 +198,12 @@ button.cta:hover {
         color: var(--primary-color)
     }
 
+}
+
+@media screen and (max-width: 768px) {
+    .info-row {
+        flex-flow: column;
+        align-items: center;
+        gap: 8px;
+    }
 }
