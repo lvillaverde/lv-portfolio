@@ -1,11 +1,17 @@
+import React, { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 import "./css/StudyCase.css";
 import NextchangeThumbnail from "../assets/study-cases/nextchange/thumbnail.png";
 import EddenThumbnail from "../assets/study-cases/edden/thumbnail.jpg";
 import MeSirveThumbnail from "../assets/study-cases/mesirve/thumbnail.png";
 
+gsap.registerPlugin(ScrollTrigger);
+
 // Array con la información de 3 study cases
 const studyCases = [
-        {
+    {
         image: {
             src: MeSirveThumbnail,
             alt: "Study Case 3"
@@ -41,13 +47,38 @@ const studyCases = [
 ];
 
 function StudyCase() {
+    const containerRef = useRef();
+
+    useGSAP(() => {
+        // Selecciona todos los divs .study-case dentro del contenedor
+        gsap.utils.toArray(containerRef.current.querySelectorAll(".study-case")).forEach((el) => {
+            gsap.from(el, {
+                x: 100,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 80%",
+                    end: "top 60%",
+                    toggleActions: "play none none reverse"
+                    // markers: true // Descomenta para depurar
+                }
+            });
+        });
+    }, []);
+
     return (
-        <div className="study-cases-list">
+        <div className="study-cases-list" ref={containerRef}>
             {studyCases.map((studyCaseData, idx) => (
                 <div className="study-case" key={idx}>
-                    <img src={studyCaseData.image.src} alt={studyCaseData.image.alt} />
+                    <a href={studyCaseData.url}>
+                        <img src={studyCaseData.image.src} alt={studyCaseData.image.alt} />
+                    </a>
                     <div className="description">
-                        <h4>{studyCaseData.title}</h4>
+                        <a href={studyCaseData.url}>
+                            <h4>{studyCaseData.title}</h4>
+                        </a>
                         <div className="tags">
                             {studyCaseData.tags.map((tag, tagIdx) => (
                                 <span className="tag" key={tagIdx}>

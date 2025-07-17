@@ -56,6 +56,10 @@
     margin: 0.5em 0;
 }
 
+.study-case .description a {
+    text-decoration: none;
+}
+
 .study-case a.btn {
     display: flex;
     padding: 12px 16px;
@@ -95,6 +99,7 @@
     background: #e5e5e5;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    margin-top: 4px;
 }
 
 @media screen and (max-width: 1024px) {

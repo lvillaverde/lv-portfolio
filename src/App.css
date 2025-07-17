@@ -69,6 +69,7 @@ h3 {
 .base-section {
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 .content {
