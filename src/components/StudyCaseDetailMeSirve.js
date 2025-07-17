@@ -1,5 +1,5 @@
 import './css/StudyCaseDetail.css';
-import Header from './Header';
+
 /* import QuoteIcon from '../assets/icons/quote.svg'; */
 import LeanUXFLow from '../assets/study-cases/mesirve/lean-ux-flow.svg';
 import LeanUXCanvas from '../assets/study-cases/mesirve/ux-lean-canvas.png';
@@ -57,7 +57,6 @@ function StudyCaseDetailMeSirve({ studyCase }) {
 
     return (
         <>
-            <Header />
             <div className="study-case-detail edden-study-case">
                 <div className="content">
                     <div className="section study-case-header mesirve"> {/* Header */}

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import '../App.css';
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger, ScrollToPlugin } from "gsap/all";
@@ -13,7 +13,7 @@ import Footer from './Footer';
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 function Home() {
- const heroRef = useRef();
+  const heroRef = useRef();
   const aboutRef = useRef();
   const skillBandRef = useRef();
 
@@ -40,8 +40,8 @@ function Home() {
         // markers: true // Úsalo para ajustar visualmente
       }
     })
-    .to(aboutRef.current, { opacity: 1, duration: 0.2, ease: "none" }, 0) // fade in en la primera mitad
-    .to(aboutRef.current, { opacity: 0, duration: 0.2, ease: "none" }, 0.5); // fade out en la segunda mitad
+      .to(aboutRef.current, { opacity: 1, duration: 0.2, ease: "none" }, 0) // fade in en la primera mitad
+      .to(aboutRef.current, { opacity: 0, duration: 0.2, ease: "none" }, 0.5); // fade out en la segunda mitad
 
     gsap.to(skillBandRef.current, {
       scrollTrigger: {
@@ -67,16 +67,34 @@ function Home() {
     });
   };
 
+  // Scroll automático al cargar con hash en la URL
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      let target = null;
+      if (hash === "#hero") target = document.getElementById("hero");
+      if (hash === "#about") target = document.getElementById("about");
+      if (hash === "#skillband") target = document.getElementById("skillband");
+      if (target) {
+        gsap.to(window, {
+          scrollTo: target,
+          duration: 1,
+          ease: "power2.out"
+        });
+      }
+    }
+  }, []);
+
   return (
     <>
       <Header />
-      <div id="hero">
-      <Hero ref={heroRef} onCtaClick={handleScrollToAbout} />
+      <div id="hero" ref={heroRef}>
+        <Hero onCtaClick={handleScrollToAbout} />
       </div>
-      <div ref={aboutRef} style={{ opacity: 0, minHeight: "100vh" }}>
+      <div id="about" ref={aboutRef} style={{ opacity: 0, minHeight: "100vh" }}>
         <About />
       </div>
-      {/* <div ref={skillBandRef} style={{ opacity: 0, width: "calc(100vw - 20px)", overflow: "hidden" }}>
+      {/* <div id="skillband" ref={skillBandRef} style={{ opacity: 0, width: "calc(100vw - 20px)", overflow: "hidden" }}>
         <SkillBand />
       </div> */}
       <StudyCases />

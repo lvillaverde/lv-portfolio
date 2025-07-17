@@ -74,3 +74,24 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # 1. npm install
 # 2. npm install gsap
 # 3. npm install slick
+
+## Deploy en GitHub Pages
+
+1. Agrega el campo `"homepage"` en `package.json`:
+   ```
+   "homepage": "https://lvillaverde.github.io/portfolio/"
+   ```
+2. Instala el paquete gh-pages:
+   ```
+   npm install --save-dev gh-pages
+   ```
+3. Agrega los scripts en `package.json`:
+   ```
+   "predeploy": "npm run build",
+   "deploy": "gh-pages -d build"
+   ```
+4. Ejecuta:
+   ```
+   npm run deploy
+   ```
+5. Accede a tu app en: [https://lvillaverde.github.io/portfolio/](https://lvillaverde.github.io/portfolio/)

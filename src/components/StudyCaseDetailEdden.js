@@ -1,5 +1,5 @@
 import './css/StudyCaseDetail.css';
-import Header from './Header';
+
 import QuoteIcon from '../assets/icons/quote.svg';
 import FrustratedProfessor from '../assets/study-cases/edden/sad-professor.jpg';
 import UserPersona from '../assets/study-cases/edden/user-persona.png';
@@ -74,7 +74,6 @@ function StudyCaseDetailEdden({ studyCase }) {
     };
     return (
         <>
-            <Header />
             <div className="study-case-detail edden-study-case">
                 <div className="content">
                     <div className="section study-case-header edden"> {/* Header */}

@@ -1,20 +1,22 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import StudyCaseDetailNextchange from './components/StudyCaseDetailNextchange';
 import StudyCaseDetailEdden from './components/StudyCaseDetailEdden';
 import StudyCaseDetailMeSirve from './components/StudyCaseDetailMeSirve';
+import ScrollToTop from './components/ScrollToTop';
 
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
+      <ScrollToTop />
       <Routes>
-        <Route path="/portfolio/" element={<Home />} />
-        <Route path="/portfolio/One-Month-Big-Changes-Ux-Ui-And-Design-System" element={<StudyCaseDetailNextchange />} />
-        <Route path="/portfolio/Design-Thinking-in-Action-Creating-a-SaaS-EdTech-App" element={<StudyCaseDetailEdden />} />
-        <Route path="/portfolio/From-Hypothesis-to-Product-A-Lean-UX-Journey-in-the-Argentine-Market" element={<StudyCaseDetailMeSirve />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/One-Month-Big-Changes-Ux-Ui-And-Design-System" element={<StudyCaseDetailNextchange />} />
+        <Route path="/Design-Thinking-in-Action-Creating-a-SaaS-EdTech-App" element={<StudyCaseDetailEdden />} />
+        <Route path="/From-Hypothesis-to-Product-A-Lean-UX-Journey-in-the-Argentine-Market" element={<StudyCaseDetailMeSirve />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

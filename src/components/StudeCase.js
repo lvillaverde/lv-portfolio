@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -72,11 +73,11 @@ function StudyCase() {
         <div className="study-cases-list" ref={containerRef}>
             {studyCases.map((studyCaseData, idx) => (
                 <div className="study-case" key={idx}>
-                    <a href={studyCaseData.url} className="img-link"><img src={studyCaseData.image.src} alt={studyCaseData.image.alt} /></a>
+                    <Link to={studyCaseData.url} className="img-link"><img src={studyCaseData.image.src} alt={studyCaseData.image.alt} /></Link>
                     <div className="description">
-                        <a href={studyCaseData.url}>
+                        <Link to={studyCaseData.url}>
                             <h4>{studyCaseData.title}</h4>
-                        </a>
+                        </Link>
                         <div className="tags">
                             {studyCaseData.tags.map((tag, tagIdx) => (
                                 <span className="tag" key={tagIdx}>
@@ -85,7 +86,7 @@ function StudyCase() {
                             ))}
                         </div>
                         <p>{studyCaseData.description}</p>
-                        <a href={studyCaseData.url} className="btn">{studyCaseData.buttonText}</a>
+                        <Link to={studyCaseData.url} className="btn">{studyCaseData.buttonText}</Link>
                     </div>
                 </div>
             ))}

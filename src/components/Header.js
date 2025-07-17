@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import Menu from "./Menu";
+import { Link } from "react-router-dom";
 import "../variables.css";
 import "./css/Header.css";
 
@@ -22,7 +23,7 @@ function Header() {
     return (
         <header className="header" ref={menu}>
             <div className="header-container">
-                <a href="/" ><h1>Leandro<span> Villaverde</span></h1></a>
+                <Link to="/" ><h1>Leandro<span> Villaverde</span></h1></Link>
                 <Menu />
             </div>
         </header>

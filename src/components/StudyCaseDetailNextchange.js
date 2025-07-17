@@ -1,5 +1,4 @@
 import './css/StudyCaseDetail.css';
-import Header from './Header';
 import BeforeScreens from '../assets/study-cases/nextchange/before-screens.png'
 import DashboardsDrafs from '../assets/study-cases/nextchange/dashboard-drafts.jpg';
 import MapsDrafs from '../assets/study-cases/nextchange/map-draft.jpg';
@@ -27,7 +26,6 @@ function StudyCaseDetailNextchange({ studyCase }) {
   };
   return (
     <>
-      <Header />
       <div className="study-case-detail">
         <div className="content">
           <div className="section study-case-header"> {/* Header */}
