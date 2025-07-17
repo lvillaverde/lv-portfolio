@@ -96,3 +96,33 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
+
+@media screen and (max-width: 1024px) {
+    .study-case {
+        flex-flow: column;
+        gap: 0;
+    }
+
+    .study-cases .content {
+        padding: 0px 264px;
+    }
+
+    .study-case img {
+        width: 100%;
+        height: auto;
+    }
+
+    .study-case .description {
+        padding: 32px;
+    }
+
+    .study-case h4 {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .study-cases .content {
+        padding: 0 32px;
+    }
+}

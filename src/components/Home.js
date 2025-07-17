@@ -29,31 +29,18 @@ function Home() {
       opacity: 0,
     });
 
-    // Animación de fade in para About
-    gsap.to(aboutRef.current, {
+    // Animación de fade in y fade out para About en una sola timeline con rangos separados
+    gsap.timeline({
       scrollTrigger: {
         trigger: aboutRef.current,
         start: "top center",
-        end: "200px center",
-        scrub: 1,        
-        duration: 0.2,
-        markers: false
-      },
-      opacity: 1,
-    });
-
-    // Animación de fade out para About
-    gsap.to(aboutRef.current, {
-      scrollTrigger: {
-        trigger: aboutRef.current,
-        start: "center center",
-        end: "bottom-=200 center",
+        end: "bottom center",
         scrub: 1,
-        duration: 0.2,
-        markers: false
-      },
-      opacity: 0,
-    }); 
+        // markers: true // Úsalo para ajustar visualmente
+      }
+    })
+    .to(aboutRef.current, { opacity: 1, duration: 0.2, ease: "none" }, 0) // fade in en la primera mitad
+    .to(aboutRef.current, { opacity: 0, duration: 0.2, ease: "none" }, 0.5); // fade out en la segunda mitad
 
     gsap.to(skillBandRef.current, {
       scrollTrigger: {
@@ -83,7 +70,7 @@ function Home() {
     <>
       <Header />
       <Hero ref={heroRef} onCtaClick={handleScrollToAbout} />
-      <div ref={aboutRef} style={{ opacity: 0 }}>
+      <div ref={aboutRef} style={{ opacity: 0, minHeight: "100vh" }}>
         <About />
       </div>
       {/* <div ref={skillBandRef} style={{ opacity: 0, width: "calc(100vw - 20px)", overflow: "hidden" }}>
