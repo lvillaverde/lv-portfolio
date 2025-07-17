@@ -128,6 +128,6 @@
 
 @media screen and (max-width: 768px) {
     .study-cases .content {
-        padding: 0 32px;
+        padding: 48px 32px 0 32px;
     }
 }

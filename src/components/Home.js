@@ -8,6 +8,7 @@ import Hero from './Hero';
 import About from './About';
 import SkillBand from "./SkillBand";
 import StudyCases from './StudyCases';
+import Footer from './Footer';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -69,7 +70,9 @@ function Home() {
   return (
     <>
       <Header />
+      <div id="hero">
       <Hero ref={heroRef} onCtaClick={handleScrollToAbout} />
+      </div>
       <div ref={aboutRef} style={{ opacity: 0, minHeight: "100vh" }}>
         <About />
       </div>
@@ -77,6 +80,7 @@ function Home() {
         <SkillBand />
       </div> */}
       <StudyCases />
+      <Footer isHome={true} />
     </>
   );
 }

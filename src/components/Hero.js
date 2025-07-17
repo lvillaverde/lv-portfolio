@@ -8,7 +8,7 @@ import "./css/Hero.css";
 
 
 
-function Hero({ onCtaClick }, heroRef) {
+function Hero(props, heroRef) {
   const hero = useRef();
 
   useGSAP(() => {
@@ -57,7 +57,7 @@ function Hero({ onCtaClick }, heroRef) {
           <h2 className="title typewriter"><TypewriterHeader text="👋 Hello! I’m Leandro" /></h2>
           <p className="paragraph">I'm a Specialist Product Designer with 15+ years of experience creating <span>efficient, elegant, and user-centered</span> solutions.</p>
         </div>
-        <button className="cta" onClick={onCtaClick}>
+        <button className="cta" onClick={props.onCtaClick}>
           <img src={scrollIcon} alt="#" />
           <p>Scroll to explore</p>
           <img src={scrollIcon} alt="#" />
