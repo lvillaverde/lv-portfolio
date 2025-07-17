@@ -5,6 +5,7 @@ import avatar from "../images/avatar_1.png";
 import scrollIcon from "../assets/icons/double-down.svg";
 import mapPointer from "../assets/icons/map-pointer.svg";
 import email from "../assets/icons/mail.svg";
+import cvFile from "../assets/cv/CV-Leandro-Villaverde.docx";
 import TypewriterHeader from "./TypewritterHeader";
 import "./css/Hero.css";
 
@@ -62,7 +63,7 @@ function Hero(props, heroRef) {
             <div className="contact">
               <div class="buttons-row">
                 <a href="https://www.linkedin.com/in/lvillaverde/" target="_blank" rel="noreferrer">Linkedin</a>
-                <a href="" rel="noreferrer">Download CV</a>
+                <a href={cvFile} download="CV-Leandro-Villaverde.docx" rel="noreferrer">Download CV</a>
               </div>
               <div class="info-row">
                 <div className="info-item">
