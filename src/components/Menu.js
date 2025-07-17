@@ -1,6 +1,6 @@
 import "./css/Menu.css";
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
 import MenuHamburger from "../assets/icons/hamburguer-menu.svg";
 
@@ -16,9 +16,40 @@ function Menu() {
     const [activeIndex, setActiveIndex] = useState(null);
     const [mobileOpen, setMobileOpen] = useState(false);
     const mobileMenuRef = useRef();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleSectionClick = (sectionId, index) => {
+        setActiveIndex(index);
+        setMobileOpen(false);
+        
+        if (location.pathname !== "/") {
+            // Si no estamos en la página principal, navegar primero a home
+            navigate("/");
+            // Hacer scroll a la sección después de un pequeño delay para que cargue la página
+            setTimeout(() => {
+                const element = document.getElementById(sectionId.replace("#", ""));
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
+            }, 100);
+        } else {
+            // Si ya estamos en home, hacer scroll directo
+            const element = document.getElementById(sectionId.replace("#", ""));
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    };
 
     useEffect(() => {
         const handleScroll = () => {
+            // Solo activar el scroll tracking si estamos en la página principal
+            if (location.pathname !== "/") {
+                setActiveIndex(null);
+                return;
+            }
+            
             let found = false;
             menuItems.forEach((item, idx) => {
                 if (item.link.startsWith("#")) {
@@ -38,7 +69,7 @@ function Menu() {
         window.addEventListener("scroll", handleScroll);
         handleScroll();
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [location.pathname]);
 
     useEffect(() => {
         if (!mobileOpen) return;
@@ -57,13 +88,12 @@ function Menu() {
                 {menuItems.map((item, index) => (
                     <li className={`menu-item${activeIndex === index ? " active" : ""}`} key={index}>
                         {item.link.startsWith("#") ? (
-                            <HashLink
-                                smooth
-                                to={item.link}
-                                onClick={() => { setActiveIndex(index); setMobileOpen(false); }}
+                            <button
+                                className="menu-link"
+                                onClick={() => handleSectionClick(item.link, index)}
                             >
                                 {item.name}
-                            </HashLink>
+                            </button>
                         ) : (
                             <Link to={item.link}>
                                 {item.name}
@@ -82,13 +112,12 @@ function Menu() {
                             {menuItems.map((item, index) => (
                                 <li className={`menu-item${activeIndex === index ? " active" : ""}`} key={index}>
                                     {item.link.startsWith("#") ? (
-                                        <HashLink
-                                            smooth
-                                            to={item.link}
-                                            onClick={() => { setActiveIndex(index); setMobileOpen(false); }}
+                                        <button
+                                            className="menu-link"
+                                            onClick={() => handleSectionClick(item.link, index)}
                                         >
                                             {item.name}
-                                        </HashLink>
+                                        </button>
                                     ) : (
                                         <Link to={item.link}>
                                             {item.name}

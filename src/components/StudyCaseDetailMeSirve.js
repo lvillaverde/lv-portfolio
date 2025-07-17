@@ -25,7 +25,7 @@ import Shop4 from '../assets/study-cases/mesirve/shop-4.png';
 import Shop5 from '../assets/study-cases/mesirve/shop-5.png';
 import Shop6 from '../assets/study-cases/mesirve/shop-6.png';
 import QuoteIcon from '../assets/icons/quote.svg';
-
+import Header from './Header';
 import Footer from './Footer';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -57,6 +57,7 @@ function StudyCaseDetailMeSirve({ studyCase }) {
 
     return (
         <>
+            <Header />
             <div className="study-case-detail edden-study-case">
                 <div className="content">
                     <div className="section study-case-header mesirve"> {/* Header */}

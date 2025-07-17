@@ -9,6 +9,7 @@ import MapBefore from '../assets/study-cases/nextchange/map.jpg';
 import MapAfter from '../assets/study-cases/nextchange/map-after.png';
 import AlertsBefore from '../assets/study-cases/nextchange/alerts-before.png';
 import AlertsAfter from '../assets/study-cases/nextchange/alerts-after.png';
+import Header from './Header';
 import Footer from './Footer';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -26,6 +27,7 @@ function StudyCaseDetailNextchange({ studyCase }) {
   };
   return (
     <>
+      <Header />
       <div className="study-case-detail">
         <div className="content">
           <div className="section study-case-header"> {/* Header */}

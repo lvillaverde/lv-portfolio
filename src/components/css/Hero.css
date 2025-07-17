@@ -95,7 +95,7 @@ button.cta:hover {
     border-radius: 6px;
     text-decoration: none;
     box-shadow: 1px 1px 1px 1px var(--accent-color);
-    font-family: 'Merriweather';
+    font-family: 'Merriweather Sans';
     margin: 0em 1em 0 0;
 }
 

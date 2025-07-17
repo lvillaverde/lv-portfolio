@@ -25,6 +25,7 @@ import Hifi12 from '../assets/study-cases/edden/hifi12.png';
 import Hifi13 from '../assets/study-cases/edden/hifi13.png';
 import DesignSystem from '../assets/study-cases/edden/design-system.png';
 import AppWorking from '../assets/study-cases/edden/app-working.jpg';
+import Header from './Header';
 import Footer from './Footer';
 
 import Slider from "react-slick";
@@ -74,6 +75,7 @@ function StudyCaseDetailEdden({ studyCase }) {
     };
     return (
         <>
+            <Header />
             <div className="study-case-detail edden-study-case">
                 <div className="content">
                     <div className="section study-case-header edden"> {/* Header */}
