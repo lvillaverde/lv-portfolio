@@ -50,6 +50,28 @@ function StudyCaseDetailEdden({ studyCase }) {
         slidesToScroll: 1,
         fade: true
     };
+    var settingsHifiMobile = {
+        dots: false,
+        arrows: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1440,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
+    };
     return (
         <>
             <Header />
@@ -229,7 +251,7 @@ function StudyCaseDetailEdden({ studyCase }) {
                         <div className="section-content">
                             <h2>Live Class Wireframes Evolution</h2>
                             <br />
-                            <Slider {...settingsHifi} className="hifi-slider">
+                            <Slider {...settingsHifi} className="hifi-slider desktop-wireframes">
                                 <div>
                                     <div className="hifi-slider-container">
                                         <img src={WireframesV1} className="styled-img" alt="Wireframes v1" />
@@ -258,7 +280,7 @@ function StudyCaseDetailEdden({ studyCase }) {
                             </Slider>
                             <p>The wireframes allowed us to quickly iterate on the structure of the interface. Once the usability decisions were validated, we moved on to high-fidelity prototypes to analyze the final experience before starting development:</p>
                             <br />
-                            <Slider {...settingsHifi} className="hifi-slider">
+                            <Slider {...settingsHifi} className="hifi-slider desktop">
                                 <div>
                                     <div className="hifi-slider-container">
                                         <img src={Hifi1} alt="High-fidelity prototype 1" />
@@ -315,7 +337,7 @@ function StudyCaseDetailEdden({ studyCase }) {
                                 </div>
                             </Slider>
                             <p>The interface is fully responsive; here’s how it looks on mobile devices.</p>
-                            <Slider {...settingsHifi} className="hifi-slider">
+                            <Slider {...settingsHifiMobile} className="hifi-slider">
                                 <div>
                                     <div className="hifi-slider-container">
                                         <img src={Hifi5} alt="High-fidelity prototype 5" />

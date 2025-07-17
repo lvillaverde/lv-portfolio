@@ -10,6 +10,7 @@ import MapBefore from '../assets/study-cases/nextchange/map.jpg';
 import MapAfter from '../assets/study-cases/nextchange/map-after.png';
 import AlertsBefore from '../assets/study-cases/nextchange/alerts-before.png';
 import AlertsAfter from '../assets/study-cases/nextchange/alerts-after.png';
+import Footer from './Footer';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -355,6 +356,7 @@ function StudyCaseDetailNextchange({ studyCase }) {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

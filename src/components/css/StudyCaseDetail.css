@@ -282,7 +282,7 @@ p.author {
 .hifi-slider img {
     max-width: 960px;
     max-height: 540px;
-    margin: 0 32px 0 0;
+    margin: 0 0 0 0;
     width: auto;
 }
 
@@ -332,6 +332,19 @@ img.styled-img {
     margin: 0;
 }
 
+.study-case-detail .content {
+    padding: 0;
+}
+
+.study-case-detail .desktop .hifi-slider-container img,
+.study-case-detail .desktop-wireframes .hifi-slider-container img {
+    width: 100%;
+    height: auto;
+    max-height: max-content;
+    max-width: max-content;
+    margin: 0;
+}
+
 @media (max-width: 1440px) {
     .section.study-case-header {
         height: 90vh;
@@ -347,6 +360,11 @@ img.styled-img {
     .column-grid-2 {
         flex-flow: column;
         align-items: center;
+    }
+
+    .image-description {
+        width: 100%;
+        ;
     }
 }
 
@@ -394,5 +412,11 @@ img.styled-img {
 
     .quote {
         flex-flow: column;
+    }
+
+    .metrics-container {
+        flex-flow: column;
+        align-items: center;
+        gap: 32px;
     }
 }

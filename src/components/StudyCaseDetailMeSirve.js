@@ -26,7 +26,7 @@ import Shop5 from '../assets/study-cases/mesirve/shop-5.png';
 import Shop6 from '../assets/study-cases/mesirve/shop-6.png';
 import QuoteIcon from '../assets/icons/quote.svg';
 
-
+import Footer from './Footer';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -294,6 +294,7 @@ function StudyCaseDetailMeSirve({ studyCase }) {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     );
 }

@@ -17,7 +17,7 @@ function StudyCases() {
             ease: "power2.out",
             scrollTrigger: {
                 trigger: titleRef.current,
-                //start: "top 80%",
+                start: "top 80%",
                 toggleActions: "play none none reverse"
                 // markers: true // Descomenta para depurar
             }
