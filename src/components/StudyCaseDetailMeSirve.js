@@ -27,6 +27,7 @@ import Shop6 from '../assets/study-cases/mesirve/shop-6.png';
 import QuoteIcon from '../assets/icons/quote.svg';
 import Header from './Header';
 import Footer from './Footer';
+import MoreStudyCases from './MoreStudyCases';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -290,6 +291,12 @@ function StudyCaseDetailMeSirve({ studyCase }) {
                             <p>Lean UX proved to be the perfect methodology for <strong>moving fast</strong> while staying focused. It fit seamlessly with our Agile team, where developers and testers were ready to iterate quickly. Although I had used this approach in previous projects, revisiting tools like the Lean UX Canvas reminded me of their real value—something often underestimated.</p>
                             <p>Working on a product that I co-own brought an entirely different level of responsibility. Every decision required extra care, and the challenge went beyond design—it tested my technical skills, persistence, product vision, and creativity.</p>
                             <p><strong>Stay tuned for more updates!</strong></p>
+                        </div>
+                    </div>
+                    <div className="section"> {/* More Study Cases */}
+                        <div className="section-content">
+                            <h2>More Study Cases</h2>
+                            <MoreStudyCases currentCaseId="mesirve" />
                         </div>
                     </div>
                 </div>

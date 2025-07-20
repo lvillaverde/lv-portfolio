@@ -25,6 +25,7 @@ import Hifi12 from '../assets/study-cases/edden/hifi12.png';
 import Hifi13 from '../assets/study-cases/edden/hifi13.png';
 import DesignSystem from '../assets/study-cases/edden/design-system.png';
 import AppWorking from '../assets/study-cases/edden/app-working.jpg';
+import MoreStudyCases from './MoreStudyCases';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -409,6 +410,12 @@ function StudyCaseDetailEdden({ studyCase }) {
                             <p>Applying Design Thinking doesn't mean following a rigid structure. On the contrary, it's a methodology that allows for <strong>flexibility and adaptation</strong> based on the project's context. In our case, we blended phases like Testing with Prototyping, and even Definition with Prototyping. When time allows, it’s even more valuable to move back and forth between stages to refine the details.</p>
                             <p>Another important takeaway (or rather, a confirmation) was the value of working with <strong>real users</strong> and consulting them actively. This helps us move away from biases and assumptions, and truly embrace user-centered design.</p>
                             <p>Finally, the experience of having the <strong>entire team</strong> contribute with ideas, feedback, and perspectives was incredibly enriching. It helped us stay open-minded, improve decision-making, and deliver a much stronger product.</p>
+                        </div>
+                    </div>
+                    <div className="section"> {/* More Study Cases */}
+                        <div className="section-content">
+                            <h2>More Study Cases</h2>
+                            <MoreStudyCases currentCaseId="edden" />
                         </div>
                     </div>
                 </div>

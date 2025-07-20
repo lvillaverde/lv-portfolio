@@ -1,0 +1,157 @@
+.more-study-cases {
+    padding: var(--xl-spacing) 0;
+    width: 100%;
+}
+
+.more-study-cases h2 {
+    text-align: center;
+    margin-bottom: var(--lg-spacing);
+    font-family: 'Nexa', 'Merriweather Sans', sans-serif;
+    font-size: 2.5em;
+    font-weight: 900;
+}
+
+.more-study-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.more-study-case {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--gray-3);
+}
+
+.more-study-case:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: inherit;
+}
+
+.more-study-case .img-link {
+    display: block;
+    overflow: hidden;
+}
+
+.more-study-case img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.more-study-case:hover img {
+    transform: scale(1.05);
+}
+
+.more-study-case .description {
+    padding: var(--lg-spacing);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.more-study-case h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    font-family: 'Nexa', 'Merriweather Sans', sans-serif;
+    color: var(--primary-color);
+}
+
+.more-study-case h4 {
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0 0 1rem 0;
+    color: var(--accent-color);
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+.more-study-case p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--gray-2);
+    margin: 2em 0 1rem 0;
+    font-family: 'Merriweather', serif;
+}
+
+.more-study-cases a {
+    text-decoration: none;
+}
+
+.more-study-cases a h3 {
+    color: var(--gray-2);
+    line-height: 1.2em;
+}
+
+.more-study-cases .tag {
+    display: inline-block;
+    border: 0px solid;
+    padding: 0.5em 0.8em;
+    margin-right: 0.5em;
+    border-radius: 16px;
+    font-size: 0.70em;
+    color: #707070;
+    font-family: 'Merriweather Sans';
+    background: #e5e5e5;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 4px 8px 4px 0;
+}
+
+.more-study-case .btn {
+    align-self: flex-start;
+    padding: 12px 24px;
+    background: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.more-study-case .btn:hover {
+    background: hsl(328 92% 67% / 1);
+}
+
+.view-case {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    font-family: 'Merriweather Sans', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.more-study-case:hover .view-case {
+    color: var(--primary-color);
+}
+
+@media screen and (max-width: 768px) {
+    .more-study-cases-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .more-study-case img {
+        height: 180px;
+    }
+    
+    .more-study-cases h2 {
+        font-size: 2em;
+    }
+    
+    .more-study-case .description {
+        padding: 1.25rem;
+    }
+}

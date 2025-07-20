@@ -11,6 +11,7 @@ import AlertsBefore from '../assets/study-cases/nextchange/alerts-before.png';
 import AlertsAfter from '../assets/study-cases/nextchange/alerts-after.png';
 import Header from './Header';
 import Footer from './Footer';
+import MoreStudyCases from './MoreStudyCases';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -352,6 +353,12 @@ function StudyCaseDetailNextchange({ studyCase }) {
               <p>Constant <strong>communication</strong> with both the team and the client was another key factor. Our daily meetings kept everyone aligned, and the client’s commitment to providing almost instant feedback helped the process flow smoothly.</p>
               <p>Lastly, one of the biggest lessons in projects like this: <strong>flexibility</strong>. Knowing when to focus, prioritize, and use only the essential tools to deliver a project on time and within budget is an invaluable skill when resources are limited.</p>
               <p>That’s how I wrapped up my involvement in this project—with a very happy client and a strong result delivered in record time.</p>
+            </div>
+          </div>
+          <div className="section"> {/* More Study Cases */}
+            <div className="section-content">
+              <h2>More Study Cases</h2>
+              <MoreStudyCases currentCaseId="nextchange" />
             </div>
           </div>
         </div>

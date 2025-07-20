@@ -1,0 +1,38 @@
+[
+  {
+    "id": "mesirve",
+    "image": {
+      "src": "/src/assets/study-cases/mesirve/thumbnail.png",
+      "alt": "Study Case 3"
+    },
+    "title": "From Hypothesis to Product: A Lean UX Journey in the Argentine Market",
+    "tags": ["Mobile", "Lean UX", "Brand Design"],
+    "description": "How we created Me Sirve, an app designed for the Argentine market that connects local shops and buyers with nearby deals.",
+    "buttonText": "View More",
+    "url": "/From-Hypothesis-to-Product-A-Lean-UX-Journey-in-the-Argentine-Market"
+  },
+  {
+    "id": "nextchange",
+    "image": {
+      "src": "/src/assets/study-cases/nextchange/thumbnail.png",
+      "alt": "Study Case 1"
+    },
+    "title": "One Month, Big Changes: UX, UI and Design System Optimization",
+    "tags": ["User Testing", "Design System", "Prototyping"],
+    "description": "A look into the process behind redesigning an existing interface, where in just one month we optimized usability, improved the visual language, and adapted an existing Design System to meet new needs.",
+    "buttonText": "View More",
+    "url": "/One-Month-Big-Changes-Ux-Ui-And-Design-System"
+  },
+  {
+    "id": "edden",
+    "image": {
+      "src": "/src/assets/study-cases/edden/thumbnail.jpg",
+      "alt": "Design Thinking in Action: Creating a SaaS EdTech App"
+    },
+    "title": "Design Thinking in Action: Creating a SaaS EdTech App",
+    "tags": ["Design Thinking", "Research", "UI Design"],
+    "description": "A step-by-step look at how we used Design Thinking to build an intuitive and impactful SaaS application for the education sector.",
+    "buttonText": "View More",
+    "url": "/Design-Thinking-in-Action-Creating-a-SaaS-EdTech-App"
+  }
+]

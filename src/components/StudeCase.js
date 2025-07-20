@@ -7,45 +7,25 @@ import "./css/StudyCase.css";
 import NextchangeThumbnail from "../assets/study-cases/nextchange/thumbnail.png";
 import EddenThumbnail from "../assets/study-cases/edden/thumbnail.jpg";
 import MeSirveThumbnail from "../assets/study-cases/mesirve/thumbnail.png";
+import studyCasesData from "../data/studyCases.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Array con la información de 3 study cases
-const studyCases = [
-    {
-        image: {
-            src: MeSirveThumbnail,
-            alt: "Study Case 3"
-        },
-        title: "From Hypothesis to Product: A Lean UX Journey in the Argentine Market",
-        tags: ["Mobile", "Lean UX", "Brand Design"],
-        description: "How we created Me Sirve, an app designed for the Argentine market that connects local shops and buyers with nearby deals.",
-        buttonText: "View More",
-        url: '/From-Hypothesis-to-Product-A-Lean-UX-Journey-in-the-Argentine-Market'
-    },
-    {
-        image: {
-            src: NextchangeThumbnail,
-            alt: "Study Case 1"
-        },
-        title: "One Month, Big Changes: UX, UI and Design System Optimization",
-        tags: ["User Testing", "Design System", "Prototyping"],
-        description: "A look into the process behind redesigning an existing interface, where in just one month we optimized usability, improved the visual language, and adapted an existing Design System to meet new needs.",
-        buttonText: "View More",
-        url: '/One-Month-Big-Changes-Ux-Ui-And-Design-System'
-    },
-    {
-        image: {
-            src: EddenThumbnail,
-            alt: "Design Thinking in Action: Creating a SaaS EdTech App"
-        },
-        title: "Design Thinking in Action: Creating a SaaS EdTech App",
-        tags: ["Design Thinking", "Research", "UI Design"],
-        description: "A step-by-step look at how we used Design Thinking to build an intuitive and impactful SaaS application for the education sector.",
-        buttonText: "View More",
-        url: '/Design-Thinking-in-Action-Creating-a-SaaS-EdTech-App'
+// Mapear las imágenes importadas con los datos del JSON
+const imageMap = {
+    "/src/assets/study-cases/mesirve/thumbnail.png": MeSirveThumbnail,
+    "/src/assets/study-cases/nextchange/thumbnail.png": NextchangeThumbnail,
+    "/src/assets/study-cases/edden/thumbnail.jpg": EddenThumbnail
+};
+
+// Procesar los datos del JSON para incluir las imágenes correctas
+const studyCases = studyCasesData.map(studyCase => ({
+    ...studyCase,
+    image: {
+        ...studyCase.image,
+        src: imageMap[studyCase.image.src] || studyCase.image.src
     }
-];
+}));
 
 function StudyCase() {
     const containerRef = useRef();
@@ -54,7 +34,7 @@ function StudyCase() {
         // Selecciona todos los divs .study-case dentro del contenedor
         gsap.utils.toArray(containerRef.current.querySelectorAll(".study-case")).forEach((el) => {
             gsap.from(el, {
-                x: 100,
+                y: 100,
                 opacity: 0,
                 duration: 0.8,
                 ease: "power2.out",
