@@ -62,27 +62,18 @@
 }
 
 .study-case a.btn {
-    display: flex;
-    padding: 12px 16px;
-    align-items: flex-start;
-    gap: 10px;
-    border: 0;
+border: 1px solid var(--accent-color);
+    padding: 1em;
+    color: var(--accent-color);
+    border-radius: 6px;
     text-decoration: none;
-
-    border-radius: 4px;
-    background: var(--accent-color);
-
-    color: #FFF;
-    font-family: "Merriweather Sans";
-    font-size: 1em;
-    font-style: normal;
-    font-weight: 800;
-    line-height: 141.293%;
-    /* 25.433px */
+    box-shadow: 1px 1px 1px 1px var(--accent-color);
+    font-family: 'Merriweather Sans';
+    margin: 0em 1em 0 0;
 }
 
 .study-case a.btn:hover {
-    background: hsl(328 92% 67% / 1);
+    background: #f9f9f9;
     transition: 0.2s;
     animation-timing-function: ease;
     cursor: pointer;

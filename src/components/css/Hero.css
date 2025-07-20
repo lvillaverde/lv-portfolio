@@ -105,7 +105,8 @@ button.cta:hover {
 }
 
 .hero .contact .info-row a {
-    text-decoration: none;;
+    text-decoration: none;
+    ;
 }
 
 .contact {
@@ -140,6 +141,51 @@ button.cta:hover {
 
 .buttons-row {
     display: flex;
+}
+
+.profile-picture-container {
+    position: relative;
+    display: inline-block;
+}
+
+.floating-circles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.circle-2 {
+    width: 250px;
+    height: 250px;
+    border: 3px solid hsl(0deg 0% 60% / 40%);
+    top: 0px;
+    right: 0;
+    filter: blur(4px);
+}
+
+.circle-front {
+    width: 250px;
+    height: 250px;
+    border: 1px solid var(--primary-color);
+    top: 0;
+    right: 0;
+    z-index: 1;
+    filter: blur(0px);
+}
+
+.front-layer {
+    z-index: 2;
 }
 
 @media screen and (max-width: 1366px) {

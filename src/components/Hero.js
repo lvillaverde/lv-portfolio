@@ -13,6 +13,7 @@ import "./css/Hero.css";
 
 function Hero(props, heroRef) {
   const hero = useRef();
+  const circlesRef = useRef();
 
   useGSAP(() => {
 
@@ -46,7 +47,48 @@ function Hero(props, heroRef) {
         delay: -1,
       },
     )
-      ;
+
+    // Parallax circles animation
+    const handleMouseMove = (e) => {
+      const { clientX, clientY } = e;
+      const { innerWidth, innerHeight } = window;
+
+      // Normalize mouse position (-1 to 1)
+      const xPos = (clientX / innerWidth - 0.5) * 2;
+      const yPos = (clientY / innerHeight - 0.5) * 2;
+
+      // Animate profile picture with subtle movement
+      gsap.to(".profile-picture", {
+        x: xPos * 4,
+        y: yPos * 4,
+        duration: 1.8,
+        ease: "power2.out"
+      });
+
+      // Animate only circle-2
+      gsap.to(".circle-2", {
+        x: xPos * -10,
+        y: yPos * -10,
+        duration: 1.8,
+        ease: "power2.out"
+      });
+
+      // Animate circle-front (above avatar)
+      gsap.to(".circle-front", {
+        x: xPos * 20,
+        y: yPos * 20,
+        duration: 1.8,
+        ease: "power2.out"
+      });
+    };
+
+    // Add mouse move listener
+    window.addEventListener('mousemove', handleMouseMove);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, { scope: hero });
 
   /* https://www.techietalent.net/ ver el diseño del hero */
@@ -54,7 +96,15 @@ function Hero(props, heroRef) {
   return (
     <div ref={heroRef}>
       <div className="hero" ref={hero}>
-        <img className="profile-picture" src={avatar} alt="hi!" />
+        <div className="profile-picture-container">
+          <div className="floating-circles" ref={circlesRef}>
+            <div className="circle circle-2"></div>
+          </div>
+          <img className="profile-picture" src={avatar} alt="hi!" />
+          <div className="floating-circles front-layer">
+            <div className="circle circle-front"></div>
+          </div>
+        </div>
         <div className="info-container">
           <h2 className="title static">👋 Hello!<br /> I’m Leandro</h2>
           <h2 className="title typewriter"><TypewriterHeader text="👋 Hello! I’m Leandro" /></h2>
