@@ -21,6 +21,13 @@
     margin-bottom: 2em;
 }
 
+/* Asegurar que el contenido esté por encima */
+.hero img.profile-picture,
+.hero .info-container {
+    position: relative;
+    z-index: 5;
+}
+
 .hero h2 {
     font-size: 3em;
     font-weight: 900;

@@ -15,7 +15,6 @@ function Hero(props, heroRef) {
   const hero = useRef();
 
   useGSAP(() => {
-
     let tl = gsap.timeline();
     tl.from(
       ".profile-picture",
@@ -45,19 +44,16 @@ function Hero(props, heroRef) {
         ease: "power2.out",
         delay: -1,
       },
-    )
-      ;
+    );
   }, { scope: hero });
-
-  /* https://www.techietalent.net/ ver el diseño del hero */
 
   return (
     <div ref={heroRef}>
       <div className="hero" ref={hero}>
         <img className="profile-picture" src={avatar} alt="hi!" />
         <div className="info-container">
-          <h2 className="title static">👋 Hello!<br /> I’m Leandro</h2>
-          <h2 className="title typewriter"><TypewriterHeader text="👋 Hello! I’m Leandro" /></h2>
+          <h2 className="title static">👋 Hello!<br /> I'm Leandro</h2>
+          <h2 className="title typewriter"><TypewriterHeader text="👋 Hello! I'm Leandro" /></h2>
           <div className="information">
             <p className="paragraph">I'm a Specialist Product Designer with 15+ years of experience creating <span>efficient, elegant, and user-centered</span> solutions.</p>
             <div className="contact">
@@ -75,10 +71,8 @@ function Hero(props, heroRef) {
                   <a href="mailto:lhvillaverde@gmail.com"><p>lhvillaverde@gmail.com</p></a>
                 </div>
               </div>
-
             </div>
           </div>
-
         </div>
         <button className="cta" onClick={props.onCtaClick}>
           <img src={scrollIcon} alt="#" />
