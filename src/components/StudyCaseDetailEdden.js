@@ -32,8 +32,40 @@ import Footer from './Footer';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 function StudyCaseDetailEdden({ studyCase }) {
+    useEffect(() => {
+        gsap.fromTo(
+            ".study-case-detail",
+            { opacity: 0 },
+            { opacity: 1, duration: 1.5 }
+        );
+
+        gsap.utils.toArray(".section").forEach((section) => {
+            if (!section.classList.contains("study-case-header")) {
+                gsap.fromTo(
+                    section,
+                    { opacity: 0, y: 50 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1,
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top 80%",
+                            toggleActions: "play none none none",
+                        },
+                    }
+                );
+            }
+        });
+    }, []);
+
     var settings = {
         dots: true,
         arrows: true,
