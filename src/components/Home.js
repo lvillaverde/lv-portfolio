@@ -19,7 +19,7 @@ function Home() {
 
   // Centralizar animaciones
   useGSAP(() => {
-    // Animación de fade out para Hero
+    // Animación de fade out y blur para Hero
     gsap.to(heroRef.current, {
       scrollTrigger: {
         trigger: heroRef.current,
@@ -28,6 +28,7 @@ function Home() {
         scrub: 1,
       },
       opacity: 0,
+      filter: "blur(5px)",
     });
 
     // Animación de fade in y fade out para About en una sola timeline con rangos separados

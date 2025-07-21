@@ -2,7 +2,7 @@
   "name": "lv-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lvillaverde.github.io/portfolio/",
+  "homepage": "https://lvillaverde.com",
   "predeploy": "npm run build",
   "deploy": "gh-pages -d build",
   "dependencies": {

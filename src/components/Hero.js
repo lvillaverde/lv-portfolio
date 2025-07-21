@@ -48,6 +48,8 @@ function Hero(props, heroRef) {
       },
     )
 
+    let resetTimeout;
+
     // Parallax circles animation
     const handleMouseMove = (e) => {
       const { clientX, clientY } = e;
@@ -56,6 +58,9 @@ function Hero(props, heroRef) {
       // Normalize mouse position (-1 to 1)
       const xPos = (clientX / innerWidth - 0.5) * 2;
       const yPos = (clientY / innerHeight - 0.5) * 2;
+
+      // Clear existing timeout
+      clearTimeout(resetTimeout);
 
       // Animate profile picture with subtle movement
       gsap.to(".profile-picture", {
@@ -67,19 +72,43 @@ function Hero(props, heroRef) {
 
       // Animate only circle-2
       gsap.to(".circle-2", {
-        x: xPos * -10,
-        y: yPos * -10,
+        x: xPos * -8,
+        y: yPos * -8,
         duration: 1.8,
         ease: "power2.out"
       });
 
       // Animate circle-front (above avatar)
       gsap.to(".circle-front", {
-        x: xPos * 20,
-        y: yPos * 20,
+        x: xPos * 8,
+        y: yPos * 8,
         duration: 1.8,
         ease: "power2.out"
       });
+
+      // Set timeout to reset positions after 3 seconds of inactivity
+      resetTimeout = setTimeout(() => {
+        gsap.to(".profile-picture", {
+          x: 0,
+          y: 0,
+          duration: 2,
+          ease: "power2.out"
+        });
+
+        gsap.to(".circle-2", {
+          x: 0,
+          y: 0,
+          duration: 2,
+          ease: "power2.out"
+        });
+
+        gsap.to(".circle-front", {
+          x: 0,
+          y: 0,
+          duration: 2,
+          ease: "power2.out"
+        });
+      }, 1500);
     };
 
     // Add mouse move listener
@@ -88,6 +117,7 @@ function Hero(props, heroRef) {
     // Cleanup
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      clearTimeout(resetTimeout);
     };
   }, { scope: hero });
 
