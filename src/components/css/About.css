@@ -17,6 +17,10 @@ div#about {
     padding-top: 48px;
 }
 
+div#about.base-section {
+    background: radial-gradient(circle at 100% 85%, rgb(136 255 85 / 40%) 0, rgb(86 255 85 / 3%) 45%, rgb(76 210 45 / 0%) 100%);
+}
+
 @media screen and (max-width: 1024px) {
     .content p {
         width: 100%;

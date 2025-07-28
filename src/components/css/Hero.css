@@ -89,18 +89,35 @@ button.cta:hover {
 }
 
 .hero .contact .buttons-row a {
-    border: 1px solid var(--accent-color);
-    padding: 1em;
-    color: var(--accent-color);
-    border-radius: 6px;
+    padding: 0.5em 0.5em 0.5em 1.2em;
+    color: white;
+    border-radius: 33px;
     text-decoration: none;
-    box-shadow: 1px 1px 1px 1px var(--accent-color);
     font-family: 'Merriweather Sans';
     margin: 0em 1em 0 0;
+    display: flex;
+    gap: 16px;
+    background: var(--accent-color);
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.hero .arrow-button {
+    width: 32px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    border-radius: 16px;
+}
+
+.arrow-button img {
+    width: 14px;
 }
 
 .hero .contact .buttons-row a:hover {
-    background: #e5097d14;
+    background: #a50459;
     transition: 0.3s ease;
 }
 
@@ -252,5 +269,13 @@ button.cta:hover {
         flex-flow: column;
         align-items: center;
         gap: 8px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .buttons-row {
+        flex-flow: column;
+        gap: 18px;
+        align-items: center;
     }
 }

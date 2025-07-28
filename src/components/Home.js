@@ -8,6 +8,7 @@ import Hero from './Hero';
 import About from './About';
 import SkillBand from "./SkillBand";
 import StudyCases from './StudyCases';
+import MoreProjects from './MoreProjects';
 import Footer from './Footer';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -99,6 +100,7 @@ function Home() {
         <SkillBand />
       </div> */}
       <StudyCases />
+      <MoreProjects />
       <Footer isHome={true} />
     </>
   );

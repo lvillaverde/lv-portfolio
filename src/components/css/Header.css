@@ -4,10 +4,12 @@ header.header {
     top: 0;
     width: 100%;
     z-index: 1000;
-    /* Asegura que el menú esté por encima de otros elementos */
     background-color: white;
-    /* Opcional: para que el fondo sea visible si hay contenido detrás */
     justify-content: center;
+    background: rgb(255 255 255 / 75%);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5.9px);
+    border: 1px solid rgba(255, 255, 255, 0.24);
 }
 
 .header div.header-container {

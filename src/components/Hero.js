@@ -4,6 +4,8 @@ import gsap from "gsap";
 import avatar from "../images/avatar_1.png";
 import scrollIcon from "../assets/icons/double-down.svg";
 import mapPointer from "../assets/icons/map-pointer.svg";
+import Linkedin from "../assets/icons/linkedin.svg";
+import Download from "../assets/icons/download.svg";
 import email from "../assets/icons/mail.svg";
 import cvFile from "../assets/cv/CV-Leandro-Villaverde.docx";
 import TypewriterHeader from "./TypewritterHeader";
@@ -141,11 +143,21 @@ function Hero(props, heroRef) {
           <div className="information">
             <p className="paragraph">I'm a Specialist Product Designer with 15+ years of experience creating <span>efficient, elegant, and user-centered</span> solutions.</p>
             <div className="contact">
-              <div class="buttons-row">
-                <a href="https://www.linkedin.com/in/lvillaverde/" target="_blank" rel="noreferrer">Linkedin</a>
-                <a href={cvFile} download="CV-Leandro-Villaverde.docx" rel="noreferrer">Download CV</a>
+              <div className="buttons-row">
+                <a href="https://www.linkedin.com/in/lvillaverde/" target="_blank" rel="noreferrer">
+                  Linkedin
+                  <div className="arrow-button">                    
+                    <img src={Linkedin} alt="Linkedin" />
+                  </div>
+                </a>
+                <a href={cvFile} download="CV-Leandro-Villaverde.docx" rel="noreferrer">
+                  Download CV
+                  <div className="arrow-button">
+                    <img src={Download} alt="Download CV" />
+                  </div>
+                </a>
               </div>
-              <div class="info-row">
+              <div className="info-row">
                 <div className="info-item">
                   <img src={mapPointer} alt="Location" />
                   <p>Montevideo, Uruguay</p>
