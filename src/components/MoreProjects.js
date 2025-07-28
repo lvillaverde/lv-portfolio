@@ -183,7 +183,7 @@ function MoreProjects() {
     ]
   };
   return (
-    <div className="more-projects">
+    <div className="more-projects" id="more-projects">
       <div className="container">
         <h3>More Projects</h3>
         <Slider {...MoreProjectsSettings} className="more-projects-slider">

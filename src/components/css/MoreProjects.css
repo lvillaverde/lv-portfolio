@@ -258,7 +258,7 @@
 }
 
 .modal-slider .slick-dots li button:before {
-  color: white;
+  color: #000;
   font-size: 12px;
 }
 

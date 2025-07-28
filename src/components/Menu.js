@@ -8,7 +8,7 @@ const menuItems = [
     { name: "About Me", link: "#about" },
     // { name: "My Process", link: "#process" },
     { name: "Study Cases", link: "#study-cases" },
-    // { name: "Snapshots", link: "#snapshots" },
+    { name: "More Projects", link: "#more-projects" },
     // { name: "Contact", link: "#contact" }
 ];
 

@@ -138,8 +138,8 @@ function Hero(props, heroRef) {
           </div>
         </div>
         <div className="info-container">
-          <h2 className="title static">👋 Hello!<br /> I’m Leandro</h2>
-          <h2 className="title typewriter"><TypewriterHeader text="👋 Hello! I’m Leandro" /></h2>
+          <h2 className="title static">Hello!<br /> I’m Leandro</h2>
+          <h2 className="title typewriter"><TypewriterHeader text="Hello! I’m Leandro" /></h2>
           <div className="information">
             <p className="paragraph">I'm a Specialist Product Designer with 15+ years of experience creating <span>efficient, elegant, and user-centered</span> solutions.</p>
             <div className="contact">

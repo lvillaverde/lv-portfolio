@@ -17,6 +17,7 @@ function Home() {
   const heroRef = useRef();
   const aboutRef = useRef();
   const skillBandRef = useRef();
+  const moreProjectsRef = useRef();
 
   // Centralizar animaciones
   useGSAP(() => {
@@ -54,6 +55,18 @@ function Home() {
       },
       opacity: 1,
     });
+
+    // Animación de fade in y fade out para MoreProjects igual que About
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: moreProjectsRef.current,
+        start: "top center",
+        end: "bottom center",
+        scrub: 1,
+      }
+    })
+      .to(moreProjectsRef.current, { opacity: 1, duration: 0.2, ease: "none" }, 0) // fade in en la primera mitad
+      .to(moreProjectsRef.current, { opacity: 0, duration: 0.2, ease: "none" }, 0.5); // fade out en la segunda mitad
   }, []);
 
   // Manejar el scroll al presionar el botón .cta
@@ -100,7 +113,9 @@ function Home() {
         <SkillBand />
       </div> */}
       <StudyCases />
-      <MoreProjects />
+      <div ref={moreProjectsRef} style={{ opacity: 0 }}>
+        <MoreProjects />
+      </div>
       <Footer isHome={true} />
     </>
   );
