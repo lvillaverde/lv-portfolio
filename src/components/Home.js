@@ -109,13 +109,14 @@ function Home() {
       <div id="about" ref={aboutRef} style={{ opacity: 0, minHeight: "100vh" }}>
         <About />
       </div>
-      {/* <div id="skillband" ref={skillBandRef} style={{ opacity: 0, width: "calc(100vw - 20px)", overflow: "hidden" }}>
-        <SkillBand />
-      </div> */}
+
       <StudyCases />
       <div ref={moreProjectsRef} style={{ opacity: 0 }}>
         <MoreProjects />
-      </div>
+      </div> {/*}
+      <div id="skillband" ref={skillBandRef} style={{ opacity: 0, width: "calc(100vw - 20px)", overflow: "hidden" }}>
+        <SkillBand />
+      </div> */}
       <Footer isHome={true} />
     </>
   );
