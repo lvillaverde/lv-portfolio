@@ -29,7 +29,7 @@ function StudyCases() {
             scrollTrigger: {
                 trigger: sectionRef.current,
                 start: "top center",
-                end: "bottom center",
+                end: "bottom 15%",
                 scrub: 1,
             }
         })

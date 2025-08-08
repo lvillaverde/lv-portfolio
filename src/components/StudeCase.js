@@ -43,8 +43,8 @@ function StudyCase() {
                     trigger: el,
                     start: "top 80%",
                     end: "top 60%",
-                    toggleActions: "play none none reverse"
-                    // markers: true // Descomenta para depurar
+                    toggleActions: "play none none reverse",
+                    // markers: true, // Descomenta para depurar
                 }
             });
 
