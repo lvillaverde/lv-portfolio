@@ -141,7 +141,7 @@ function Hero(props, heroRef) {
           <h2 className="title static">Hello!<br /> I’m Leandro</h2>
           <h2 className="title typewriter"><TypewriterHeader text="Hello! I’m Leandro" /></h2>
           <div className="information">
-            <p className="paragraph">I'm a Specialist Product Designer with 15+ years of experience creating <span>efficient, elegant, and user-centered</span> solutions.</p>
+            <p className="paragraph">Product Designer with 15+ years of experience, focused on enterprise software, SaaS solutions, and data-informed design.</p>
             <div className="contact">
               <div className="buttons-row">
                 <a href="https://www.linkedin.com/in/lvillaverde/" target="_blank" rel="noreferrer">
