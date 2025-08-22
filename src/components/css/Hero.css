@@ -7,30 +7,33 @@
     align-content: center;
     flex-wrap: wrap;
     font-family: 'Merriweather Sans', sans-serif;
-    border-bottom: 1px solid var(--gray-3);
+    border-bottom: 1px solid var(--dark-default-border-color);
     position: relative;
 }
 
 .hero img.profile-picture {
-    width: 250px;
-    height: 250px;
+    width: 390px;
+    border-radius: 50% 50% 50% 16px;
 }
 
 .hero div.info-container {
     max-width: 35vw;
     margin-bottom: 2em;
+    justify-content: center;
+    display: flex;
+    flex-flow: column;
 }
 
 .hero h2 {
     font-size: 3em;
     font-weight: 900;
     font-family: 'Nexa', 'Merriweather Sans', sans-serif;
-    margin-top: 0;
+    margin: 0;
     justify-content: flex-start;
 }
 
 .hero h2 span {
-    color: var(--primary-color);
+    color: var(--dark-primary-text);
 }
 
 .hero p {
@@ -40,6 +43,7 @@
     color: var(--gray-2);
     font-family: 'Merriweather Sans';
     letter-spacing: 0.02em;
+    color: var(--dark-default-text);
 }
 
 .hero p span {
@@ -54,10 +58,9 @@
     gap: var(--smp-spacing);
     padding: var(--smp-spacing) var(--mdp-spacing);
     position: relative;
-    background-color: #ffffff;
     border-radius: var(--lg-spacing);
-    border: 1px solid;
-    border-color: var(--gray-3);
+    border: 1px solid var(--dark-primary-border-color);
+    background: var(--dark-background-color);
     position: absolute;
     bottom: -26px;
     z-index: 9;
@@ -65,8 +68,7 @@
 }
 
 button.cta:hover {
-    background: #f9f9f9;
-    color: white;
+    background: var(--dark-elevation-1-background-color);
     transition: 0.3s ease-in;
 }
 
@@ -77,7 +79,7 @@ button.cta:hover {
 .hero .cta p {
     font-family: "Merriweather Sans-Light", Helvetica;
     font-weight: 300;
-    color: var(--gray-2);
+    color: var(--dark-primary-text);
     font-size: 14px;
     letter-spacing: 2.52px;
     text-transform: uppercase;
@@ -90,21 +92,21 @@ button.cta:hover {
 
 .hero .contact .buttons-row a {
     padding: 0.5em 0.5em 0.5em 1.2em;
-    color: white;
+    color: var(--dark-primary-text);
     border-radius: 33px;
     text-decoration: none;
     font-family: 'Merriweather Sans';
     margin: 0em 1em 0 0;
     display: flex;
     gap: 16px;
-    background: var(--accent-color);
+    border: 1px solid var(--dark-primary-border-color);
     align-items: center;
     font-size: 0.9rem;
 }
 
 .hero .arrow-button {
     width: 32px;
-    background: white;
+    border: 1px solid var(--dark-primary-border-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -117,7 +119,7 @@ button.cta:hover {
 }
 
 .hero .contact .buttons-row a:hover {
-    background: #a50459;
+    background: var(--dark-elevation-1-background-color);
     transition: 0.3s ease;
 }
 
@@ -148,7 +150,7 @@ button.cta:hover {
     margin: 0;
     font-family: 'Merriweather Sans';
     font-weight: 200;
-    color: var(--gray-2);
+    color: var(--dark-default-text);
 }
 
 .info-item {
@@ -165,45 +167,12 @@ button.cta:hover {
     display: inline-block;
 }
 
-.floating-circles {
+.hero .background-shape {
+    background: var(--dark-primary-border-color);
+    width: 390px;
+    height: 390px;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-}
-
-.circle {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-.circle-2 {
-    width: 250px;
-    height: 250px;
-    border: 3px solid hsl(0deg 0% 60% / 40%);
-    top: 0px;
-    right: 0;
-    filter: blur(4px);
-    background: hsl(0deg 0% 60% / 40%);
-}
-
-.circle-front {
-    width: 240px;
-    height: 240px;
-    border: 1px solid var(--primary-color);
-    top: 5px;
-    right: 5px;
-    z-index: 1;
-    filter: blur(0px);
-}
-
-.front-layer {
-    z-index: 2;
+    border-radius: 50% 16px 50% 50%;
 }
 
 @media screen and (max-width: 1366px) {

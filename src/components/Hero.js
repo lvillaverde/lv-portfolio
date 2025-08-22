@@ -15,128 +15,39 @@ import "./css/Hero.css";
 
 function Hero(props, heroRef) {
   const hero = useRef();
-  const circlesRef = useRef();
 
   useGSAP(() => {
-
     let tl = gsap.timeline();
-    tl.from(
-      ".profile-picture",
-      {
-        scale: 0.1,
-        opacity: 0,
-        duration: 1.3,
-        ease: "expo.out"
-      }
-    )
-    tl.from(
-      ".title",
-      {
-        y: 50,
-        opacity: 0,
-        duration: 1.3,
-        ease: "power2.out",
-        delay: -1,
-      },
-    )
-    tl.from(
-      ".information",
-      {
-        y: -50,
-        opacity: 0,
-        duration: 1.3,
-        ease: "power2.out",
-        delay: -1,
-      },
-    )
+    tl.from(".profile-picture", {
+      scale: 0.1,
+      opacity: 0,
+      duration: 1.3,
+      ease: "expo.out"
+    })
+    tl.from(".title", {
+      y: 50,
+      opacity: 0,
+      duration: 1.3,
+      ease: "power2.out",
+      delay: -1,
+    })
+    tl.from(".information", {
+      y: -50,
+      opacity: 0,
+      duration: 1.3,
+      ease: "power2.out",
+      delay: -1,
+    })
 
-    let resetTimeout;
-
-    // Parallax circles animation
-    const handleMouseMove = (e) => {
-      const { clientX, clientY } = e;
-      const { innerWidth, innerHeight } = window;
-
-      // Normalize mouse position (-1 to 1)
-      const xPos = (clientX / innerWidth - 0.5) * 2;
-      const yPos = (clientY / innerHeight - 0.5) * 2;
-
-      // Clear existing timeout
-      clearTimeout(resetTimeout);
-
-      // Animate profile picture with subtle movement
-      gsap.to(".profile-picture", {
-        x: xPos * 4,
-        y: yPos * 4,
-        duration: 1.8,
-        ease: "power2.out"
-      });
-
-      // Animate only circle-2
-      gsap.to(".circle-2", {
-        x: xPos * -8,
-        y: yPos * -8,
-        duration: 1.8,
-        ease: "power2.out"
-      });
-
-      // Animate circle-front (above avatar)
-      gsap.to(".circle-front", {
-        x: xPos * 8,
-        y: yPos * 8,
-        duration: 1.8,
-        ease: "power2.out"
-      });
-
-      // Set timeout to reset positions after 3 seconds of inactivity
-      resetTimeout = setTimeout(() => {
-        gsap.to(".profile-picture", {
-          x: 0,
-          y: 0,
-          duration: 2,
-          ease: "power2.out"
-        });
-
-        gsap.to(".circle-2", {
-          x: 0,
-          y: 0,
-          duration: 2,
-          ease: "power2.out"
-        });
-
-        gsap.to(".circle-front", {
-          x: 0,
-          y: 0,
-          duration: 2,
-          ease: "power2.out"
-        });
-      }, 1500);
-    };
-
-    // Add mouse move listener
-    window.addEventListener('mousemove', handleMouseMove);
-
-    // Cleanup
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      clearTimeout(resetTimeout);
+      tl.kill();
     };
   }, { scope: hero });
-
-  /* https://www.techietalent.net/ ver el diseño del hero */
 
   return (
     <div ref={heroRef}>
       <div className="hero" ref={hero}>
-        <div className="profile-picture-container">
-          <div className="floating-circles" ref={circlesRef}>
-            <div className="circle circle-2"></div>
-          </div>
-          <img className="profile-picture" src={avatar} alt="hi!" />
-          <div className="floating-circles front-layer">
-            <div className="circle circle-front"></div>
-          </div>
-        </div>
+
         <div className="info-container">
           <h2 className="title static">Hello!<br /> I’m Leandro</h2>
           <h2 className="title typewriter"><TypewriterHeader text="Hello! I’m Leandro" /></h2>
@@ -172,6 +83,10 @@ function Hero(props, heroRef) {
           </div>
 
         </div>
+        <div className="profile-picture-container">
+          <div className="background-shape"></div>
+          <img className="profile-picture" src={avatar} alt="hi!" />
+        </div>        
         <button className="cta" onClick={props.onCtaClick}>
           <img src={scrollIcon} alt="#" />
           <p>Scroll to explore</p>

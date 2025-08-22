@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import "./css/StudyCase.css";
 import NextchangeThumbnail from "../assets/study-cases/nextchange/thumbnail.png";
-import EddenThumbnail from "../assets/study-cases/edden/thumbnail.jpg";
+import EddenThumbnail from "../assets/study-cases/edden/thumbnail.png";
 import MeSirveThumbnail from "../assets/study-cases/mesirve/thumbnail.png";
 import ReadIcon from "../assets/icons/read-icon-accent.svg";
 import studyCasesData from "../data/studyCases.json";
@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 const imageMap = {
     "/src/assets/study-cases/mesirve/thumbnail.png": MeSirveThumbnail,
     "/src/assets/study-cases/nextchange/thumbnail.png": NextchangeThumbnail,
-    "/src/assets/study-cases/edden/thumbnail.jpg": EddenThumbnail
+    "/src/assets/study-cases/edden/thumbnail.png": EddenThumbnail
 };
 
 // Procesar los datos del JSON para incluir las imágenes correctas
@@ -72,9 +72,8 @@ function StudyCase() {
     return (
         <div className="study-cases-list" ref={containerRef}>
             {studyCases.map((studyCaseData, idx) => (
-                <div className="study-case" key={idx}>
-                    <Link to={studyCaseData.url} className="img-link"><img src={studyCaseData.image.src} alt={studyCaseData.image.alt} /></Link>
-                    <div className="description">
+                <div className={`study-case ${studyCaseData.id}`} key={idx}>
+                    <div className={"description"}>
                         <Link to={studyCaseData.url}>
                             <h4>{studyCaseData.title}</h4>
                         </Link>
@@ -92,6 +91,9 @@ function StudyCase() {
                                 <img src={ReadIcon} alt="Read More" className="read-icon" />
                             </div>
                         </Link>
+                    </div>
+                    <div className="image-background">                        
+                        <img src={studyCaseData.image.src} alt={studyCaseData.title} />
                     </div>
                 </div>
             ))}

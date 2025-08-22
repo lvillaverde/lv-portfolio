@@ -1,0 +1,48 @@
+:root {
+    --lg-spacing: 32px;
+    --mdp-spacing: 24px;
+    --md-spacing: 16px;
+    --smp-spacing: 12px;
+    --sm-spacing: 8px;
+
+    /* Semantic Variables */
+        /* Dark Theme */
+
+            /* Backgrounds & borders */
+            --dark-background-color: #000000;
+            --dark-header-background: rgba(0, 0, 0, 0.75);
+            --dark-elevation-1-background-color: #191919;
+            --dark-menu-highlighted-item: #21f770;
+            --dark-default-border-color: #141414;
+            --dark-primary-border-color: #21402c;
+
+
+            /* Text */
+            --dark-default-text: #ffffff;
+            --dark-primary-text: #21f770;
+            --dark-accent-text: #59002f;
+            --dark-hover-text: #bdbdbd;
+
+        /* Light Theme */
+
+    --light-background-color: #FFFFFF;
+    --light-header-background: rgba(255, 255, 255, 0.75);
+
+    /* Colors */
+    --primary-color: #22C55E;
+    --accent-color: #E5097D;
+    --gray-1: #5B5B5B;
+    --gray-2: #2B2B2B;
+    --gray-3: #ccc;
+    --gray-4: #e0e0e0;
+    --gray-5: #f5f5f5;
+}
+
+
+
+
+/* Layout */
+
+.page-background {
+    background-color: var(--dark-background-color);
+}

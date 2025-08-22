@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import "./css/MoreStudyCases.css";
 import NextchangeThumbnail from "../assets/study-cases/nextchange/thumbnail.png";
-import EddenThumbnail from "../assets/study-cases/edden/thumbnail.jpg";
+import EddenThumbnail from "../assets/study-cases/edden/thumbnail.png";
 import MeSirveThumbnail from "../assets/study-cases/mesirve/thumbnail.png";
 import studyCasesData from "../data/studyCases.json";
 

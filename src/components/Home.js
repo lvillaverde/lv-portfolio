@@ -10,6 +10,7 @@ import SkillBand from "./SkillBand";
 import StudyCases from './StudyCases';
 import MoreProjects from './MoreProjects';
 import Footer from './Footer';
+import "./css/Theme.css";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -106,11 +107,10 @@ function Home() {
       <div id="hero" ref={heroRef}>
         <Hero onCtaClick={handleScrollToAbout} />
       </div>
+      <StudyCases />
       <div id="about" ref={aboutRef} style={{ opacity: 0, minHeight: "100vh" }}>
         <About />
-      </div>
-
-      <StudyCases />
+      </div>      
       <div ref={moreProjectsRef} style={{ opacity: 0 }}>
         <MoreProjects />
       </div> {/*}
