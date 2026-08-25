@@ -17,12 +17,55 @@ div#about {
     padding-top: 48px;
 }
 
-div#about.base-section {
-    background: radial-gradient(circle at 100% 85%, rgb(136 255 85 / 40%) 0, rgb(86 255 85 / 3%) 45%, rgb(76 210 45 / 0%) 100%);
-}
-
 @media screen and (max-width: 1024px) {
     .content p {
         width: 100%;
     }
+}
+
+
+.services-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    gap: 32px;
+}
+
+.services-box h4 {
+    color: white;
+    font-family: 'Nexa';
+    font-size: 1.6em;
+    margin: 0;
+}
+
+.services-box img {
+    width: 64px;
+}
+
+.services-box p {
+    color: var(--dark-default-text);
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 0.9em;
+    font-style: normal;
+    font-weight: 300;
+    width: 100%;
+    line-height: 26px;
+    letter-spacing: 0.02em;
+    margin: 0.5em 0;
+}
+
+.services-box .service-item {
+    background: var(--dark-elevation-1-background-color);
+    padding: 32px;
+    border-radius: 64px 64px 8px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.services-box .service-item.design-systems,
+.services-box .service-item.ux-design {
+    border-radius: 64px 64px 64px 8px;
 }

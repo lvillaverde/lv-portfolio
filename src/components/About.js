@@ -1,19 +1,34 @@
-import React from "react";
 import "./css/About.css";
+import designSystems from "../assets/icons/design-systems.svg"
 
 function About() {
     return (
         <>
             <div className="about base-section" id="about">
                 <div className="content">
-                    <h3>About me</h3>
-                    <p>✨ I'm passionate about turning complex ideas into <b>simple, functional, and engaging experiences</b>. I enjoy collaborating with teams and being involved in every stage of the process—from research to final design. I'm adaptable, a fast learner, and always strive to find the right balance between aesthetics, technology, and real human needs.</p>
-                    <p>💻 I love <b>technology</b> and I'm deeply curious—this drives me to study and understand the tools and technologies that bring my designs to life.</p>
-                    <p>🌴 Outside of work, I enjoy barbecues, dogs, traveling, and constantly exploring new tools. There's always something new to <b>learn</b>.</p>
-                    <p>💡<b>Design is my way of understanding and improving the world — one screen at a time.</b></p>
+                    <h3>My Services</h3>
+                    <div className="services-box">
+                        <div className="service-item design-systems">
+                            <img src={designSystems} alt="Design Systems" />
+                            <h4>Design Systems</h4>
+                            <p>A look into the process behind redesigning an existing interface, where in just one month we optimized usability, improved the visual language, and adapted an existing Design System to meet new needs.</p>
+                        </div>
+                        <div className="service-item ui-design">
+                            <h4>UI Design</h4>
+                            <p>A comprehensive exploration of user interface design, focusing on creating intuitive and visually appealing layouts that enhance user experience.</p>
+                        </div>
+                        <div className="service-item ux-design">
+                            <h4>UX Design</h4>
+                            <p>A deep dive into user experience design, emphasizing the importance of user research, prototyping, and usability testing in creating effective and enjoyable digital products.</p>
+                        </div>
+                        <div className="service-item consulting">
+                            <h4>Consulting</h4>
+                            <p>A collaborative approach to problem-solving, where we work together to identify challenges, explore solutions, and implement strategies that drive success.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
+
         </>
     );
 }
