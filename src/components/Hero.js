@@ -8,89 +8,172 @@ import Linkedin from "../assets/icons/linkedin.svg";
 import Download from "../assets/icons/download.svg";
 import email from "../assets/icons/mail.svg";
 import cvFile from "../assets/cv/CV-Leandro-Villaverde.docx";
-import TypewriterHeader from "./TypewritterHeader";
+import SplitText from "../utils/SplitText";
+import MagneticButton from "../utils/MagneticButton";
+import prefersReducedMotion from "../utils/prefersReducedMotion";
+import HeroBackground from "./HeroBackground";
 import "./css/Hero.css";
-
-
 
 function Hero(props, heroRef) {
   const hero = useRef();
+  const headingRef = useRef();
+  const subHeadingRef = useRef();
+  const paragraphRef = useRef();
+  const buttonsRef = useRef();
+  const infoRef = useRef();
+  const ctaRef = useRef();
 
   useGSAP(() => {
-    let tl = gsap.timeline();
-    tl.from(".profile-picture", {
-      scale: 0.1,
-      opacity: 0,
-      duration: 1.3,
-      ease: "expo.out"
-    })
-    tl.from(".title", {
-      y: 50,
-      opacity: 0,
-      duration: 1.3,
-      ease: "power2.out",
-      delay: -1,
-    })
-    tl.from(".information", {
-      y: -50,
-      opacity: 0,
-      duration: 1.3,
-      ease: "power2.out",
-      delay: -1,
-    })
+    if (prefersReducedMotion()) return;
 
-    return () => {
-      tl.kill();
-    };
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+    tl.from(".hero-shader-bg", {
+      opacity: 0,
+      duration: 2,
+      ease: "power2.inOut",
+    }, 0);
+
+    tl.from(".profile-picture", {
+      scale: 0.9,
+      opacity: 0,
+      duration: 1.4,
+      ease: "expo.out",
+    }, 0);
+
+    if (headingRef.current) {
+      const headingUnits = headingRef.current.querySelectorAll(".split-text-unit");
+      tl.from(headingUnits, {
+        y: "100%",
+        opacity: 0,
+        duration: 0.9,
+        stagger: 0.03,
+        ease: "power3.out",
+      }, 0.3);
+    }
+
+    if (subHeadingRef.current) {
+      const subUnits = subHeadingRef.current.querySelectorAll(".split-text-unit");
+      tl.from(subUnits, {
+        y: "100%",
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.02,
+        ease: "power3.out",
+      }, 0.5);
+    }
+
+    if (paragraphRef.current) {
+      const paraUnits = paragraphRef.current.querySelectorAll(".split-text-unit");
+      tl.from(paraUnits, {
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.015,
+        ease: "power2.out",
+      }, 0.7);
+    }
+
+    if (buttonsRef.current) {
+      tl.from(buttonsRef.current.children, {
+        x: -30,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.1,
+        ease: "power3.out",
+      }, 0.9);
+    }
+
+    if (infoRef.current) {
+      tl.from(infoRef.current.children, {
+        y: 15,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.08,
+        ease: "power2.out",
+      }, 1.0);
+    }
+
+    if (ctaRef.current) {
+      tl.from(ctaRef.current, {
+        y: 20,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      }, 1.1);
+
+      gsap.to(ctaRef.current.querySelectorAll("img"), {
+        y: 4,
+        duration: 0.8,
+        ease: "power1.inOut",
+        yoyo: true,
+        repeat: -1,
+      });
+    }
+
+    return () => tl.kill();
   }, { scope: hero });
 
   return (
     <div ref={heroRef}>
       <div className="hero" ref={hero}>
+        <HeroBackground />
 
-        <div className="info-container">
-          <h2 className="title static">Hello!<br /> I’m Leandro</h2>
-          <h2 className="title typewriter"><TypewriterHeader text="Hello! I’m Leandro" /></h2>
-          <div className="information">
-            <p className="paragraph">Product Designer with 15+ years of experience, focused on enterprise software, SaaS solutions, and data-informed design.</p>
-            <div className="contact">
-              <div className="buttons-row">
-                <a href="https://www.linkedin.com/in/lvillaverde/" target="_blank" rel="noreferrer">
+        <div className="hero-content-row">
+          <div className="hero-text-col">
+            <div className="hero-heading-row">
+              <h1 className="hero-main-heading">
+                <SplitText ref={headingRef} type="chars">Hello!</SplitText>
+                <br />
+                <SplitText ref={subHeadingRef} type="chars" className="hero-name-line">I'm Leandro</SplitText>
+              </h1>
+            </div>
+            <div className="hero-paragraph">
+              <SplitText ref={paragraphRef} type="words">
+                Product Designer with 15+ years of experience, focused on enterprise software, SaaS solutions, and data-informed design.
+              </SplitText>
+            </div>
+            <div className="hero-buttons" ref={buttonsRef}>
+              <MagneticButton strength={0.25}>
+                <a href="https://www.linkedin.com/in/lvillaverde/" target="_blank" rel="noreferrer" className="hero-btn">
                   Linkedin
-                  <div className="arrow-button">                    
+                  <div className="arrow-button">
                     <img src={Linkedin} alt="Linkedin" />
                   </div>
                 </a>
-                <a href={cvFile} download="CV-Leandro-Villaverde.docx" rel="noreferrer">
+              </MagneticButton>
+              <MagneticButton strength={0.25}>
+                <a href={cvFile} download="CV-Leandro-Villaverde.docx" rel="noreferrer" className="hero-btn">
                   Download CV
                   <div className="arrow-button">
                     <img src={Download} alt="Download CV" />
                   </div>
                 </a>
+              </MagneticButton>
+            </div>
+            <div className="hero-info-row" ref={infoRef}>
+              <div className="info-item">
+                <img src={mapPointer} alt="Location" />
+                <p>Montevideo, Uruguay</p>
               </div>
-              <div className="info-row">
-                <div className="info-item">
-                  <img src={mapPointer} alt="Location" />
-                  <p>Montevideo, Uruguay</p>
-                </div>
-                <div className="info-item">
-                  <img src={email} alt="Email" />
-                  <a href="mailto:lhvillaverde@gmail.com"><p>lhvillaverde@gmail.com</p></a>
-                </div>
+              <div className="info-item">
+                <img src={email} alt="Email" />
+                <a href="mailto:lhvillaverde@gmail.com"><p>lhvillaverde@gmail.com</p></a>
               </div>
-
             </div>
           </div>
-
+          <div className="hero-photo-col">
+            <div className="profile-picture-container">
+              <div className="profile-picture-glow" />
+              <img className="profile-picture" src={avatar} alt="Leandro Villaverde" />
+            </div>
+          </div>
         </div>
-        <div className="profile-picture-container">
-          <div className="background-shape"></div>
-          <img className="profile-picture" src={avatar} alt="hi!" />
-        </div>        
-        <button className="cta" onClick={props.onCtaClick}>
-          <img src={scrollIcon} alt="#" />
+
+        <button className="cta" ref={ctaRef} onClick={props.onCtaClick}>
+          <img src={scrollIcon} alt="" />
           <p>Scroll to explore</p>
-          <img src={scrollIcon} alt="#" />
+          <img src={scrollIcon} alt="" />
         </button>
       </div>
     </div>

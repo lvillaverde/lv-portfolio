@@ -1,71 +1,100 @@
-.content p {
-    font-size: 1.1em;
-    font-weight: 100;
-    color: var(--gray-2);
-    line-height: 1.8em;
-    letter-spacing: 0.02em;
-    width: 60%;
-}
-
-.content p b {
-    color: var(--accent-color);
-    font-weight: 700;
-}
-
 div#about {
-    height: 100vh;
-    padding-top: 48px;
+  padding: var(--section-padding-y) 0;
 }
-
-@media screen and (max-width: 1024px) {
-    .content p {
-        width: 100%;
-    }
-}
-
 
 .services-box {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    gap: 32px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
 }
 
 .services-box h4 {
-    color: white;
-    font-family: 'Nexa';
-    font-size: 1.6em;
-    margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  margin: 0;
 }
 
-.services-box img {
-    width: 64px;
+.services-box .service-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-green);
+  margin-bottom: 0.5rem;
+}
+
+.services-box .service-icon img {
+  width: 48px;
+  height: 48px;
+}
+
+.services-box .service-icon svg {
+  width: 48px;
+  height: 48px;
 }
 
 .services-box p {
-    color: var(--dark-default-text);
-    font-family: 'Merriweather Sans', sans-serif;
-    font-size: 0.9em;
-    font-style: normal;
-    font-weight: 300;
-    width: 100%;
-    line-height: 26px;
-    letter-spacing: 0.02em;
-    margin: 0.5em 0;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 300;
+  width: 100%;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  margin: 0.5em 0;
+  opacity: 0.8;
 }
 
 .services-box .service-item {
-    background: var(--dark-elevation-1-background-color);
-    padding: 32px;
-    border-radius: 64px 64px 8px 64px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease,
+              background 0.3s ease;
 }
 
-.services-box .service-item.design-systems,
-.services-box .service-item.ux-design {
-    border-radius: 64px 64px 64px 8px;
+.services-box .service-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md), 0 0 20px var(--green-a08);
+  border-color: var(--green-a15);
+  background: var(--surface-hover);
+}
+
+.content > p {
+  font-size: 1.1em;
+  font-weight: 100;
+  color: var(--text-muted);
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  width: 60%;
+}
+
+.content > p b {
+  color: var(--text-accent);
+  font-weight: 700;
+}
+
+@media screen and (max-width: 1024px) {
+  .content > p {
+    width: 100%;
+  }
+
+  div#about {
+    padding: var(--space-3xl) 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .services-box {
+    grid-template-columns: 1fr;
+  }
 }

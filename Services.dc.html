@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@100;300;400;700;800&family=Merriweather+Sans:wght@300;400;700&display=swap">
+  <style>
+    body { margin: 0; font-family: 'Merriweather Sans', sans-serif; background: #000000; color: #ffffff; }
+    a { color: #21f770; } a:hover { color: #e5097d; }
+    * { box-sizing: border-box; }
+  </style>
+</helmet>
+
+<div style="padding: 64px 48px; display: flex; flex-direction: column; align-items: center;">
+
+  <!-- Section Title -->
+  <div style="width: 100%; max-width: 1100px; margin-bottom: 48px;">
+    <h3 style="font-family: 'Sora', sans-serif; font-size: 36px; font-weight: 100; color: #ffffff; margin: 0;">
+      My <span style="font-weight: 800; color: #21f770;">Services</span>
+    </h3>
+  </div>
+
+  <!-- Services Grid -->
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; max-width: 1100px; width: 100%;">
+
+    <!-- Design Systems -->
+    <div style="background: #191919; border-radius: 64px 64px 8px 64px; padding: 48px; display: flex; flex-direction: column; gap: 16px;">
+      <div style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#21f770" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><circle cx="17.5" cy="17.5" r="3.5"/></svg>
+      </div>
+      <h4 style="font-family: 'Sora', sans-serif; font-size: 24px; font-weight: 700; color: #ffffff; margin: 0;">Design Systems</h4>
+      <p style="font-size: 14px; font-weight: 300; color: #bdbdbd; line-height: 26px; margin: 0; letter-spacing: 0.02em;">Creating scalable component libraries and design tokens that ensure consistency across products and teams.</p>
+    </div>
+
+    <!-- UI Design -->
+    <div style="background: #191919; border-radius: 64px 64px 64px 8px; padding: 48px; display: flex; flex-direction: column; gap: 16px;">
+      <div style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#21f770" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <h4 style="font-family: 'Sora', sans-serif; font-size: 24px; font-weight: 700; color: #ffffff; margin: 0;">UI Design</h4>
+      <p style="font-size: 14px; font-weight: 300; color: #bdbdbd; line-height: 26px; margin: 0; letter-spacing: 0.02em;">Crafting visually polished interfaces with attention to detail, hierarchy, and brand expression.</p>
+    </div>
+
+    <!-- UX Design -->
+    <div style="background: #191919; border-radius: 64px 64px 8px 64px; padding: 48px; display: flex; flex-direction: column; gap: 16px;">
+      <div style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#21f770" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+      </div>
+      <h4 style="font-family: 'Sora', sans-serif; font-size: 24px; font-weight: 700; color: #ffffff; margin: 0;">UX Design</h4>
+      <p style="font-size: 14px; font-weight: 300; color: #bdbdbd; line-height: 26px; margin: 0; letter-spacing: 0.02em;">Researching, testing, and iterating to create user-centered experiences that solve real problems.</p>
+    </div>
+
+    <!-- Consulting -->
+    <div style="background: #191919; border-radius: 64px 64px 64px 8px; padding: 48px; display: flex; flex-direction: column; gap: 16px;">
+      <div style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#21f770" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <h4 style="font-family: 'Sora', sans-serif; font-size: 24px; font-weight: 700; color: #ffffff; margin: 0;">Consulting</h4>
+      <p style="font-size: 14px; font-weight: 300; color: #bdbdbd; line-height: 26px; margin: 0; letter-spacing: 0.02em;">Advising teams on design strategy, process improvement, and building design culture within organizations.</p>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

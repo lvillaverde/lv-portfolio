@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@100;300;400;700;800&family=Merriweather+Sans:wght@300;400;700&display=swap">
+  <style>
+    body { margin: 0; font-family: 'Merriweather Sans', sans-serif; background: #000000; color: #ffffff; }
+    a { color: #21f770; } a:hover { color: #e5097d; }
+    * { box-sizing: border-box; }
+  </style>
+</helmet>
+
+<!-- Fixed Header -->
+<div style="position: absolute; top: 0; left: 0; right: 0; z-index: 10; background: rgba(0,0,0,0.75); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); border-bottom: 1px solid #141414; padding: 16px 48px; display: flex; justify-content: space-between; align-items: center;">
+  <div style="font-family: 'Sora', sans-serif; font-size: 22px; font-weight: 300; color: #ffffff; letter-spacing: 0.02em;">Leandro <span style="color: #21f770; font-weight: 800;">Villaverde</span></div>
+  <div style="display: flex; gap: 32px; align-items: center;">
+    <span style="font-size: 14px; font-weight: 300; text-transform: uppercase; color: #bdbdbd; letter-spacing: 0.02em; cursor: pointer; position: relative;">
+      Study Cases
+      <span style="position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%); width: 100%; height: 2px; background: #21f770;"></span>
+    </span>
+    <span style="font-size: 14px; font-weight: 300; text-transform: uppercase; color: #bdbdbd; letter-spacing: 0.02em; cursor: pointer;">About</span>
+    <span style="font-size: 14px; font-weight: 300; text-transform: uppercase; color: #bdbdbd; letter-spacing: 0.02em; cursor: pointer;">More Projects</span>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<div style="min-height: 100%; padding: 120px 48px 48px; display: flex; align-items: center; justify-content: center;">
+  <div style="display: flex; align-items: center; gap: 64px; max-width: 1100px; width: 100%;">
+
+    <!-- Left: Info -->
+    <div style="flex: 1; display: flex; flex-direction: column; gap: 24px;">
+      <div style="font-family: 'Sora', sans-serif; font-size: 42px; font-weight: 800; line-height: 1.2; color: #ffffff;">
+        Hello! I'm <span style="color: #21f770;">Leandro</span>
+      </div>
+      <div style="font-size: 18px; font-weight: 300; line-height: 2em; color: #ffffff; letter-spacing: 0.02em; max-width: 480px;">
+        I'm a UX/UI designer who helps companies improve their products and create quality design systems to scale.
+      </div>
+
+      <!-- CTA Buttons -->
+      <div style="display: flex; gap: 16px; margin-top: 8px;">
+        <div style="display: flex; align-items: center; gap: 10px; padding: 12px 24px; border: 1px solid #21402c; border-radius: 32px; cursor: pointer;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <span style="font-size: 14px; font-weight: 300; color: #21f770; text-transform: uppercase; letter-spacing: 2.52px;">LinkedIn</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; padding: 12px 24px; border: 1px solid #21402c; border-radius: 32px; cursor: pointer;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span style="font-size: 14px; font-weight: 300; color: #21f770; text-transform: uppercase; letter-spacing: 2.52px;">Download CV</span>
+        </div>
+      </div>
+
+      <!-- Info Row -->
+      <div style="display: flex; gap: 24px; margin-top: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#bdbdbd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span style="font-size: 14px; font-weight: 300; color: #bdbdbd;">Buenos Aires, Argentina</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#bdbdbd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <span style="font-size: 14px; font-weight: 300; color: #bdbdbd;">lvillaverde@email.com</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Avatar -->
+    <div style="position: relative; width: 360px; height: 360px; flex-shrink: 0;">
+      <div style="position: absolute; inset: -16px; background: #21402c; border-radius: 50% 16px 50% 50%; opacity: 0.6;"></div>
+      <div style="width: 360px; height: 360px; border-radius: 50% 50% 50% 16px; background: linear-gradient(135deg, #191919 0%, #0a3d1f 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+        <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#21f770" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scroll CTA -->
+<div style="position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer;">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#21402c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 8 12 13 17 8"/><polyline points="7 13 12 18 17 13"/></svg>
+</div>
+
+</x-dc>
+</body>
+</html>

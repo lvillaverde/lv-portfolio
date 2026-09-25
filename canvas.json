@@ -1,0 +1,9 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1440, "h": 900 },
+    { "file": "StudyCase.dc.html", "x": 0, "y": 1040, "w": 1440, "h": 1200 },
+    { "file": "Services.dc.html", "x": 0, "y": 2380, "w": 1440, "h": 720 },
+    { "file": "Footer.dc.html", "x": 0, "y": 3240, "w": 1440, "h": 360 }
+  ],
+  "launch": { "view": "canvas" }
+}

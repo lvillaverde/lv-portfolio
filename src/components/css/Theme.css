@@ -1,48 +1,71 @@
 :root {
-    --lg-spacing: 32px;
-    --mdp-spacing: 24px;
-    --md-spacing: 16px;
-    --smp-spacing: 12px;
-    --sm-spacing: 8px;
+  /* ── Palette Primitives ── */
+  --green-500: #21f770;
+  --green-400: #34d683;
+  --green-900: #0a1a0f;
+  --green-border: #21402c;
+  --magenta-500: #E5097D;
+  --magenta-900: #59002f;
 
-    /* Semantic Variables */
-        /* Dark Theme */
+  /* ── Alpha tokens (green) ── */
+  --green-a04: rgba(33, 247, 112, 0.04);
+  --green-a06: rgba(33, 247, 112, 0.06);
+  --green-a08: rgba(33, 247, 112, 0.08);
+  --green-a10: rgba(33, 247, 112, 0.10);
+  --green-a15: rgba(33, 247, 112, 0.15);
+  --green-a20: rgba(33, 247, 112, 0.20);
+  --green-a30: rgba(33, 247, 112, 0.30);
+  --green-a40: rgba(33, 247, 112, 0.40);
 
-            /* Backgrounds & borders */
-            --dark-background-color: #000000;
-            --dark-header-background: rgba(0, 0, 0, 0.75);
-            --dark-elevation-1-background-color: #191919;
-            --dark-menu-highlighted-item: #21f770;
-            --dark-default-border-color: #141414;
-            --dark-primary-border-color: #21402c;
+  /* ── Alpha tokens (magenta) ── */
+  --magenta-a03: rgba(229, 9, 125, 0.03);
+  --magenta-a06: rgba(229, 9, 125, 0.06);
+  --magenta-a20: rgba(229, 9, 125, 0.20);
+  --magenta-a25: rgba(229, 9, 125, 0.25);
+  --magenta-a50: rgba(229, 9, 125, 0.50);
 
+  /* ── Dark Theme Elevation ── */
+  --bg:              #000000;
+  --surface:         #191919;
+  --surface-hover:   #1e1e1e;
+  --overlay:         rgba(0, 0, 0, 0.85);
+  --header-bg:       rgba(0, 0, 0, 0.75);
 
-            /* Text */
-            --dark-default-text: #ffffff;
-            --dark-primary-text: #21f770;
-            --dark-accent-text: #59002f;
-            --dark-hover-text: #bdbdbd;
+  /* ── Borders ── */
+  --border-subtle:   #141414;
+  --border-green:    var(--green-border);
 
-        /* Light Theme */
+  /* ── Text ── */
+  --text-primary:    #ffffff;
+  --text-green:      var(--green-400);
+  --text-green-bright: var(--green-500);
+  --text-accent:     var(--magenta-500);
+  --text-muted:      #bdbdbd;
+  --text-faint:      rgba(255, 255, 255, 0.7);
+  --text-ghost:      rgba(255, 255, 255, 0.4);
 
-    --light-background-color: #FFFFFF;
-    --light-header-background: rgba(255, 255, 255, 0.75);
+  /* ── Study Case Gradients ── */
+  --case-edden:      rgba(33, 39, 94, 1);
+  --case-mesirve:    rgba(5, 87, 72, 1);
+  --case-nextchange: rgba(61, 84, 35, 1);
 
-    /* Colors */
-    --primary-color: #22C55E;
-    --accent-color: #E5097D;
-    --gray-1: #5B5B5B;
-    --gray-2: #2B2B2B;
-    --gray-3: #ccc;
-    --gray-4: #e0e0e0;
-    --gray-5: #f5f5f5;
+  /* ── Backward-compat aliases ── */
+  --dark-background-color: var(--bg);
+  --dark-header-background: var(--header-bg);
+  --dark-elevation-1-background-color: var(--surface);
+  --dark-menu-highlighted-item: var(--green-500);
+  --dark-default-border-color: var(--border-subtle);
+  --dark-primary-border-color: var(--border-green);
+  --dark-default-text: var(--text-primary);
+  --dark-primary-text: var(--text-green);
+  --dark-accent-text: var(--magenta-900);
+  --dark-hover-text: var(--text-muted);
+  --primary-color: var(--green-500);
+  --accent-color: var(--magenta-500);
+  --gray-1: var(--text-faint);
+  --gray-2: var(--text-muted);
 }
 
-
-
-
-/* Layout */
-
 .page-background {
-    background-color: var(--dark-background-color);
+  background-color: var(--bg);
 }

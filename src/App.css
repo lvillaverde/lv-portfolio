@@ -1,43 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
 /* Nexa Font */
 @font-face {
   font-family: 'Nexa';
@@ -49,7 +9,7 @@
 }
 
 @font-face {
-  font-family: 'Nexa Extra';
+  font-family: 'Nexa';
   src: url('./assets/fonts/nexa/Nexa-ExtraLight.woff2') format('woff2'),
       url('./assets/fonts/nexa/Nexa-ExtraLight.woff') format('woff');
   font-weight: 100;
@@ -60,10 +20,10 @@
 /* Base Styles */
 
 h3 {
-    font-size: 2.4em;
-    font-family: 'Nexa', 'Merriweather Sans';
-    font-weight: 100;
-    color: var(--dark-primary-text);
+  font-size: var(--text-2xl);
+  font-family: var(--font-heading);
+  font-weight: 100;
+  color: var(--text-green);
 }
 
 .base-section {
@@ -74,19 +34,10 @@ h3 {
 
 .content {
   display: flex;
-  width: 50vw;
+  width: 100%;
+  max-width: var(--max-width);
   flex-flow: column;
-}
-@media screen and (max-width: 1440px) {
-    .content {
-        width: 80vw;
-    }
-    
-}
-
-@media screen and (max-width: 1024px) {
-    .content {
-        width: 100vw;
-        padding: 0 2em;
-    }
+  padding: 0 var(--content-padding-x);
+  margin: 0 auto;
+  box-sizing: border-box;
 }

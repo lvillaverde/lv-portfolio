@@ -3,102 +3,132 @@ import { Link } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import prefersReducedMotion from "../utils/prefersReducedMotion";
 import "./css/StudyCase.css";
 import NextchangeThumbnail from "../assets/study-cases/nextchange/thumbnail.png";
 import EddenThumbnail from "../assets/study-cases/edden/thumbnail.png";
 import MeSirveThumbnail from "../assets/study-cases/mesirve/thumbnail.png";
 import ReadIcon from "../assets/icons/read-icon-accent.svg";
+import MagneticButton from "../utils/MagneticButton";
 import studyCasesData from "../data/studyCases.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Mapear las imágenes importadas con los datos del JSON
 const imageMap = {
-    "/src/assets/study-cases/mesirve/thumbnail.png": MeSirveThumbnail,
-    "/src/assets/study-cases/nextchange/thumbnail.png": NextchangeThumbnail,
-    "/src/assets/study-cases/edden/thumbnail.png": EddenThumbnail
+  "/src/assets/study-cases/mesirve/thumbnail.png": MeSirveThumbnail,
+  "/src/assets/study-cases/nextchange/thumbnail.png": NextchangeThumbnail,
+  "/src/assets/study-cases/edden/thumbnail.png": EddenThumbnail,
 };
 
-// Procesar los datos del JSON para incluir las imágenes correctas
-const studyCases = studyCasesData.map(studyCase => ({
-    ...studyCase,
-    image: {
-        ...studyCase.image,
-        src: imageMap[studyCase.image.src] || studyCase.image.src
-    }
+const studyCases = studyCasesData.map((studyCase) => ({
+  ...studyCase,
+  image: {
+    ...studyCase.image,
+    src: imageMap[studyCase.image.src] || studyCase.image.src,
+  },
 }));
 
 function StudyCase() {
-    const containerRef = useRef();
+  const containerRef = useRef();
 
-    useGSAP(() => {
-        // Selecciona todos los divs .study-case dentro del contenedor
-        gsap.utils.toArray(containerRef.current.querySelectorAll(".study-case")).forEach((el) => {
-            gsap.from(el, {
-                opacity: 0,
-                duration: 0.8,
-                ease: "power2.out",
-                filter: "blur(5px)",
-                scrollTrigger: {
-                    trigger: el,
-                    start: "top 80%",
-                    end: "top 60%",
-                    toggleActions: "play none none reverse",
-                    // markers: true, // Descomenta para depurar
-                }
-            });
+  useGSAP(() => {
+    if (prefersReducedMotion()) return;
 
-            // Animación de hover para la imagen
-            const img = el.querySelector('img');
-
-            el.addEventListener('mouseenter', () => {
-                gsap.to(img, {
-                    scale: 1.1,
-                    duration: 0.4,
-                    ease: "power2.out"
-                });
-            });
-
-            el.addEventListener('mouseleave', () => {
-                gsap.to(img, {
-                    scale: 1,
-                    duration: 0.4,
-                    ease: "power2.out"
-                });
-            });
+    gsap.utils
+      .toArray(containerRef.current.querySelectorAll(".study-case"))
+      .forEach((el) => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: el,
+            start: "top 82%",
+            toggleActions: "play none none reverse",
+          },
         });
-    }, []);
 
-    return (
-        <div className="study-cases-list" ref={containerRef}>
-            {studyCases.map((studyCaseData, idx) => (
-                <div className={`study-case ${studyCaseData.id}`} key={idx}>
-                    <div className={"description"}>
-                        <Link to={studyCaseData.url}>
-                            <h4>{studyCaseData.title}</h4>
-                        </Link>
-                        <div className="tags">
-                            {studyCaseData.tags.map((tag, tagIdx) => (
-                                <span className="tag" key={tagIdx}>
-                                    {tag}
-                                </span>
-                            ))}
-                        </div>
-                        <p>{studyCaseData.description}</p>
-                        <Link to={studyCaseData.url} className="btn">
-                            {studyCaseData.buttonText}
-                            <div className="arrow-icon-container">
-                                <img src={ReadIcon} alt="Read More" className="read-icon" />
-                            </div>
-                        </Link>
-                    </div>
-                    <div className="image-background">                        
-                        <img src={studyCaseData.image.src} alt={studyCaseData.title} />
-                    </div>
+        tl.from(el, { opacity: 0, y: 30, duration: 0.6, ease: "power3.out" });
+
+        const number = el.querySelector(".study-case-number");
+        if (number) {
+          tl.from(number, { opacity: 0, scale: 0.8, duration: 0.5, ease: "power2.out" }, 0.1);
+        }
+
+        const title = el.querySelector("h4");
+        if (title) {
+          tl.from(title, { y: 25, opacity: 0, duration: 0.6, ease: "power3.out" }, 0.15);
+        }
+
+        const tags = el.querySelectorAll(".tag");
+        if (tags.length) {
+          tl.from(tags, { opacity: 0, y: 10, stagger: 0.04, duration: 0.4, ease: "power2.out" }, 0.25);
+        }
+
+        const desc = el.querySelector("p");
+        if (desc) {
+          tl.from(desc, { opacity: 0, y: 15, duration: 0.5, ease: "power2.out" }, 0.3);
+        }
+
+        const btn = el.querySelector(".btn");
+        if (btn) {
+          tl.from(btn, { x: -20, opacity: 0, duration: 0.5, ease: "power3.out" }, 0.4);
+        }
+
+        const imgWrapper = el.querySelector(".image-background");
+        if (imgWrapper) {
+          tl.from(imgWrapper, { scale: 1.05, opacity: 0, duration: 0.8, ease: "power2.out" }, 0.1);
+        }
+
+        const img = el.querySelector("img");
+        el.addEventListener("mouseenter", () => {
+          gsap.to(img, { scale: 1.06, duration: 0.4, ease: "power2.out" });
+        });
+        el.addEventListener("mouseleave", () => {
+          gsap.to(img, { scale: 1, duration: 0.4, ease: "power2.out" });
+        });
+      });
+  }, []);
+
+  return (
+    <div className="study-cases-list" ref={containerRef}>
+      {studyCases.map((studyCaseData, idx) => (
+        <div
+          className={`study-case ${studyCaseData.id} ${idx % 2 !== 0 ? "reverse" : ""}`}
+          key={idx}
+        >
+          <span className="study-case-number" aria-hidden="true">
+            {String(idx + 1).padStart(2, "0")}
+          </span>
+          <div className="description">
+            <Link to={studyCaseData.url}>
+              <h4>{studyCaseData.title}</h4>
+            </Link>
+            <div className="tags">
+              {studyCaseData.tags.map((tag, tagIdx) => (
+                <span className="tag" key={tagIdx}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <p>{studyCaseData.description}</p>
+            <MagneticButton strength={0.25}>
+              <Link to={studyCaseData.url} className="btn">
+                {studyCaseData.buttonText}
+                <div className="arrow-icon-container">
+                  <img src={ReadIcon} alt="Read More" className="read-icon" />
                 </div>
-            ))}
+              </Link>
+            </MagneticButton>
+          </div>
+          <div className="image-background">
+            <img
+              src={studyCaseData.image.src}
+              alt={studyCaseData.title}
+              loading="lazy"
+            />
+          </div>
         </div>
-    );
+      ))}
+    </div>
+  );
 }
 
 export default StudyCase;

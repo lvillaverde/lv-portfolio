@@ -1,8 +1,8 @@
 import "./css/Menu.css";
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { HashLink } from 'react-router-hash-link';
 import MenuHamburger from "../assets/icons/hamburguer-menu.svg";
+import { useLenisContext } from "../utils/LenisContext";
 
 const menuItems = [
     { name: "About Me", link: "#about" },
@@ -18,27 +18,29 @@ function Menu() {
     const mobileMenuRef = useRef();
     const navigate = useNavigate();
     const location = useLocation();
+    const lenisRef = useLenisContext();
+
+    const scrollToElement = (element) => {
+        if (lenisRef && lenisRef.current) {
+            lenisRef.current.scrollTo(element, { duration: 1.2 });
+        } else {
+            element.scrollIntoView({ behavior: "smooth" });
+        }
+    };
 
     const handleSectionClick = (sectionId, index) => {
         setActiveIndex(index);
         setMobileOpen(false);
-        
+
         if (location.pathname !== "/") {
-            // Si no estamos en la página principal, navegar primero a home
             navigate("/");
-            // Hacer scroll a la sección después de un pequeño delay para que cargue la página
             setTimeout(() => {
                 const element = document.getElementById(sectionId.replace("#", ""));
-                if (element) {
-                    element.scrollIntoView({ behavior: "smooth" });
-                }
+                if (element) scrollToElement(element);
             }, 100);
         } else {
-            // Si ya estamos en home, hacer scroll directo
             const element = document.getElementById(sectionId.replace("#", ""));
-            if (element) {
-                element.scrollIntoView({ behavior: "smooth" });
-            }
+            if (element) scrollToElement(element);
         }
     };
 

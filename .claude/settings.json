@@ -1,0 +1,6 @@
+{
+  "enabledPlugins": {
+    "hyperframes@claude-plugins-official": true,
+    "gsap-skills@gsap-skills": true
+  }
+}

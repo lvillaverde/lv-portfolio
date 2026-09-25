@@ -5,17 +5,19 @@ nav.menu {
 
 nav.menu ul {
     display: flex;
-    gap: var(--lg-spacing);
+    gap: var(--space-xl);
     margin: 0;
     padding: 0;
     font-weight: 100;
-    color: var(--dark-default-text);
+    color: var(--text-primary);
 }
 
 nav.menu li {
     list-style: none;
-    font-family: 'Merriweather Sans', sans-serif;
+    font-family: var(--font-body);
     text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 0.08em;
 }
 
 /* Animación linea */
@@ -46,7 +48,7 @@ nav.menu li {
 }
 
 .menu-item:hover, .menu-item.active {
-    color: var(--dark-hover-text);
+    color: var(--text-muted);
     font-weight: 400;
     transition: 0.15s ease-in-out;
 }
@@ -55,12 +57,10 @@ nav.menu li {
     content: "";
     position: absolute;
     left: 50%;
-    /* Empieza en el centro */
     bottom: 0;
-    /* Pegado abajo del texto */
     width: 100%;
     height: 2px;
-    background-color: var(--dark-menu-highlighted-item);
+    background-color: var(--green-500);
 }
 
 .mobile-menu .menu-item:hover::after,
@@ -72,21 +72,17 @@ nav.menu li {
     content: "";
     position: absolute;
     left: 50%;
-    /* Empieza en el centro */
     bottom: 0;
-    /* Pegado abajo del texto */
     width: 0;
     height: 2px;
-    background-color: var(--dark-menu-highlighted-item);
+    background-color: var(--green-500);
     transition: all 0.15s ease;
     transform: translateX(-50%);
-    /* Centra el punto inicial */
 }
 
 /* Al hacer hover */
 .menu-item:hover::after {
     width: 100%;
-    /* Se expande de centro a bordes */
 }
 
 .menu-hamburger {
@@ -96,10 +92,10 @@ nav.menu li {
     margin-left: auto;
     display: flex;
     align-items: center;
-    padding: 8px;
-    color: var(--gray-1);
+    padding: var(--space-xs);
+    color: var(--text-faint);
     transition: color 0.2s;
-    display: none;;
+    display: none;
 }
 
 .menu-hamburger img {
@@ -108,7 +104,7 @@ nav.menu li {
 }
 
 .menu-hamburger:hover {
-    color: var(--primary-color);
+    color: var(--green-500);
 }
 
 .mobile-menu-overlay {
@@ -124,11 +120,11 @@ nav.menu li {
 }
 
 .mobile-menu {
-    background: var(--dark-elevation-1-background-color);
-    border-radius: 8px;
-    margin: 16px 16px 0 0;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    padding: 24px 32px;
+    background: var(--surface);
+    border-radius: var(--radius-sm);
+    margin: var(--space-md) var(--space-md) 0 0;
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-lg) var(--space-xl);
     min-width: 180px;
     animation: fadeInMobileMenu 0.2s;
 }
@@ -153,13 +149,13 @@ nav.menu li {
 
 @media screen and (max-width: 768px) {
     nav.menu ul.desktop-menu {
-        display: none; /* Oculta el menú en pantallas pequeñas */
+        display: none;
     }
 
     .menu-hamburger {
-        display: flex; /* Muestra el botón de menú en pantallas pequeñas */
+        display: flex;
     }
-    
+
     .mobile-menu-overlay {
         display: flex;
     }
