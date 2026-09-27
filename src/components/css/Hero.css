@@ -9,7 +9,7 @@
   overflow: hidden;
 }
 
-/* WebGL shader background */
+/* Pixel-panel devices animation (canvas 2D) */
 .hero-shader-bg {
   position: absolute;
   inset: 0;
@@ -18,7 +18,18 @@
   z-index: 0;
   pointer-events: none;
   display: block;
-  will-change: transform;
+  background: var(--bg);
+}
+
+/* Keeps copy readable over the animation and fades into the next section */
+.hero-bg-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 45%, rgba(0, 0, 0, 0.1) 62%, transparent 100%),
+    linear-gradient(0deg, var(--bg) 0%, transparent 25%);
 }
 
 /* Content z-index layering above mesh */
@@ -37,7 +48,8 @@
 .hero-main-heading {
   font-family: var(--font-heading);
   font-weight: 900;
-  font-size: var(--text-4xl);
+  /* sized so "I'm Leandro" + avatar fit the text column beside the animation focus */
+  font-size: clamp(3rem, 6vw, 5.5rem);
   line-height: 1.05;
   color: var(--text-primary);
   margin: 0;
@@ -58,6 +70,7 @@
 
 .hero-text-col {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 1.8rem;
@@ -76,35 +89,32 @@
   will-change: transform, opacity;
 }
 
-/* Floating rectangle photo */
-.hero-photo-col {
-  flex-shrink: 0;
-  display: flex;
-  justify-content: flex-end;
+/* Circular avatar beside "I'm Leandro" */
+.hero-name-row {
+  display: inline-flex;
   align-items: center;
-}
-
-.profile-picture-container {
-  position: relative;
-}
-
-.profile-picture-glow {
-  position: absolute;
-  inset: -20px;
-  border-radius: 20px;
-  background: radial-gradient(ellipse at center, var(--green-a06) 0%, transparent 70%);
-  z-index: -1;
-  pointer-events: none;
+  gap: 0.3em;
+  white-space: nowrap;
 }
 
 .hero img.profile-picture {
-  width: 282px;
-  height: 423px;
+  width: 0.85em;
+  height: 0.85em;
+  flex-shrink: 0;
+  border-radius: 50%;
   object-fit: cover;
-  object-position: top center;
-  border-radius: var(--radius-md);
+  object-position: center 20%;
   display: block;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px var(--green-a04);
+  border: 3px solid var(--border-green);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 32px var(--green-a08);
+}
+
+/* Empty box that marks where the background animation frames its main beats */
+.hero-anim-focus {
+  flex: 0 0 37.5%;
+  aspect-ratio: 450 / 545;
+  max-height: 65vh;
+  pointer-events: none;
 }
 
 /* Buttons */
@@ -243,7 +253,7 @@
   }
 
   .hero-content-row {
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: center;
     gap: var(--space-xl);
   }
@@ -258,13 +268,18 @@
     text-align: center;
   }
 
-  .hero-photo-col {
-    justify-content: center;
+  .hero-anim-focus {
+    flex: none;
+    width: min(100%, 420px);
+    aspect-ratio: auto;
+    height: 45vh;
+    max-height: none;
   }
 
-  .hero img.profile-picture {
-    width: 240px;
-    height: 360px;
+  .hero-bg-scrim {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.55) 40%, transparent 65%),
+      linear-gradient(0deg, var(--bg) 0%, transparent 15%);
   }
 
   .hero-info-row {
@@ -299,10 +314,5 @@
     flex-direction: column;
     gap: 1rem;
     align-items: center;
-  }
-
-  .hero img.profile-picture {
-    width: 200px;
-    height: 300px;
   }
 }

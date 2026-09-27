@@ -22,6 +22,7 @@ function Hero(props, heroRef) {
   const buttonsRef = useRef();
   const infoRef = useRef();
   const ctaRef = useRef();
+  const focusRef = useRef();
 
   useGSAP(() => {
     if (prefersReducedMotion()) return;
@@ -117,7 +118,7 @@ function Hero(props, heroRef) {
   return (
     <div ref={heroRef}>
       <div className="hero" ref={hero}>
-        <HeroBackground />
+        <HeroBackground focusRef={focusRef} />
 
         <div className="hero-content-row">
           <div className="hero-text-col">
@@ -125,7 +126,10 @@ function Hero(props, heroRef) {
               <h1 className="hero-main-heading">
                 <SplitText ref={headingRef} type="chars">Hello!</SplitText>
                 <br />
-                <SplitText ref={subHeadingRef} type="chars" className="hero-name-line">I'm Leandro</SplitText>
+                <span className="hero-name-row">
+                  <SplitText ref={subHeadingRef} type="chars" className="hero-name-line">I'm Leandro</SplitText>
+                  <img className="profile-picture" src={avatar} alt="" aria-hidden="true" />
+                </span>
               </h1>
             </div>
             <div className="hero-paragraph">
@@ -162,12 +166,8 @@ function Hero(props, heroRef) {
               </div>
             </div>
           </div>
-          <div className="hero-photo-col">
-            <div className="profile-picture-container">
-              <div className="profile-picture-glow" />
-              <img className="profile-picture" src={avatar} alt="Leandro Villaverde" />
-            </div>
-          </div>
+          {/* Empty on purpose: the background animation frames its main beats here */}
+          <div className="hero-anim-focus" ref={focusRef} aria-hidden="true" />
         </div>
 
         <button className="cta" ref={ctaRef} onClick={props.onCtaClick}>

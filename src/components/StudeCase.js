@@ -10,6 +10,7 @@ import EddenThumbnail from "../assets/study-cases/edden/thumbnail.png";
 import MeSirveThumbnail from "../assets/study-cases/mesirve/thumbnail.png";
 import ReadIcon from "../assets/icons/read-icon-accent.svg";
 import MagneticButton from "../utils/MagneticButton";
+import StudyCaseVisual from "./mockups/StudyCaseVisual";
 import studyCasesData from "../data/studyCases.json";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -72,18 +73,33 @@ function StudyCase() {
           tl.from(btn, { x: -20, opacity: 0, duration: 0.5, ease: "power3.out" }, 0.4);
         }
 
-        const imgWrapper = el.querySelector(".image-background");
-        if (imgWrapper) {
-          tl.from(imgWrapper, { scale: 1.05, opacity: 0, duration: 0.8, ease: "power2.out" }, 0.1);
-        }
+        const visual = el.querySelector(".mk-visual");
+        const q = (sel) => visual.querySelectorAll(sel);
 
-        const img = el.querySelector("img");
-        el.addEventListener("mouseenter", () => {
-          gsap.to(img, { scale: 1.06, duration: 0.4, ease: "power2.out" });
-        });
-        el.addEventListener("mouseleave", () => {
-          gsap.to(img, { scale: 1, duration: 0.4, ease: "power2.out" });
-        });
+        if (visual?.classList.contains("mk-fan")) {
+          tl.from(q(".mk-glow"), { autoAlpha: 0, duration: 1.2, ease: "power2.out" }, 0.2);
+          tl.from(q(".mk-c .mk-anim"), { y: 160, autoAlpha: 0, duration: 0.9, ease: "expo.out" }, 0.15);
+          tl.from(q(".mk-l .mk-anim, .mk-r .mk-anim"), {
+            y: 140, rotation: 0, autoAlpha: 0, stagger: 0.07, duration: 0.9, ease: "expo.out",
+          }, 0.35);
+        } else if (visual?.classList.contains("mk-grid")) {
+          tl.from(q(".mk-tilt-rot"), { rotation: -6, scale: 1.1, autoAlpha: 0, duration: 1.3, ease: "expo.out" }, 0.05);
+          tl.from(q(".mk-col1"), { y: "+=190", duration: 1.2, ease: "expo.out" }, 0.12);
+          tl.from(q(".mk-col2"), { y: "-=200", duration: 1.2, ease: "expo.out" }, 0.24);
+        } else if (visual?.classList.contains("mk-desk")) {
+          tl.from(q(".mk-imac"), { y: 140, autoAlpha: 0, duration: 1.1, ease: "expo.out" }, 0.1);
+          tl.fromTo(q(".mk-power"), { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.9, ease: "power1.inOut" }, 0.55);
+          tl.from(q(".mk-screen"), { scale: 1.04, transformOrigin: "50% 50%", duration: 1.2, ease: "expo.out" }, 0.55);
+          tl.from(q(".mk-chip"), {
+            x: (i) => [220, 160][i], y: (i) => [60, -120][i], scale: 0.5, rotation: 0, autoAlpha: 0,
+            stagger: 0.12, duration: 0.9, ease: "back.out(1.4)",
+          }, 1);
+        } else {
+          const imgWrapper = el.querySelector(".image-background");
+          if (imgWrapper) {
+            tl.from(imgWrapper, { scale: 1.05, opacity: 0, duration: 0.8, ease: "power2.out" }, 0.1);
+          }
+        }
       });
   }, []);
 
@@ -118,13 +134,10 @@ function StudyCase() {
               </Link>
             </MagneticButton>
           </div>
-          <div className="image-background">
-            <img
-              src={studyCaseData.image.src}
-              alt={studyCaseData.title}
-              loading="lazy"
-            />
-          </div>
+          <StudyCaseVisual
+            id={studyCaseData.id}
+            image={{ src: studyCaseData.image.src, alt: studyCaseData.title }}
+          />
         </div>
       ))}
     </div>

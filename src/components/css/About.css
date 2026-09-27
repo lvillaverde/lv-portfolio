@@ -63,10 +63,84 @@ div#about {
 }
 
 .services-box .service-item:hover {
+  --icon-bg: var(--surface-hover);
   transform: translateY(-4px);
   box-shadow: var(--shadow-md), 0 0 20px var(--green-a08);
   border-color: var(--green-a15);
   background: var(--surface-hover);
+}
+
+/* ---------- Service icons: motion on card hover ---------- */
+.services-box {
+  --svc-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --svc-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --svc-inout: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* fill used by shapes that mask what's behind them; follows the card background */
+.services-box .service-item { --icon-bg: var(--surface); }
+
+.svc-icon * { transform-box: fill-box; }
+
+/* Design Systems: each layer's symbol reacts, from tokens up to patterns */
+.svc-ds .tok-fill { transform-origin: center; transform: scale(0); transition: transform 0.4s var(--svc-spring); }
+.svc-ds .sw-track { transition: fill 0.2s ease 0.12s; }
+.svc-ds .sw-knob { transition: transform 0.35s var(--svc-spring) 0.12s, fill 0.2s ease 0.12s; }
+.svc-ds .pat { transform-origin: center; transition: transform 0.5s var(--svc-spring) 0.24s; }
+.svc-ds .p2 { transition: opacity 0.2s ease 0.3s; }
+.svc-ds .ln { transform-origin: left center; transition: transform 0.45s var(--svc-out); }
+.svc-ds .ln2 { transition-delay: 0.12s; }
+.svc-ds .ln1 { transition-delay: 0.24s; }
+.service-item:hover .svc-ds .tok-fill { transform: scale(0.55); }
+.service-item:hover .svc-ds .sw-track { fill: currentColor; }
+.service-item:hover .svc-ds .sw-knob { transform: translateX(5px); fill: var(--icon-bg); }
+.service-item:hover .svc-ds .pat { transform: rotate(90deg); }
+.service-item:hover .svc-ds .p2 { opacity: 0.35; }
+.service-item:hover .svc-ds .ln { transform: scaleX(1.12); }
+
+/* UI Design: the cursor draws the layout, block by block */
+.svc-ui .hd { transform-origin: left center; }
+.svc-ui .col { transform-origin: center top; }
+.svc-ui .blk { transform-origin: left top; }
+.svc-ui .hdl rect { transform-origin: center; }
+.service-item:hover .svc-ui .hd { animation: svc-grow-x 0.35s var(--svc-out) both; }
+.service-item:hover .svc-ui .col { animation: svc-grow-y 0.35s var(--svc-out) 0.15s both; }
+.service-item:hover .svc-ui .blk { animation: svc-grow-xy 0.7s var(--svc-inout) 0.35s both; }
+.service-item:hover .svc-ui .cursor { animation: svc-drag 0.7s var(--svc-inout) 0.35s both; }
+.service-item:hover .svc-ui .hdl rect { animation: svc-pop 0.35s var(--svc-spring) 1.05s both; }
+
+/* UX Design: everything orbits the user */
+.svc-ux .orbit,
+.svc-ux .ring { transform-box: view-box; transform-origin: 24px 24px; transition: transform 1s var(--svc-inout); }
+.svc-ux .orbit > * { transform-origin: center; transition: transform 1s var(--svc-inout); }
+.svc-ux .head { transition: fill 0.3s ease 0.2s; }
+.svc-ux .halo { transform-origin: center; opacity: 0; }
+.service-item:hover .svc-ux .orbit { transform: rotate(120deg); }
+.service-item:hover .svc-ux .orbit > * { transform: rotate(-120deg); }
+.service-item:hover .svc-ux .ring { transform: rotate(-40deg); }
+.service-item:hover .svc-ux .head { fill: currentColor; }
+.service-item:hover .svc-ux .halo { animation: svc-halo 1.4s ease-out 0.3s infinite; }
+
+/* Consulting: typing dots, the answer pops in with a check */
+.svc-co .b2 { transform-origin: 70% 100%; }
+.svc-co .check { stroke-dasharray: 100; stroke-dashoffset: 0; }
+.service-item:hover .svc-co .dot { animation: svc-typing 0.9s ease-in-out infinite; }
+.service-item:hover .svc-co .d2 { animation-delay: 0.15s; }
+.service-item:hover .svc-co .d3 { animation-delay: 0.3s; }
+.service-item:hover .svc-co .b2 { animation: svc-pop 0.5s var(--svc-spring); }
+.service-item:hover .svc-co .check { animation: svc-draw 0.45s var(--svc-out) 0.3s both; }
+
+@keyframes svc-grow-x { from { transform: scaleX(0); } }
+@keyframes svc-grow-y { from { transform: scaleY(0); } }
+@keyframes svc-grow-xy { from { transform: scale(0.06); } }
+@keyframes svc-drag { from { transform: translate(-17px, -16px); } }
+@keyframes svc-pop { from { transform: scale(0.8); } to { transform: none; } }
+@keyframes svc-halo { 0% { opacity: 0.7; transform: scale(0.7); } 100% { opacity: 0; transform: scale(1.55); } }
+@keyframes svc-typing { 0%, 60%, 100% { transform: none; } 30% { transform: translateY(-2.5px); } }
+@keyframes svc-draw { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-icon * { animation: none !important; transition: none !important; }
 }
 
 .content > p {

@@ -147,21 +147,156 @@
   position: relative;
 }
 
+.modal-slide {
+  background: var(--bg);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  overflow: hidden;
+}
+
 .modal-image-area img {
   width: 100%;
   height: auto;
-  max-height: 500px;
-  object-fit: cover;
-  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  max-height: 520px;
+  object-fit: contain;
   display: block;
+}
+
+/* Carousel arrows */
+.modal-arrow {
+  position: absolute;
+  top: calc(50% - 30px);
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-green);
+  background: rgba(0, 0, 0, 0.65);
+  color: var(--text-green);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 2;
+  backdrop-filter: blur(4px);
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+.modal-arrow svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.modal-arrow.prev { left: var(--space-md); }
+.modal-arrow.next { right: var(--space-md); }
+
+.modal-arrow:hover {
+  border-color: var(--green-500);
+  background: rgba(0, 0, 0, 0.85);
+  transform: translateY(-50%) scale(1.06);
+}
+
+.modal-arrow:focus-visible,
+.modal-dot:focus-visible,
+.modal-close:focus-visible {
+  outline: 2px solid var(--green-500);
+  outline-offset: 2px;
 }
 
 .modal-image-nav {
   display: flex;
   gap: var(--space-xs);
   justify-content: center;
+  align-items: center;
   padding: 1rem 0;
 }
+
+.modal-count {
+  margin-left: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Vector device mockups (see mockups/LaptopFrame.js) */
+.mockup-stage {
+  --stage-accent: #21f770;
+  position: relative;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(60% 55% at 50% 58%, color-mix(in srgb, var(--stage-accent) var(--stage-glow, 38%), transparent), transparent 70%),
+    linear-gradient(180deg, #151515, #0c0c0c);
+}
+
+.mockup-stage .mockup-device {
+  width: 88%;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.mockup-stage .mk-laptop {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 24px 30px rgba(0, 0, 0, 0.5));
+}
+
+.mockup-stage .mk-rugged {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 22px 26px rgba(0, 0, 0, 0.55));
+}
+
+/* print pieces: transparent photos placed straight on the stage */
+.mockup-stage .mockup-device.is-print { width: 56%; }
+.mockup-stage .mockup-device.is-logo { width: 100%; }
+/* the logo already carries its own light: keep the glow behind it subtle */
+.mockup-stage:has(.is-logo) { --stage-glow: 16%; }
+.modal-slide .mockup-stage .mockup-device.is-logo { width: 56%; }
+.mockup-stage img.mk-print {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+/* square images in a 16:9 stage: ~90% of the stage height */
+.modal-slide .mockup-stage .mockup-device.is-print { width: 35%; }
+
+/* front + back pair: the back sits behind, offset to the right */
+.mockup-stage .mockup-device.is-rugged-duo { width: 60%; }
+.mk-duo { position: relative; aspect-ratio: 560 / 660; }
+.mk-duo-back,
+.mk-duo-front { position: absolute; width: 57%; }
+.mk-duo-back { right: 0; top: 0; }
+.mk-duo-front { left: 0; top: 2%; }
+
+/* several fronts side by side; the middle one leads */
+.mockup-stage .mockup-device.is-rugged-group { width: 86%; }
+.mk-group { display: flex; justify-content: center; align-items: center; gap: 4%; }
+.mk-group-item { flex: 0 0 29%; }
+.mk-group-item:nth-child(2) { flex-basis: 32%; }
+
+.more-projects-card:hover .mockup-stage .mockup-device {
+  transform: translateY(-6px) scale(1.03);
+}
+
+.modal-slide .mockup-stage {
+  aspect-ratio: 16 / 9;
+}
+
+.modal-slide .mockup-stage .mockup-device { width: min(80%, 760px); }
+.modal-slide .mockup-stage .mockup-device.is-rugged-duo { width: 40%; }
+.modal-slide .mockup-stage .mockup-device.is-rugged-group { width: 64%; }
 
 .modal-dot {
   width: 10px;
@@ -223,6 +358,14 @@
   .more-projects-grid {
     grid-template-columns: 1fr;
   }
+
+  .modal-arrow { width: 36px; height: 36px; }
+  .modal-arrow.prev { left: var(--space-xs); }
+  .modal-arrow.next { right: var(--space-xs); }
+  .modal-slide .mockup-stage { aspect-ratio: 4 / 3; }
+  .modal-slide .mockup-stage .mockup-device { width: 86%; }
+  .modal-slide .mockup-stage .mockup-device.is-rugged-duo { width: 52%; }
+  .modal-slide .mockup-stage .mockup-device.is-rugged-group { width: 88%; }
 
   .modal-overlay {
     padding: 1rem;
