@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import avatar from "../images/avatar_1.png";
 import scrollIcon from "../assets/icons/double-down.svg";
 import mapPointer from "../assets/icons/map-pointer.svg";
 import Linkedin from "../assets/icons/linkedin.svg";
@@ -35,12 +34,12 @@ function Hero(props, heroRef) {
       ease: "power2.inOut",
     }, 0);
 
-    tl.from(".profile-picture", {
-      scale: 0.9,
+    tl.from(".hero-kicker", {
+      y: 12,
       opacity: 0,
-      duration: 1.4,
-      ease: "expo.out",
-    }, 0);
+      duration: 0.7,
+      ease: "power2.out",
+    }, 0.15);
 
     if (headingRef.current) {
       const headingUnits = headingRef.current.querySelectorAll(".split-text-unit");
@@ -120,16 +119,16 @@ function Hero(props, heroRef) {
       <div className="hero" ref={hero}>
         <HeroBackground focusRef={focusRef} />
 
+        {/* Empty on purpose: the background animation frames its main beats here, behind the copy */}
+        <div className="hero-anim-focus" ref={focusRef} aria-hidden="true" />
+
         <div className="hero-content-row">
           <div className="hero-text-col">
+            <p className="hero-kicker">Product Designer · Enterprise &amp; SaaS</p>
             <div className="hero-heading-row">
               <h1 className="hero-main-heading">
-                <SplitText ref={headingRef} type="chars">Hello!</SplitText>
-                <br />
-                <span className="hero-name-row">
-                  <SplitText ref={subHeadingRef} type="chars" className="hero-name-line">I'm Leandro</SplitText>
-                  <img className="profile-picture" src={avatar} alt="" aria-hidden="true" />
-                </span>
+                <SplitText ref={headingRef} type="chars">Hello!</SplitText>{" "}
+                <SplitText ref={subHeadingRef} type="chars" className="hero-name-line">I'm Leandro</SplitText>
               </h1>
             </div>
             <div className="hero-paragraph">
@@ -166,8 +165,6 @@ function Hero(props, heroRef) {
               </div>
             </div>
           </div>
-          {/* Empty on purpose: the background animation frames its main beats here */}
-          <div className="hero-anim-focus" ref={focusRef} aria-hidden="true" />
         </div>
 
         <button className="cta" ref={ctaRef} onClick={props.onCtaClick}>

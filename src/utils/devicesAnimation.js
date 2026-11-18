@@ -12,7 +12,9 @@ const getFocus = () => {
   return { x: f.left - c.left, y: f.top - c.top, width: f.width, height: f.height };
 };
 /* ---------- setup ---------- */
-const OFF = 4, LOOP = 23 + OFF;   // OFF = wireframe intro before the main timeline
+// OFF = wireframe intro before the main timeline. The wide network shot is reached at 19.6,
+// holds for 5 s until HOLD_END, then the devices fade out and the loop restarts at END.
+const OFF = 4, HOLD_END = 24.6, END = 26.2, LOOP = END + OFF;
 const buf = document.createElement('canvas');
 const b = buf.getContext('2d');
 const ctx = cv.getContext('2d');
@@ -168,7 +170,7 @@ function spawnP(d,u,v,burst){
 function updDev(d,dt){
   const g = geom(d), area = (g.sw*g.sh)/(120*70);
   d.pulse *= Math.exp(-dt*2.2);
-  if (d.alpha > .02){ d.acc += (5 + 20*d.act)*Math.max(.35, area)*dt; while (d.acc > 1){ d.acc--; spawnP(d); } }
+  if (d.alpha > .02 && (d.spawn ?? 1) > .01){ d.acc += (d.spawn ?? 1)* (5 + 20*d.act)*Math.max(.35, area)*dt; while (d.acc > 1){ d.acc--; spawnP(d); } }
   const sp = .6 + .35*d.act;
   for (const q of d.parts){ q.age += dt; q.u += q.vu*dt*sp; q.v += q.vv*dt*sp; }
   d.parts = d.parts.filter(q => q.age < q.life && q.u > -.1 && q.u < 1.1 && q.v > -.1 && q.v < 1.1);
@@ -267,8 +269,6 @@ for (let r=-5;r<=5;r++){
   else if (r===1){ fillRow(base, PAIR/2+GAP, 1); fillRow(base, -PAIR/2-GAP, -1); }
   else { const x0=(rnd()-.5)*140; fillRow(base, x0, 1); fillRow(base, x0-GAP, -1); }
 }
-const tgt = grid.filter(d=>d.type==='monitor').reduce((a,d)=>{ const s=Math.hypot(d.x-560,d.y+300); return s<a.s?{d,s}:a; },{s:1e9}).d;
-tgt.appOff=0; tgt.isTarget=true;
 const trio = [D0,D1,D2];
 const all = [...grid, ...trio];
 
@@ -278,7 +278,6 @@ const SHOT = {
   trio:   {x:CX,       y:CY,       w:210, h:300},
   phone:  {x:D2.x,     y:D2.y-6,   w:100, h:150},   // phone + its test glyph on top
   wide:   {x:CX,       y:CY,       wide:true},
-  target: {x:tgt.x,    y:tgt.y+12, w:135, h:150},
 };
 const zoomOf = s => s.wide ? .84*DPR/S : Math.min(FW/s.w, FH/s.h);   // buffer px per world unit
 const KF = [
@@ -286,8 +285,7 @@ const KF = [
   [6.6,'trio'],[9.4,'trio'],
   [10.6,'phone'],[12.9,'phone'],
   [14.0,'trio'],[14.5,'trio'],
-  [18.8,'wide'],[19.6,'wide'],
-  [22.4,'target','focus'],[23,'target']
+  [18.8,'wide'],[END,'wide']
 ];
 function cam(t){
   for (let i=0;i<KF.length-1;i++){
@@ -308,8 +306,6 @@ function designState(t){
   return { wS:1-ss(seg(t,1.0,1.4)), wC:1-ss(seg(t,1.65,2.0)), cardH:9+4*ease(seg(t,1.8,2.5)),
            wG:1-ss(seg(t,3.05,3.4)), line:ss(seg(t,3.1,3.9)), wH:1-ss(seg(t,4.1,4.4)) };
 }
-function revertState(t){ const r=ss(seg(t,21.0,22.4));
-  return {wS:r,wC:r,wG:r,wH:r,cardH:13-4*r,line:1-r}; }
 
 /* cursor */
 const CP=[[0.1,30,22],[0.9,-51,-5],[1.2,-51,-5],[1.55,9,-11],[1.8,9,-11],[2.5,9,-7],[2.95,30,15],[3.2,30,15],[3.95,51,-25.5],[4.25,51,-25.5],[4.9,72,12]];
@@ -439,10 +435,10 @@ const uvOf = (d,x,y) => { const g=geom(d); return [clamp((x-d.x)/g.sw+.5), clamp
 
 function tick(dt, draw){
   T += dt; const tAbs = T % LOOP, t = tAbs - OFF;       // t < 0 during the wireframe intro
-  if (tAbs < prevAbs){ D0.parts = tgt.parts.map(q=>({...q})); D0.pulse=0; D1.parts=[]; D2.parts=[]; WP=[]; }
+  if (tAbs < prevAbs){ D0.parts = []; D0.pulse=0; D1.parts=[]; D2.parts=[]; WP=[]; }
   const pt = prevT; prevT = t; prevAbs = tAbs;
 
-  const out = s => 1-ss(seg(t,19.7+s,21+s*.5));
+  const out = s => 1-ss(seg(t,HOLD_END+s,HOLD_END+1+s*.5));
   // 1. design on the monitor
   D0.st = designState(t); D0.cols = ss(seg(t,.2,.6))*(1-ss(seg(t,4.4,4.9)));
   D0.alpha = ss(seg(t,-.75,0))*out(0); D0.act = 1 + D0.pulse;
@@ -453,15 +449,13 @@ function tick(dt, draw){
   if (t>11.1) D2.act += 3*Math.exp(-(t-11.1)*1.2);
   for (const d of grid){
     const inA = ss(seg(t, 14.6+d.dist/1300*3, 15.4+d.dist/1300*3));
-    d.alpha = d.isTarget ? inA*(1-ss(seg(t,22.3,22.9))) : inA*out(d.out);
-    d.act = d.isTarget && t>19.6 ? lerp(.6+d.pulse, 1, seg(t,19.6,21.5)) : .6 + .5*Math.max(0,Math.sin(t*.9+d.ph)) + d.pulse;
+    d.alpha = inA*out(d.out);
+    d.act = .6 + .5*Math.max(0,Math.sin(t*.9+d.ph)) + d.pulse;
   }
-  tgt.st = t>20 ? revertState(t) : DONE;
 
   if (dt>0){
     if (crossed(pt,-.75,t)) for (let i=0;i<50;i++){ const g=geom(D0), e=R()*4|0, bw=g.sw+7, bh=g.sh+14;
       const x = e<2 ? (R()-.5)*bw : (e==2?-1:1)*bw/2, y = e<2 ? (e?1:-1)*bh/2+3.5 : (R()-.5)*bh+3.5; sparks(x,y,1); }
-    if (crossed(pt,22.3,t)) for (let i=0;i<40;i++){ const [x,y]=screenPt(tgt); sparks(x,y,1); }
     for (const tc of CLICKS) if (crossed(pt,tc,t)){ const [x,y]=cursorPos(t), [u,v]=uvOf(D0,x,y);
       for (let i=0;i<30;i++) spawnP(D0,u,v,true); D0.pulse+=1.2; RIP.push({x,y,t0:T}); }
     if (t>5.8 && t<6.9){ sAcc+=70*dt; while(sAcc>1){ sAcc--; stream(screenPt(D0), R()<.5?D1:D2, 1, 20); } }
@@ -469,9 +463,9 @@ function tick(dt, draw){
     for (const tc of [11.1,11.55]) if (crossed(pt,tc,t)){ for (let i=0;i<40;i++) spawnP(D2,R(),R(),true); D2.pulse+=1.5; }
     if (crossed(pt,12.3,t)) sparks(glyphs[2].gx,glyphs[2].gy,26,ACC_HI[0]);
     // 5. distribute: trio -> many devices, then network chatter
-    if (t>15.2 && t<19.6){ xferAcc+=dt; const step = t<16.8 ? .05 : .16;
+    if (t>15.2 && t<HOLD_END){ xferAcc+=dt; const step = t<16.8 ? .05 : .16;
       while(xferAcc>step){ xferAcc-=step;
-        const vis = all.filter(d=>d.alpha>.6 && !d.isTarget);
+        const vis = all.filter(d=>d.alpha>.6);
         if (t<16.8){ const g=vis.filter(d=>!trio.includes(d)); if (g.length){ const src=trio[R()*3|0]; stream(screenPt(src), g[R()*g.length|0], 5, 60+R()*100); src.pulse+=.6; } }
         else if (vis.length>2){ const a=vis[R()*vis.length|0];
           const nb = vis.filter(d=>d!==a && Math.hypot(d.x-a.x,d.y-a.y)<560);
@@ -540,8 +534,8 @@ function render(t){
 let raf = 0, visible = true, destroyed = false;
 
 if (reduced){
-  // static poster: fast-forward to the "distributed" network of devices
-  const STILL = OFF + 17.5;
+  // static poster: the distributed network of devices
+  const STILL = OFF + 21;
   while (T + .05 < STILL) tick(.05, false);
   tick(STILL - T, true);
   const redraw = () => { if (destroyed) return; resize(); render(prevT); };

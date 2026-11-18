@@ -36,7 +36,9 @@ function Header() {
     return (
         <header className="header" ref={menu}>
             <div className="header-container">
-                <a href="/" onClick={handleHomeClick}><h1>Leandro<span> Villaverde</span></h1></a>
+                <a href="/" onClick={handleHomeClick} className="header-brand">
+                    <h1>Leandro<span> Villaverde</span></h1>
+                </a>
                 <Menu />
             </div>
         </header>
