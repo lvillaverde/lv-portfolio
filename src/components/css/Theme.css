@@ -6,6 +6,12 @@
   --green-border: #21402c;
   --magenta-500: #E5097D;
   --magenta-900: #59002f;
+  --mesirve-500: #16b596;
+
+  /* ── Alpha tokens (Me Sirve teal) ── */
+  --mesirve-a12: rgba(22, 181, 150, 0.12);
+  --mesirve-a22: rgba(22, 181, 150, 0.22);
+  --mesirve-a50: rgba(22, 181, 150, 0.50);
 
   /* ── Alpha tokens (green) ── */
   --green-a04: rgba(33, 247, 112, 0.04);
@@ -28,6 +34,7 @@
   --bg:              #000000;
   --surface:         #191919;
   --surface-hover:   #1e1e1e;
+  --surface-sunken:  #0b0b0b;
   --overlay:         rgba(0, 0, 0, 0.85);
   --header-bg:       rgba(0, 0, 0, 0.75);
 

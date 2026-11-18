@@ -1,0 +1,196 @@
+/* Dark study case header: centered title over a stage of phones.
+   Selectors are prefixed with .study-case-detail to win over the
+   generic h1/p/span/ul rules in StudyCaseDetail.css. */
+
+.study-case-detail .sc-hero {
+  --sc-accent: var(--mesirve-500);
+  --sc-accent-a12: var(--mesirve-a12);
+  --sc-accent-a22: var(--mesirve-a22);
+  --sc-accent-a50: var(--mesirve-a50);
+
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 140px;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.study-case-detail .sc-hero-glow {
+  position: absolute;
+  left: 50%;
+  bottom: -220px;
+  width: 1000px;
+  height: 600px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--sc-accent-a22), transparent);
+  pointer-events: none;
+}
+
+.study-case-detail .sc-hero-floor {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 170px;
+  background: var(--sc-accent-a12);
+  border-top: 1px solid var(--sc-accent-a50);
+  pointer-events: none;
+}
+
+.study-case-detail .sc-hero-text {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  max-width: 1000px;
+  padding: 0 var(--content-padding-x);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.study-case-detail .sc-hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.study-case-detail .sc-hero-tags li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sc-accent);
+}
+
+.study-case-detail .sc-hero-tags li + li::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--sc-accent);
+}
+
+.study-case-detail .sc-hero h1 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.study-case-detail .sc-hero-text > p {
+  margin: 0;
+  max-width: 640px;
+  font-size: var(--text-base);
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.study-case-detail .sc-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 28px;
+  margin: 4px 0 0;
+  font-size: var(--text-sm);
+}
+
+.study-case-detail .sc-hero-meta div {
+  display: flex;
+  gap: 6px;
+}
+
+.study-case-detail .sc-hero-meta dt {
+  color: #8f8f8f;
+}
+
+.study-case-detail .sc-hero-meta dd {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+/* Phones: the stage clips them so they rise out of the floor */
+.study-case-detail .sc-hero-stage {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  margin-top: 48px;
+}
+
+.study-case-detail .sc-hero-phone {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 280px;
+  aspect-ratio: 442 / 912;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.study-case-detail .sc-hero-phone.is-left,
+.study-case-detail .sc-hero-phone.is-right {
+  top: 80px;
+  width: 250px;
+  z-index: 1;
+}
+
+.study-case-detail .sc-hero-phone.is-left  { transform: translateX(-50%) translateX(-310px); }
+.study-case-detail .sc-hero-phone.is-right { transform: translateX(-50%) translateX(310px); }
+
+.study-case-detail .sc-hero-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 90px;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.85));
+  pointer-events: none;
+  z-index: 3;
+}
+
+@media (max-width: 1024px) {
+  .study-case-detail .sc-hero-phone { width: 230px; }
+  .study-case-detail .sc-hero-phone.is-left,
+  .study-case-detail .sc-hero-phone.is-right { width: 200px; top: 64px; }
+  .study-case-detail .sc-hero-phone.is-left  { transform: translateX(-50%) translateX(-240px); }
+  .study-case-detail .sc-hero-phone.is-right { transform: translateX(-50%) translateX(240px); }
+  .study-case-detail .sc-hero-stage { height: 320px; }
+}
+
+@media (max-width: 768px) {
+  .study-case-detail .sc-hero { padding-top: 120px; }
+  .study-case-detail .sc-hero-stage { height: 280px; margin-top: 40px; }
+  .study-case-detail .sc-hero-floor { height: 120px; }
+  .study-case-detail .sc-hero-phone { width: 180px; }
+  .study-case-detail .sc-hero-phone.is-left,
+  .study-case-detail .sc-hero-phone.is-right { width: 150px; top: 48px; }
+  .study-case-detail .sc-hero-phone.is-left  { transform: translateX(-50%) translateX(-150px); }
+  .study-case-detail .sc-hero-phone.is-right { transform: translateX(-50%) translateX(150px); }
+}
+
+@media (max-width: 480px) {
+  .study-case-detail .sc-hero-stage { height: 240px; }
+  .study-case-detail .sc-hero-phone { width: 160px; }
+  .study-case-detail .sc-hero-phone.is-left,
+  .study-case-detail .sc-hero-phone.is-right { width: 130px; }
+  .study-case-detail .sc-hero-phone.is-left  { transform: translateX(-50%) translateX(-115px); }
+  .study-case-detail .sc-hero-phone.is-right { transform: translateX(-50%) translateX(115px); }
+}

@@ -1,5 +1,5 @@
 .more-study-cases {
-    padding: var(--xl-spacing) 0;
+    padding: var(--space-3xl) 0;
     width: 100%;
 }
 
@@ -9,6 +9,7 @@
     font-family: 'Nexa', 'Merriweather Sans', sans-serif;
     font-size: 2.5em;
     font-weight: 900;
+    color: var(--text-primary);
 }
 
 .more-study-cases-grid {
@@ -22,18 +23,18 @@
 .more-study-case {
     display: flex;
     flex-direction: column;
-    background: #fff;
+    background: var(--surface);
     border-radius: 12px;
     overflow: hidden;
     text-decoration: none;
     color: inherit;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--gray-3);
+    border: 1px solid var(--border-subtle);
 }
 
 .more-study-case:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-lg);
     text-decoration: none;
     color: inherit;
 }
@@ -80,7 +81,7 @@
 .more-study-case p {
     font-size: 0.9rem;
     line-height: 1.6;
-    color: var(--gray-2);
+    color: var(--text-muted);
     margin: 2em 0 1rem 0;
     font-family: 'Merriweather', serif;
 }
@@ -90,20 +91,20 @@
 }
 
 .more-study-cases a h3 {
-    color: var(--gray-2);
+    color: var(--text-primary);
     line-height: 1.2em;
 }
 
 .more-study-cases .tag {
     display: inline-block;
-    border: 0px solid;
+    border: 1px solid var(--border-green);
     padding: 0.5em 0.8em;
     margin-right: 0.5em;
     border-radius: 16px;
     font-size: 0.70em;
-    color: #707070;
-    font-family: 'Merriweather Sans';
-    background: #e5e5e5;
+    color: var(--text-green);
+    font-family: var(--font-body);
+    background: transparent;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin: 4px 8px 4px 0;

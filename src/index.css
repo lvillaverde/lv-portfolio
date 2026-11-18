@@ -6,6 +6,8 @@ html.lenis body {
 body {
   margin: 0;
   font-family: var(--font-body);
+  color: var(--text-primary);
+  background-color: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

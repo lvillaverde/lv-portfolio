@@ -1,8 +1,16 @@
 import './css/StudyCaseDetail.css';
+import './css/StudyCaseHero.css';
+import './css/StudyCaseMockups.css';
+import './css/MeSirveDetail.css';
+import LeanUXFlow from './diagrams/LeanUXFlow';
+import LeanUXCanvas from './diagrams/LeanUXCanvas';
+import PhoneFrame from './mockups/PhoneFrame';
+import MeSirveLogin from '../assets/study-cases/mesirve/mockups/login.jpg';
+import MeSirveHome from '../assets/study-cases/mesirve/mockups/home.jpg';
+import MeSirveMap from '../assets/study-cases/mesirve/mockups/map.jpg';
+import prefersReducedMotion from '../utils/prefersReducedMotion';
 
 /* import QuoteIcon from '../assets/icons/quote.svg'; */
-import LeanUXFLow from '../assets/study-cases/mesirve/lean-ux-flow.svg';
-import LeanUXCanvas from '../assets/study-cases/mesirve/ux-lean-canvas.png';
 import Wireframes1 from '../assets/study-cases/mesirve/wireframes-1.png';
 import Wireframes2 from '../assets/study-cases/mesirve/wireframes-2.png';
 import Wireframes3 from '../assets/study-cases/mesirve/wireframes-3.png';
@@ -31,13 +39,27 @@ import MoreStudyCases from './MoreStudyCases';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 function StudyCaseDetailMeSirve({ studyCase }) {
+    const heroRef = useRef();
+
+    useEffect(() => {
+        if (prefersReducedMotion() || !heroRef.current) return;
+        const ctx = gsap.context(() => {
+            const tl = gsap.timeline({ delay: 0.2 });
+            tl.from(".sc-hero-text > *", { y: 24, autoAlpha: 0, stagger: 0.08, duration: 0.7, ease: "power3.out" });
+            tl.from(".sc-hero-floor", { autoAlpha: 0, duration: 0.8, ease: "power2.out" }, 0.2);
+            tl.from(".sc-hero-phone:not(.is-left):not(.is-right)", { y: 220, autoAlpha: 0, duration: 1, ease: "expo.out" }, 0.35);
+            tl.from(".sc-hero-phone.is-left, .sc-hero-phone.is-right", { y: 260, autoAlpha: 0, stagger: 0.08, duration: 1, ease: "expo.out" }, 0.5);
+        }, heroRef);
+        return () => ctx.revert();
+    }, []);
+
     useEffect(() => {
         gsap.fromTo(
             ".study-case-detail",
@@ -91,39 +113,63 @@ function StudyCaseDetailMeSirve({ studyCase }) {
     return (
         <>
             <Header />
-            <div className="study-case-detail edden-study-case">
+            <div className="study-case-detail mesirve-study-case">
                 <div className="content">
-                    <div className="section study-case-header mesirve"> {/* Header */}
-                        <div className="section-content">
-                            <h1>From Hypothesis to Product: A Lean UX Journey in the Argentine Market</h1>
+                    <section className="sc-hero" aria-labelledby="sc-hero-title" ref={heroRef}> {/* Header */}
+                        <span className="sc-hero-glow" aria-hidden="true" />
+                        <span className="sc-hero-floor" aria-hidden="true" />
+                        <div className="sc-hero-text">
+                            <ul className="sc-hero-tags">
+                                <li>Mobile</li>
+                                <li>Lean UX</li>
+                                <li>Brand Design</li>
+                            </ul>
+                            <h1 id="sc-hero-title">From Hypothesis to Product:<br />A Lean UX Journey in the Argentine Market</h1>
                             <p>How we created Me Sirve (Spanish for 'it works for me' or 'it's worth it'), an app designed for the Argentine market that connects local shops and buyers with nearby deals.</p>
+                            <dl className="sc-hero-meta">
+                                <div><dt>Role</dt><dd>Product Designer</dd></div>
+                                <div><dt>Duration</dt><dd>6 months</dd></div>
+                                <div><dt>Stack</dt><dd>Flutter</dd></div>
+                            </dl>
                         </div>
-                    </div>
+                        <div className="sc-hero-stage">
+                            <div className="sc-hero-phone is-left"><PhoneFrame src={MeSirveLogin} label="Me Sirve log in screen" /></div>
+                            <div className="sc-hero-phone is-right"><PhoneFrame src={MeSirveHome} label="Me Sirve home with deals near you" /></div>
+                            <div className="sc-hero-phone"><PhoneFrame src={MeSirveMap} label="Me Sirve map of nearby deals" /></div>
+                        </div>
+                        <span className="sc-hero-fade" aria-hidden="true" />
+                    </section>
                     <div className="section gray-section"> {/* Intro */}
                         <div className="section-content">
                             <p>Argentina is a country with an unstable economy, shaped by decades of recurring crises that have deeply impacted people’s purchasing power. In this scenario, many have learned to make the most of their daily shopping, constantly looking for <strong>ways to save or invest</strong> more wisely.</p>
                             <p>It’s common for shoppers to visit multiple stores to find specific deals — a process that takes time, energy, and planning.</p>
                             <p>In response to this, a group of friends and former collaborators and I set out to create an app that makes it easier for people to discover local store promotions. Our goal was twofold: to help everyday shoppers <strong>save time and money</strong>, and to support small businesses in promoting their deals more effectively — and for free.</p>
                             <h2>The Team</h2>
-                            <div className="summary-table">
-                                <div className="row">
-                                    <div className="col title">Team</div>
-                                    <div className="col">2 Developers, 1 Tester, 1 Business Analyst, 1 Product Designer (me)</div>
+                            <dl className="team-grid">
+                                <div className="team-cell is-members">
+                                    <dt>Team</dt>
+                                    <dd>
+                                        <ul className="team-members">
+                                            <li><strong>2</strong>Developers</li>
+                                            <li><strong>1</strong>Tester</li>
+                                            <li><strong>1</strong>Business Analyst</li>
+                                            <li className="is-me"><strong>1</strong>Product Designer (me)</li>
+                                        </ul>
+                                    </dd>
                                 </div>
-                                <div className="row">
-                                    <div className="col title">Role</div>
-                                    <div className="col">Product Designer</div>
+                                <div className="team-cell">
+                                    <dt>Role</dt>
+                                    <dd>Product Designer</dd>
                                 </div>
-                                <div className="row">
-                                    <div className="col title">Duration</div>
-                                    <div className="col">6 Months</div>
+                                <div className="team-cell">
+                                    <dt>Duration</dt>
+                                    <dd>6 months</dd>
                                 </div>
-                                <div className="row">
-                                    <div className="col title">Frontend<br />Tecnology</div>
-                                    <div className="col">Flutter</div>
+                                <div className="team-cell">
+                                    <dt>Frontend technology</dt>
+                                    <dd>Flutter</dd>
                                 </div>
-
-                            </div>
+                            </dl>
                         </div>
                     </div>
                     <div className="section"> {/* Methodology */}
@@ -131,7 +177,7 @@ function StudyCaseDetailMeSirve({ studyCase }) {
                             <h2>Methodology</h2>
                             <p>In this case, knowing that we had no time to waste and wanted to move forward as quickly as possible, I chose <strong>Lean UX</strong> as the product design methodology. This approach focuses on creating real value for users, prioritizing the product itself over documentation.</p>
                             <p>In short, the process involves forming hypotheses, building an MVP, gathering feedback, measuring success or failure, and iterating. This way, the product is built on a solid foundation, with each feature tested and validated along the way.</p>
-                            <img src={LeanUXFLow} alt="Lean UX Flow" className="lean-ux-flow" />
+                            <LeanUXFlow />
                         </div>
                     </div>
                     <div className="section"> {/* 1. Think */}
@@ -139,8 +185,9 @@ function StudyCaseDetailMeSirve({ studyCase }) {
                             <span>1. Think</span>
                             <h2>Thinking as team</h2>
                             <p>To kick things off, we ran a workshop where we created a Lean UX Canvas. This tool allowed us to quickly map out key hypotheses and define the most important areas of the product. It was essential to <strong>align</strong> everyone’s ideas, assumptions, and perspectives from the very beginning.</p>
-                            <a href="https://www.figma.com/board/6pG9nf4V7TyrbjBcmovI68/Me-Sirve-Lean-UX-Canvas?node-id=0-1&t=4Hr9fBpeEaNRZopC-1" target="_blank" rel="noopener noreferrer">
-                                <img src={LeanUXCanvas} alt="Lean UX Canvas" className="lean-ux-canvas" />
+                            <LeanUXCanvas />
+                            <a className="lean-canvas-link" href="https://www.figma.com/board/6pG9nf4V7TyrbjBcmovI68/Me-Sirve-Lean-UX-Canvas?node-id=0-1&t=4Hr9fBpeEaNRZopC-1" target="_blank" rel="noopener noreferrer">
+                                See the original board in FigJam ↗
                             </a>
                             <p>We agreed to conduct a few interviews with local shop owners in Bariloche (Río Negro, Argentina)—where one of our team members lives—as well as with people from our personal networks, to better understand their perspective on the type of app we were envisioning.</p>
                             <p>The feedback was positive: most shop owners liked the idea of <strong>a free tool to help promote their deals</strong>, as they often struggle to compete with large supermarket chains. On the other hand, potential “buyer” users told us they frequently find out about deals too late—so they felt this app could be <strong>genuinely useful</strong>.</p>
@@ -159,32 +206,32 @@ function StudyCaseDetailMeSirve({ studyCase }) {
                             <Slider {...settingsHifi} className="hifi-slider">
                                 <div>
                                     <div className="hifi-slider-container">
-                                        <img src={Wireframes1} className="styled-img" alt="Wireframes v1" />
+                                        <div className="wireframe-phone"><PhoneFrame src={Wireframes1} label="Me Sirve wireframe 1" /></div>
                                     </div>
                                 </div>
                                 <div>
                                     <div className="hifi-slider-container">
-                                        <img src={Wireframes2} className="styled-img" alt="Wireframes v2" />
+                                        <div className="wireframe-phone"><PhoneFrame src={Wireframes2} label="Me Sirve wireframe 2" /></div>
                                     </div>
                                 </div>
                                 <div>
                                     <div className="hifi-slider-container">
-                                        <img src={Wireframes3} className="styled-img" alt="Wireframes v3" />
+                                        <div className="wireframe-phone"><PhoneFrame src={Wireframes3} label="Me Sirve wireframe 3" /></div>
                                     </div>
                                 </div>
                                 <div>
                                     <div className="hifi-slider-container">
-                                        <img src={Wireframes4} className="styled-img" alt="Wireframes v4" />
+                                        <div className="wireframe-phone"><PhoneFrame src={Wireframes4} label="Me Sirve wireframe 4" /></div>
                                     </div>
                                 </div>
                                 <div>
                                     <div className="hifi-slider-container">
-                                        <img src={Wireframes5} className="styled-img" alt="Wireframes v4" />
+                                        <div className="wireframe-phone"><PhoneFrame src={Wireframes5} label="Me Sirve wireframe 5" /></div>
                                     </div>
                                 </div>
                                 <div>
                                     <div className="hifi-slider-container">
-                                        <img src={Wireframes6} className="styled-img" alt="Wireframes v4" />
+                                        <div className="wireframe-phone"><PhoneFrame src={Wireframes6} label="Me Sirve wireframe 6" /></div>
                                     </div>
                                 </div>
                             </Slider>
