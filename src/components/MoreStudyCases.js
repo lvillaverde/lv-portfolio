@@ -15,7 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
 const imageMap = {
     "/src/assets/study-cases/mesirve/thumbnail.png": MeSirveThumbnail,
     "/src/assets/study-cases/nextchange/thumbnail.png": NextchangeThumbnail,
-    "/src/assets/study-cases/edden/thumbnail.jpg": EddenThumbnail
+    "/src/assets/study-cases/edden/thumbnail.png": EddenThumbnail
 };
 
 // Procesar los datos del JSON para incluir las imágenes correctas
