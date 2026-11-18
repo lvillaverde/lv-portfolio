@@ -50,7 +50,7 @@ function About() {
   }, []);
 
   return (
-    <div className="about base-section" id="about">
+    <div className="about base-section">
       <div className="content">
         <h3>
           <SplitText ref={titleRef} type="words">My Services</SplitText>

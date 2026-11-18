@@ -1,4 +1,4 @@
-div#about {
+div.about.base-section {
   padding: var(--section-padding-y) 0;
 }
 
@@ -162,7 +162,7 @@ div#about {
     width: 100%;
   }
 
-  div#about {
+  div.about.base-section {
     padding: var(--space-3xl) 0;
   }
 }

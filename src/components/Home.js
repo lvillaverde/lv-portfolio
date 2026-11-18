@@ -8,12 +8,12 @@ import useLenis from '../utils/useLenis';
 import Header from './Header';
 import Hero from './Hero';
 import About from './About';
+import AboutMe from './AboutMe';
 import StudyCases from './StudyCases';
 import MoreProjects from './MoreProjects';
 import Footer from './Footer';
 import GrainOverlay from './GrainOverlay';
 import BackgroundGradient from './BackgroundGradient';
-import CustomCursor from './CustomCursor';
 import "./css/Theme.css";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -35,8 +35,8 @@ function Home() {
     });
   }, []);
 
-  const handleScrollToStudyCases = () => {
-    const target = document.getElementById("study-cases");
+  const handleScrollToNext = () => {
+    const target = document.getElementById("about");
     if (lenisRef.current) {
       lenisRef.current.scrollTo(target, { duration: 1.2 });
     } else {
@@ -63,15 +63,17 @@ function Home() {
 
   return (
     <LenisContext.Provider value={lenisRef}>
-      <CustomCursor />
       <GrainOverlay />
       <BackgroundGradient />
       <Header />
       <div id="hero" ref={heroRef}>
-        <Hero onCtaClick={handleScrollToStudyCases} />
+        <Hero onCtaClick={handleScrollToNext} />
+      </div>
+      <div id="about">
+        <AboutMe />
       </div>
       <StudyCases />
-      <div id="about">
+      <div id="services">
         <About />
       </div>
       <MoreProjects />

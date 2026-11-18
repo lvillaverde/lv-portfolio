@@ -1,0 +1,213 @@
+.about-me {
+  padding: var(--section-padding-y) 0;
+}
+
+.about-me-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--content-padding-x);
+  box-sizing: border-box;
+}
+
+.about-me-top {
+  display: grid;
+  grid-template-columns: minmax(0, 560px) minmax(0, 1fr);
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.about-me-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.about-me-head h3 {
+  margin: 0;
+}
+
+.about-me-quote {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  line-height: 1.15;
+  color: var(--text-primary);
+  text-wrap: balance;
+}
+
+/* ---------- photo + tilted orbit ---------- */
+.about-me-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.about-me-stage {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 560 / 420;
+}
+
+.about-me-photo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 40%;
+  aspect-ratio: 1;
+  height: auto;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-green);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 60px var(--green-a08);
+  z-index: 2;
+}
+
+/* the ring matches the orbit: width 2·300/760 of the stage, height 0.407 of its width */
+.about-me-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 78.9%;
+  aspect-ratio: 1 / 0.407;
+  transform: translate(-50%, -50%);
+  border: 1px dashed rgba(52, 214, 131, 0.38);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.about-me-ring.back { z-index: 1; clip-path: inset(0 0 50% 0); }
+.about-me-ring.front { z-index: 3; clip-path: inset(50% 0 0 0); }
+
+/* no z-index here, so each icon can go behind (1) or in front of (3) the photo */
+.about-me-orbit {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  pointer-events: none;
+}
+
+.about-me-sat {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.about-me-sat-icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #0d110f;
+  border: 1px solid var(--border-green);
+  color: var(--text-green);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+}
+
+.about-me-sat-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- cards ---------- */
+.about-me-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: var(--space-2xl);
+}
+
+.about-me-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.about-me-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid var(--border-green);
+  display: grid;
+  place-items: center;
+  color: var(--text-green);
+}
+
+.about-me-card-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.about-me-card h4 {
+  margin: 0.25rem 0 0;
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  color: var(--text-primary);
+}
+
+.about-me-card p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 300;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  opacity: 0.85;
+}
+
+.about-me-card mark {
+  background: none;
+  color: var(--text-green);
+  font-weight: 400;
+}
+
+@media screen and (max-width: 1024px) {
+  .about-me-top {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .about-me-head {
+    text-align: center;
+    align-items: center;
+  }
+
+  .about-me-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-me-sat {
+    width: 44px;
+    height: 44px;
+    margin: -22px 0 0 -22px;
+  }
+
+  .about-me-sat-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+}
